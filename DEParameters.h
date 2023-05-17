@@ -9,6 +9,9 @@ class DEParameters {
 	double mF;
 	double mCR;
 	double mMaxGenerationCount;
+
+	DEParameters();
+	~DEParameters();
 	de_objective_function_t_mObjFunc();
 	de_fitness_function_t_mFitnessFunc();
 
