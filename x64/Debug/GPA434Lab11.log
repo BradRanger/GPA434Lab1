@@ -1,13 +1,7 @@
 ﻿  DEPopulation.cpp
-C:\Users\Guillaume\source\repos\GPA434Lab1\DEPopulation.cpp(3,16): error C2577: 'DEPopulation::~DEPopulation': a destructor cannot have a return type
+  DESolution.cpp
   DifferentialEvolution.cpp
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,1): error C2236: unexpected token 'class'. Did you forget a ';'?
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2059: syntax error: '{'
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2143: syntax error: missing ';' before '{'
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2447: '{': missing function header (old-style formal list?)
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,1): error C2653: 'DifferentialEvolution': is not a class or namespace name
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,49): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,50): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(5,6): error C2653: 'DifferentialEvolution': is not a class or namespace name
-C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(6,1): error C2270: 'isReady': modifiers not allowed on nonmember functions
   Generating Code...
+DEPopulation.obj : error LNK2019: unresolved external symbol "public: __cdecl DESolution::~DESolution(void)" (??1DESolution@@QEAA@XZ) referenced in function "public: void * __cdecl DESolution::`scalar deleting destructor'(unsigned int)" (??_GDESolution@@QEAAPEAXI@Z)
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Guillaume\source\repos\GPA434Lab1\x64\Debug\GPA434Lab11.exe : fatal error LNK1120: 2 unresolved externals

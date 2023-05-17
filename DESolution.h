@@ -4,9 +4,13 @@
 #include "interval.h"
 #include <vector>
 #include "DESolutionBounds.h"
+#include "iostream"
+#include <stdlib.h>
+
+
 
 class DESolution {
-
+public:
 	DESolution();
 	~DESolution();
 
@@ -19,6 +23,7 @@ class DESolution {
 	//assigne à
 	//chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de
 	//solutionBounds
+
 	void randomize(DESolutionBounds const & solutionBounds);
 };
 
