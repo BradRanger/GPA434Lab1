@@ -3,6 +3,8 @@
 #define POPULATION_H
 #include "interval.h"
 #include <vector>
+#include "DESolution.h"
+#include "DESolutionBounds.h"
 
 class DEPopulation {
 

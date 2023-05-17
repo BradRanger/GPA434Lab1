@@ -1,0 +1,13 @@
+﻿  DEPopulation.cpp
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEPopulation.cpp(3,16): error C2577: 'DEPopulation::~DEPopulation': a destructor cannot have a return type
+  DifferentialEvolution.cpp
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,1): error C2236: unexpected token 'class'. Did you forget a ';'?
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2059: syntax error: '{'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2143: syntax error: missing ';' before '{'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(9,28): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,1): error C2653: 'DifferentialEvolution': is not a class or namespace name
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,49): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,50): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(5,6): error C2653: 'DifferentialEvolution': is not a class or namespace name
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(6,1): error C2270: 'isReady': modifiers not allowed on nonmember functions
+  Generating Code...

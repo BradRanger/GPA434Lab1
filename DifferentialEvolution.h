@@ -3,8 +3,10 @@
 #define DIFFERENTIAL_EVOLUTION_H
 #include "interval.h"
 #include <vector>
+#include "DEParameters.h"
+#include "DEPopulation.h"
 
-class DifferentialEvolution {
+class DifferentialEvolution{
 
 	DifferentialEvolution();
 	~DifferentialEvolution();
@@ -18,6 +20,6 @@ class DifferentialEvolution {
 	void ProcessCrossover();
 	void ProcessSelection();
 	void ProcessStatistics();
-}
+};
 
 #endif

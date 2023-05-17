@@ -3,6 +3,7 @@
 #define DESOLUTION_H
 #include "interval.h"
 #include <vector>
+#include "DESolutionBounds.h"
 
 class DESolution {
 
