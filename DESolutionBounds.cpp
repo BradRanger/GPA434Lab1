@@ -6,7 +6,6 @@
 DESolutionBounds::DESolutionBounds()
 	:mSolutionBounds{}
 {
-	mSolutionBounds;
 }
 
 
