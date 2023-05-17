@@ -1,5 +1,7 @@
 #include "Interval.h"
 #include "ThreeSamplesWithOneExclusion.h"
+#include "DEParameters.h"
+#include "DEPopulation.h"
 
 
 //
@@ -28,7 +30,6 @@
 
 int main() {
 
-	Interval interval(10,20);
 
 
 
