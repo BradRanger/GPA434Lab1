@@ -2,6 +2,8 @@
 #include "ThreeSamplesWithOneExclusion.h"
 #include "DEParameters.h"
 #include "DEPopulation.h"
+#include "DESolutionBounds.h"
+#include "DESolution.h"
 
 
 //
@@ -27,6 +29,7 @@
 // 
 //
 
+void testInterval();
 
 int main() {
 
@@ -36,6 +39,19 @@ int main() {
 
 	return 0;
 }
+
+void testInterval(){
+
+	Interval interval(10, 20);
+
+	interval.setUpper(15);
+	interval.setLower(5);
+
+}
+
+
+
+
 
 //test
 
