@@ -6,7 +6,7 @@
 #include "DESolutionBounds.h"
 #include "iostream"
 #include <stdlib.h>
-
+#include "DESolutionBounds.h"
 
 
 class DESolution {

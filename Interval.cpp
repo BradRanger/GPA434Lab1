@@ -1,5 +1,5 @@
 #include "Interval.h"
-
+#include <random>
 Interval::Interval()
 	:Interval(0,1) // constructeur delegue
 {
@@ -36,6 +36,15 @@ void Interval::set(double lower, double upper)
 	}
 	mLower = lower;
 	mUpper = upper;
+}
+
+double Interval::randomize()
+{
+	std::default_random_engine generator;
+	//fonction de densite
+	std::uniform_real_distribution<double> distribution(mLower, mUpper);
+
+	return distribution(generator);
 }
 
 Interval::~Interval()
