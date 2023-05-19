@@ -18,8 +18,11 @@ class DESolutionBounds {
 	DESolutionBounds();
 	~DESolutionBounds();
 
+
 	std::vector<Interval> mSolutionBounds; // represente tous les intervalles
 	size_t size() const; //retourne le nombre d'intervalles
+
+	
 };
 
 

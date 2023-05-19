@@ -3,7 +3,8 @@
 #define INTERVAL_H
 
 class Interval
-{public:
+{
+public:
 
 	//constructeur
 	Interval();
@@ -16,10 +17,9 @@ class Interval
 	void setLower(double);
 	void setUpper(double);
 	void set(double lower, double upper);
-
+	double randomize();
 	//destructeur
 	~Interval();
-
 private:
 
 	double mLower;//member lower
