@@ -15,10 +15,10 @@ size_t DESolution::size() const
     return size_t();
 }
 
-void DESolution::setup(DESolutionBounds const & solutionBounds)
+void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
 }
 
-void DESolution::randomize(DESolutionBounds const & solutionBounds)
+void DESolution::randomize(DESolutionBounds const& solutionBounds)
 {
 }
