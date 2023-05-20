@@ -30,17 +30,18 @@
 //
 
 void testInterval();
+void testRandomize();
 
-int main() {
+int main()
+{
 
-
-
-
+	testRandomize();
 
 	return 0;
 }
 
-void testInterval(){
+void testInterval()
+{
 
 	Interval interval(10, 20);
 
@@ -49,7 +50,17 @@ void testInterval(){
 
 }
 
+void testRandomize()
+{
+	DESolutionBounds deso;		//la variable appel elle meme son constructeur
 
+	for (int i{}; i < deso.solutionBounds().size(); ++i) {
+
+		deso.solutionBounds()[i].randomize();
+	}
+
+
+}
 
 
 

@@ -20,18 +20,11 @@ public:
 	double randomize();
 	//destructeur
 	~Interval();
+
 private:
 
-	double mLower;//member lower
-	double mUpper;//member upper
-
-
-
+	double mLower; //member lower
+	double mUpper; //member upper
 };
-
-
-
-
-
 
 #endif
