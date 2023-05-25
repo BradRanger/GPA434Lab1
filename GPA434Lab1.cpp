@@ -52,7 +52,7 @@ void testInterval()
 
 void testRandomize()
 {
-	DESolutionBounds deso;		//la variable appel elle meme son constructeur
+	DESolutionBounds deso;		//la variable appelle elle meme son constructeur
 
 	for (int i{}; i < deso.solutionBounds().size(); ++i) {
 
