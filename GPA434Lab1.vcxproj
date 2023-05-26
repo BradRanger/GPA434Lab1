@@ -106,6 +106,7 @@
     <ClCompile Include="DEStatistics.cpp" />
     <ClCompile Include="DifferentialEvolution.cpp" />
     <ClCompile Include="FactoryProductionSolver.cpp" />
+    <ClCompile Include="FileName.cpp" />
     <ClCompile Include="GPA434Lab1.cpp" />
     <ClCompile Include="Interval.cpp" />
     <ClCompile Include="OpenBoxSolver.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="DEStatistics.h" />
     <ClInclude Include="DifferentialEvolution.h" />
     <ClInclude Include="FactoryProductionSolver.h" />
+    <ClInclude Include="functionDeclaration.h" />
     <ClInclude Include="Interval.h" />
     <ClInclude Include="OpenBoxSolver.h" />
     <ClInclude Include="PeaksSolver.h" />

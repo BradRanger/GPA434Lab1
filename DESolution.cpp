@@ -17,7 +17,12 @@ size_t DESolution::size() const
 
 void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
-    
+    mData.resize(solutionBounds.size());
+
+    for (double &data : mData) {// i est passe en reference //for range loop
+        
+        data = 0;
+    }
 }
 
 void DESolution::randomize(DESolutionBounds const& solutionBounds)
