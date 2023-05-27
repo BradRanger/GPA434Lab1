@@ -15,7 +15,7 @@ DESolutionBounds::~DESolutionBounds()
 {
 }
 
-std::vector<Interval> DESolutionBounds::solutionBounds() const
+std::vector<Interval> DESolutionBounds::solutionBounds() const //vecteur publique
 {
 	return mSolutionBounds;
 }

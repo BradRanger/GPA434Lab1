@@ -8,10 +8,19 @@
 
 class DEPopulation {
 
+
+private:
+
+	std::vector<DESolution> mSolutions;
+
+public:
+
+
 	DEPopulation();
 	~DEPopulation();
-	std::vector<DESolution> mSolutions;
+
 	size_t size() const;
+
 	void setup(size_t populationSize, DESolutionBounds const& solutionBounds);
 	void randomize(DESolutionBounds const & solutionBounds);
 };

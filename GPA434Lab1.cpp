@@ -35,10 +35,23 @@ void testRandomize();
 int main()
 {
 
-	testRandomize();
 
+	DESolution test;	//on utilise cette variable pour pouvoir appeler la class Desolution
+
+	DESolutionBounds objet; //
+
+	test.randomize(objet);
+
+
+
+
+	/*
+	testRandomize();	//
+
+	*/
 	return 0;
 }
+
 
 void testInterval()
 {
@@ -54,22 +67,11 @@ void testRandomize()
 {
 	DESolutionBounds deso;		//la variable appelle elle meme son constructeur
 
+
+	deso.solutionBounds().size();
+
 	for (int i{}; i < deso.solutionBounds().size(); ++i) {
 
 		deso.solutionBounds()[i].randomize();
 	}
-
-
 }
-
-
-
-//test
-
-//TEST 2
-
-//test3
-
-//test 4
-
-//test 5

@@ -10,6 +10,9 @@
 
 
 class DESolution {
+
+private:
+
 	std::vector<double> mData; //représente le vecteur de données
 	double mObjective; //le résultat du calcul de la fonction objective
 	double mFitness; //le résultat du calcule de « fitness »
@@ -20,7 +23,7 @@ public:
 	~DESolution();
 
 	size_t size() const; //retourne le nombre de paramètres, soit la taille du problème
-	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème
+	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème //pointe a l<address de notre vecteur intervalle
 	
 	//assigne à
 	//chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de

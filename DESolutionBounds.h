@@ -15,6 +15,8 @@
 
 class DESolutionBounds {
 
+private:
+
 	std::vector<Interval> mSolutionBounds; // represente tous les intervalles
 
 public:

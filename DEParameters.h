@@ -22,8 +22,8 @@ class DEParameters {
 	void de_objective_function_t_mObjFunc();
 	void de_fitness_function_t_mFitnessFunc();
 
-	de_objective_function_t mObjFunct{ nullptr };
-	de_fitness_function_t mObjFunct{ nullptr };
+	//de_objective_function_t mObjFunct{ nullptr };
+	//de_fitness_function_t mObjFunct{ nullptr };
 
 
 };
