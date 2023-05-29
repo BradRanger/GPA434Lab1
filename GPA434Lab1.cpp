@@ -29,17 +29,19 @@
 // 
 //
 
-void testInterval();
-void testRandomize();
-
+//void testInterval();
+//void testRandomize();
+//
 int main()
 {
 
 
 	DESolution test;	//on utilise cette variable pour pouvoir appeler la class Desolution
 
-	DESolutionBounds objet; //
+	DESolutionBounds objet; 
 
+
+	std::cout << objet.solutionBounds().size();
 	test.randomize(objet);
 
 
@@ -53,25 +55,25 @@ int main()
 }
 
 
-void testInterval()
-{
-
-	Interval interval(10, 20);
-
-	interval.setUpper(15);
-	interval.setLower(5);
-
-}
-
-void testRandomize()
-{
-	DESolutionBounds deso;		//la variable appelle elle meme son constructeur
-
-
-	deso.solutionBounds().size();
-
-	for (int i{}; i < deso.solutionBounds().size(); ++i) {
-
-		deso.solutionBounds()[i].randomize();
-	}
-}
+//void testInterval()
+//{
+//
+//	Interval interval(10, 20);
+//
+//	interval.setUpper(15);
+//	interval.setLower(5);
+//
+//}
+//
+//void testRandomize()
+//{
+//	DESolutionBounds deso;		//la variable appelle elle meme son constructeur
+//
+//
+//	deso.solutionBounds().size();
+//
+//	for (int i{}; i < deso.solutionBounds().size(); ++i) {
+//
+//		deso.solutionBounds()[i].randomize();
+//	}
+//}

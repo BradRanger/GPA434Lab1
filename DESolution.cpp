@@ -1,7 +1,8 @@
 #include "DESolution.h"
 
 DESolution::DESolution()
-    :mFitness{}
+    :mData{}
+    ,mFitness{}
     ,mObjective{}
 {
 }
@@ -20,36 +21,33 @@ void DESolution::setup(DESolutionBounds const& solutionBounds)
     
     mData.resize(solutionBounds.size());    //
 
-    for (double &data : mData) {            // i est passe en reference //for range loop
+                // i est passe en reference //for range loop
 
 
         randomize(solutionBounds);
 
-       // data = solutionBounds;
-    }
+    
     
 }
 
 void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
-   //DESolutionBounds i;
-   // 
 
-   //i = solutionBounds;
-   //std::cout << i.size();       //test pour verifier qu<on extrait le bon data de l'intervalle
-   //
-   //i.solutionBounds();
+    int i{ 0 };
 
 
+    if(solutionBounds.solutionBounds().size()!=0 && 
+       solutionBounds.solutionBounds().size() == mData.size()){
 
+        //interaction with for range loop and vector
 
-   std::vector<Interval> test;  //
+        for (Interval &interval : solutionBounds.solutionBounds()){
 
+        
+            mData[i] = interval.randomize();
+            ++i;
+        }
 
-   test = solutionBounds.solutionBounds();  //une copie du vecteur solutionBounds
-
-   std::cout<< test[0].lower();  
-
-   
+    }
 
 }

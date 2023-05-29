@@ -98,7 +98,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="-transfer.cpp" />
     <ClCompile Include="DEParameters.cpp" />
     <ClCompile Include="DEPopulation.cpp" />
     <ClCompile Include="DESolution.cpp" />

@@ -1,14 +1,2 @@
-﻿  DEParameters.cpp
-  DEPopulation.cpp
-  DESolution.cpp
-  DESolutionBounds.cpp
-  DEStatistics.cpp
-  DifferentialEvolution.cpp
-  FactoryProductionSolver.cpp
-  GPA434Lab1.cpp
-  Interval.cpp
-  OpenBoxSolver.cpp
-  PeaksSolver.cpp
-  ThreeSamplesWithOneExclusion.cpp
-  Generating Code...
-  GPA434Lab1.vcxproj -> C:\Users\guill\source\repos\GPA434Lab1\x64\Debug\GPA434Lab1.exe
+﻿  GPA434Lab1.cpp
+  GPA434Lab1.vcxproj -> C:\Users\Guillaume\source\repos\GPA434Lab1\x64\Debug\GPA434Lab1.exe

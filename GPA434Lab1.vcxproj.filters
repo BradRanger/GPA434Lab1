@@ -51,9 +51,6 @@
     <ClCompile Include="ThreeSamplesWithOneExclusion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="-transfer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
