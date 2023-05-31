@@ -5,7 +5,7 @@
 //constructeur *********************************** a voir
 DESolutionBounds::DESolutionBounds()
 	//initialise par defaut
-	:mSolutionBounds()	//creer 3 intervalles par defaut
+	:mSolutionBounds(1)	
 {
 }
 

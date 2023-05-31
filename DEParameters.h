@@ -9,7 +9,7 @@
 
 // prend en reference une reference constante de DESolution
 //points to the adress of a function that receives a const DESolution reference and the function is expected to return a double 
-using de_objective_function_t = double(*)(DESolution const& Solution);
+using de_objective_function_t = double(*)(DESolution const& Solution); //parenthese etoile veut juste dire pointeur de fonction
 using de_fitness_function_t = double(*)(double);
 
 class DEParameters {

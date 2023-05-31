@@ -1,13 +1,13 @@
-#include "DEParameters.h"
+﻿#include "DEParameters.h"
 
 
 
 DEParameters::DEParameters()
 : mSolutionBounds{DESolutionBounds::DESolutionBounds()}
-, mPopulationSize{}
-, mF{}
-, mCR{}
-, mMaxGenerationCount{}
+, mPopulationSize{100}
+, mF{1}		//0 ≤ 𝐹 ≤ 2  == augmente la chance d'avoir un grand ecart entre les mutants choisis
+, mCR{0.2}		//0 ≤ 𝐶𝑅 ≤ 1 == pourcentage de pogner un mutant
+, mMaxGenerationCount{100}
 
 {
 	

@@ -2,7 +2,7 @@
 #include <random>
 
 Interval::Interval()
-	:Interval() // constructeur delegue
+	:Interval(0,1) // constructeur delegue
 {
 }
 
