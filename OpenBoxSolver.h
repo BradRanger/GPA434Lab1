@@ -1,4 +1,60 @@
 #pragma once
+#ifndef OpenBoxSolver_h
+#define OpenBoxSolver_h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif // OpenBoxSolver_h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //
 //

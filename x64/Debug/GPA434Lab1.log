@@ -1,3 +1,29 @@
-﻿  GPA434Lab1.cpp
-GPA434Lab1.obj : error LNK2019: unresolved external symbol "public: void __cdecl StringImage::drawCircle(int,int,int)" (?drawCircle@StringImage@@QEAAXHHH@Z) referenced in function main
-C:\Users\Guillaume\source\repos\GPA434Lab1\x64\Debug\GPA434Lab1.exe : fatal error LNK1120: 1 unresolved externals
+﻿  DifferentialEvolution.cpp
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(11,14): error C2065: 'DESolution': undeclared identifier
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(11,7): error C2923: 'std::vector': 'DESolution' is not a valid template type argument for parameter '_Ty'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(11,14): message : see declaration of 'DESolution'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(11,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\vector(438,14): message : see declaration of 'std::vector'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(12,11): error C2061: syntax error: identifier 'DESolution'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\__msvc_int128.hpp(40,1): error C2059: syntax error: 'namespace'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\__msvc_int128.hpp(40,1): error C2143: syntax error: missing ';' before '{'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\__msvc_int128.hpp(40,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\random(1743,106): error C2065: '_Unsigned128': undeclared identifier
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\random(1855,2): message : see reference to class template instantiation 'std::_Rng_from_urng_v2<_Diff,_Urng>' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\random(1743,63): error C2923: 'std::conditional_t': '_Unsigned128' is not a valid template type argument for parameter '_Ty2'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\random(1743,106): message : see declaration of '_Unsigned128'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(3,49): error C2248: 'DEStatistics::~DEStatistics': cannot access private member declared in class 'DEStatistics'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(10,3): message : see declaration of 'DEStatistics::~DEStatistics'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DEStatistics.h(7,7): message : see declaration of 'DEStatistics'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(19,1): error C2556: 'void DifferentialEvolution::evolveOne(void)': overloaded function differs only by return type from 'bool DifferentialEvolution::evolveOne(void)'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(39,7): message : see declaration of 'DifferentialEvolution::evolveOne'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(18,29): error C2371: 'DifferentialEvolution::evolveOne': redefinition; different basic types
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(39,7): message : see declaration of 'DifferentialEvolution::evolveOne'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(23,1): error C2556: 'void DifferentialEvolution::evolve(void)': overloaded function differs only by return type from 'bool DifferentialEvolution::evolve(void)'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(40,7): message : see declaration of 'DifferentialEvolution::evolve'
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.cpp(22,29): error C2371: 'DifferentialEvolution::evolve': redefinition; different basic types
+C:\Users\Guillaume\source\repos\GPA434Lab1\DifferentialEvolution.h(40,7): message : see declaration of 'DifferentialEvolution::evolve'
+  GPA434Lab1.cpp
+C:\Users\Guillaume\source\repos\GPA434Lab1\GPA434Lab1.cpp(48,3): warning C4551: function call missing argument list
+  StringImage.cpp
+  Generating Code...

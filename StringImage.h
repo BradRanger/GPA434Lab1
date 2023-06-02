@@ -42,14 +42,10 @@ public:
 	void drawVLine(int x, int y, int length);
 	void drawHThckLine(int x, int y, int length);
 	void drawVThckLine(int x, int y, int length);
-	void drawCircle(int x, int y, int radius);
 
 	void textH(int x, int y, std::string text);
 	void textV(int x, int y, std::string text);
 	void drawRect(int x1, int y1, int x2, int y2);
-	void drawTable(int x1, int y1, int rows, int rowL, int columns, int columnH);
-	void horizontalArray(int spacing, int reps, void (*shape)(int x, int y, int param));
-
 
 
 private:

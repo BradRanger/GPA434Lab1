@@ -45,7 +45,7 @@ int main()
 
 		//l'animation doit etre integree dans limage avant detre affichee
 		std::cout << menu.toString();//affiche image
-
+		_getch;
 
 			//std::system("cls");//clear screen
 
