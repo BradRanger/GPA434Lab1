@@ -4,8 +4,6 @@
 #include "interval.h"
 #include "DEStatistics.h"
 #include "ThreeSamplesWithOneExclusion.h"
-
-
 #include <vector>
 #include "DEParameters.h"
 #include "DEPopulation.h"
@@ -17,9 +15,8 @@ class DifferentialEvolution{
 	DEPopulation mMutant;
 	DEPopulation mTrial;
 	size_t mCurrentGeneration;
-	DEStatistics mStatistics;					//a faire
-	ThreeSamplesWithOneExclusion mSamplingTool; //a faire
-
+	DEStatistics mStatistics;					
+	ThreeSamplesWithOneExclusion mSamplingTool; 
 
 	
 	void processFitness(DEPopulation& population);
@@ -36,13 +33,11 @@ public:
 	DifferentialEvolution();
 	~DifferentialEvolution();
 
-
 	bool isReady() const;
 	void setup(DEParameters const& paremeters);
 	void reset();
 	bool evolveOne();
 	bool evolve();
-
 
 };
 
