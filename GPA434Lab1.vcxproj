@@ -110,6 +110,7 @@
     <ClCompile Include="Interval.cpp" />
     <ClCompile Include="OpenBoxSolver.cpp" />
     <ClCompile Include="PeaksSolver.cpp" />
+    <ClCompile Include="StringImage.cpp" />
     <ClCompile Include="ThreeSamplesWithOneExclusion.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +123,10 @@
     <ClInclude Include="FactoryProductionSolver.h" />
     <ClInclude Include="functionDeclaration.h" />
     <ClInclude Include="Interval.h" />
+    <ClInclude Include="LineChar.h" />
     <ClInclude Include="OpenBoxSolver.h" />
     <ClInclude Include="PeaksSolver.h" />
+    <ClInclude Include="StringImage.h" />
     <ClInclude Include="ThreeSamplesWithOneExclusion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,7 +4,8 @@
 #include "DEPopulation.h"
 #include "DESolutionBounds.h"
 #include "DESolution.h"
-
+#include "StringImage.h"
+#include "conio.h"
 
 //
 // 
@@ -34,46 +35,25 @@
 //
 int main()
 {
+	bool endProg{ true };
+	StringImage menu;
+
+	menu.resize(60, 20);
+	menu.drawRect(1, 1, 59, 19);
+	while (endProg) {
 
 
-	DESolution test;	//on utilise cette variable pour pouvoir appeler la class Desolution
+		//l'animation doit etre integree dans limage avant detre affichee
+		std::cout << menu.toString();//affiche image
 
-	DESolutionBounds objet; 
 
-
-	std::cout << objet.solutionBounds().size();
-	test.randomize(objet);
+			//std::system("cls");//clear screen
 
 
 
+	}
 
-	/*
-	testRandomize();	//
-
-	*/
 	return 0;
 }
 
 
-//void testInterval()
-//{
-//
-//	Interval interval(10, 20);
-//
-//	interval.setUpper(15);
-//	interval.setLower(5);
-//
-//}
-//
-//void testRandomize()
-//{
-//	DESolutionBounds deso;		//la variable appelle elle meme son constructeur
-//
-//
-//	deso.solutionBounds().size();
-//
-//	for (int i{}; i < deso.solutionBounds().size(); ++i) {
-//
-//		deso.solutionBounds()[i].randomize();
-//	}
-//}

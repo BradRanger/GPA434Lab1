@@ -1,6 +1,3 @@
-﻿  DEParameters.cpp
-C:\Users\Guillaume\source\repos\GPA434Lab1\DEParameters.cpp(5,15): error C2084: function 'DEParameters::DEParameters(void)' already has a body
-C:\Users\Guillaume\source\repos\GPA434Lab1\DEParameters.h(24,2): message : see previous definition of '{ctor}'
-  Interval.cpp
-C:\Users\Guillaume\source\repos\GPA434Lab1\Interval.cpp(5,11): error C7535: 'Interval::Interval': delegating constructor calls itself
-  Generating Code...
+﻿  GPA434Lab1.cpp
+GPA434Lab1.obj : error LNK2019: unresolved external symbol "public: void __cdecl StringImage::drawCircle(int,int,int)" (?drawCircle@StringImage@@QEAAXHHH@Z) referenced in function main
+C:\Users\Guillaume\source\repos\GPA434Lab1\x64\Debug\GPA434Lab1.exe : fatal error LNK1120: 1 unresolved externals

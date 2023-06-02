@@ -54,6 +54,9 @@
     <ClCompile Include="FileName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEParameters.h">
@@ -90,6 +93,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="functionDeclaration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LineChar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
