@@ -1,6 +1,21 @@
 #include "DifferentialEvolution.h"
 
-DifferentialEvolution::~DifferentialEvolution() {};
+DifferentialEvolution::DifferentialEvolution()
+:mParameters{}
+,mPopulation{}
+,mMutant{}
+,mTrial{}
+,mCurrentGeneration{}
+,mStatistics{}
+,mSamplingTool{}
+{
+
+}
+
+
+DifferentialEvolution::~DifferentialEvolution() 
+{
+}
 
 bool DifferentialEvolution::isReady() const
 {
@@ -15,13 +30,16 @@ void DifferentialEvolution::reset()
 {
 }
 
-void DifferentialEvolution::evolveOne()
+bool DifferentialEvolution::evolveOne()
 {
+	return false;
 }
 
-void DifferentialEvolution::evolve()
+bool DifferentialEvolution::evolve()
 {
+	return false;
 }
+
 
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
