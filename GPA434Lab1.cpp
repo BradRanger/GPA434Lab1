@@ -40,6 +40,7 @@ int main()
 
 	menu.resize(60, 20);
 	menu.drawRect(1, 1, 59, 19);
+	menu.textH(2, 2, "ahgfafgaf");
 	while (endProg) {
 
 

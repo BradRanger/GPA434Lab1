@@ -1,9 +1,17 @@
 #pragma once
 #ifndef OpenBoxSolver_h
 #define OpenBoxSolver_h
+#include "DifferentialEvolution.h"
 
 
+class OpenBoxSolver {
+	DifferentialEvolution mDEEngine;
 
+public:
+	void solve(size_t width, size_t height);
+	std::string problemPresentation();
+	std::string solutionPresentation();
+};
 
 
 
