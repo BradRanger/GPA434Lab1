@@ -15,7 +15,7 @@ private:
 
 	std::vector<double> mData; //représente le vecteur de données
 	double mObjective; //le résultat du calcul de la fonction objective
-	double mFitness; //le résultat du calcule de « fitness »
+	double mFitness; //le résultat du calcul de « fitness »
 
 
 public:
@@ -30,6 +30,22 @@ public:
 	//solutionBounds
 
 	void randomize(DESolutionBounds const & solutionBounds);
+
+	bool operator==(DESolution const& rhs);
+	bool operator!=(DESolution const& rhs);
+
+	DESolution operator+(DESolution rhs) const;
+	DESolution operator-(DESolution rhs) const;
+	//DESolution operator-() const;
+
+
+	DESolution operator*(double rhs) const;
+	DESolution operator/(double rhs) const;
+
+	//DESolution& operator+=(DESolution const& rhs) ;
+	//DESolution& operator-=(DESolution const& rhs) ;
+	//DESolution& operator*=(double rhs) ;
+	//DESolution& operator/=(double rhs) ;
 };
 
 

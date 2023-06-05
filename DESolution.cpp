@@ -1,7 +1,7 @@
 #include "DESolution.h"
 
 DESolution::DESolution()
-    :mData{}
+    :mData{2}
     ,mFitness{}
     ,mObjective{}
 {
@@ -51,3 +51,62 @@ void DESolution::randomize(DESolutionBounds const & solutionBounds)
     }
 
 }
+
+bool DESolution::operator==(DESolution const& rhs)
+{
+    return mData==rhs.mData;
+}
+
+bool DESolution::operator!=(DESolution const& rhs)
+{
+    return !(mData == rhs.mData);
+}
+
+DESolution DESolution::operator+(DESolution rhs) const
+{
+    rhs.mData[0] += mData[0];
+    rhs.mData[1] += mData[1];
+    return rhs;
+}
+
+DESolution DESolution::operator-(DESolution rhs) const
+{
+    rhs.mData[0] = mData[0]- rhs.mData[0];
+    rhs.mData[1] = mData[1]- rhs.mData[1];
+    return rhs;
+
+}
+
+//DESolution DESolution::operator-() const
+//{
+//}
+
+DESolution DESolution::operator*(double rhs) const
+{
+    return DESolution();
+}
+
+DESolution DESolution::operator/(double rhs) const
+{
+    return DESolution();
+}
+
+//DESolution& DESolution::operator+=(DESolution const& rhs)
+//{
+//    // TODO: insert return statement here
+//}
+//
+//DESolution& DESolution::operator-=(DESolution const& rhs)
+//{
+//    // TODO: insert return statement here
+//}
+//
+//DESolution& DESolution::operator*=(double rhs)
+//{
+//    // TODO: insert return statement here
+//}
+//
+//DESolution& DESolution::operator/=(double rhs)
+//{
+//    // TODO: insert return statement here
+//}

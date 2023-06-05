@@ -19,11 +19,17 @@ DifferentialEvolution::~DifferentialEvolution()
 
 bool DifferentialEvolution::isReady() const
 {
-	return false;
+	return true;
 }
 
-void DifferentialEvolution::setup(DEParameters const& paremeters)
+void DifferentialEvolution::setup(DEParameters const& parameters)
 {
+	
+	mSamplingTool.prepare(mParameters.size());
+	mPopulation.setup(mParameters.size(),mParameters);
+	mTrial.setup(mParameters.size(), mParameters);
+	mMutant.setup(mParameters.size(), mParameters);
+	
 }
 
 void DifferentialEvolution::reset()

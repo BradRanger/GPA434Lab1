@@ -13,8 +13,9 @@ private:
 
 	std::vector<DESolution> mSolutions;
 
-public:
 
+
+public:
 
 	DEPopulation();
 	~DEPopulation();
@@ -23,6 +24,10 @@ public:
 
 	void setup(size_t populationSize, DESolutionBounds const& solutionBounds);
 	void randomize(DESolutionBounds const & solutionBounds);
+
+	DESolution& operator[](size_t index);
+	//DESolution& const operator[](size_t index);
+
 };
 
 #endif

@@ -34,6 +34,7 @@ bool DEParameters::isReady(bool a)
 
 void DEParameters::reset()
 {
+
 }
 
 void DEParameters::setPopulationSize(size_t populationSize)

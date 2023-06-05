@@ -78,16 +78,12 @@ Vect2D Vect2D::operator-() const
 	return Vect2D(-mX, -mY);
 }
 
-Vect2D Vect2D::operator*(double rhs) const
-{
-	return Vect2D(mX * rhs, mY * rhs);
-}
 
 Vect2D Vect2D::operator/(double rhs) const
 {
 	return Vect2D(mX / rhs, mY / rhs);
 }
-
+//ca veut dire quon va aller modifier la valeur(l'objet) directement
 Vect2D& Vect2D::operator+=(Vect2D const& rhs)
 {
 	mX += rhs.mX;
@@ -114,6 +110,11 @@ Vect2D& Vect2D::operator/=(double rhs)
 	mX /= rhs;
 	mY /= rhs;
 	return *this;
+}
+
+Vect2D Vect2D::operator*(double rhs) const
+{
+	return Vect2D(mX * rhs, mY * rhs);
 }
 
 Vect2D operator*(double lhs, Vect2D const& rhs)

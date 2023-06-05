@@ -1,11 +1,11 @@
-#include <iostream>
-
-#include "Vect2D.h"
-#include "Population.h"
-
-#include "Solver.h"
-#include "Problem.h"
-
+//#include <iostream>
+//
+//#include "Vect2D.h"
+//#include "Population.h"
+//
+//#include "Solver.h"
+//#include "Problem.h"
+//
 //int main()
 //{
 //	Vect2D v1, v2(1.5, -3.25), v3(1.0, 0.0), v4;

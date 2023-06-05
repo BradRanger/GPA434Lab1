@@ -1,9 +1,22 @@
 #include "DEPopulation.h"
 
+
+
 DEPopulation::DEPopulation()
 	:mSolutions()
 {
 }
+
+DESolution& DEPopulation::operator[](size_t index)
+{
+	return mSolutions[index];
+}
+
+//DESolution& const DEPopulation::operator[](size_t index)
+//{
+//	return mSolutions[index];
+//}
+
 
 DEPopulation::~DEPopulation()
 {
@@ -19,9 +32,8 @@ size_t DEPopulation::size() const
 
 void DEPopulation::setup(size_t populationSize, DESolutionBounds const & solutionBounds)
 {
-
-	
-
+	mSolutions.resize(populationSize);
+	randomize(solutionBounds);
 
 }
 
@@ -30,7 +42,9 @@ void DEPopulation::setup(size_t populationSize, DESolutionBounds const & solutio
 
 void DEPopulation::randomize(DESolutionBounds const& solutionBounds)
 {
-
+	for (int i{}; mSolutions.size();) {
+		mSolutions[i].randomize(solutionBounds);
+	}
 
 
 

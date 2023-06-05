@@ -6,6 +6,10 @@
 #include "DESolution.h"
 #include "StringImage.h"
 #include "conio.h"
+#include "OpenBoxSolver.h"
+#include "PeaksSolver.h"
+#include "FactoryProductionSolver.h"
+#include <windows.h>
 
 //
 // 
@@ -37,22 +41,31 @@ int main()
 {
 	bool endProg{ true };
 	StringImage menu;
-
-	menu.resize(60, 20);
-	menu.drawRect(1, 1, 59, 19);
-	menu.textH(2, 2, "ahgfafgaf");
-	while (endProg) {
-
-
-		//l'animation doit etre integree dans limage avant detre affichee
-		std::cout << menu.toString();//affiche image
-		_getch;
-
-			//std::system("cls");//clear screen
+	int resizeX{ 117 };
+	int resizeY{ 30 };
+	std::string topTitle = "Differential Evolution" ;
+	std::string openBox = "1. Open Box Solver." ;
+	std::string threePeaks = "2. Three Peaks Solver.";
+	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
 
 
+	menu.resize(resizeX, resizeY);
+	menu.drawRect(1, 1, resizeX-1, resizeY-1);
+	menu.textH(((resizeX - (int)topTitle.size()) / 2), 2, topTitle);
+	menu.textH(3,6,openBox);
+	menu.textH(3,8,threePeaks);
+	menu.textH(3,10,prodOpti);
 
-	}
+
+
+
+	//l'animation doit etre integree dans limage avant detre affichee
+	std::cout << menu.toString();//affiche image
+	Sleep(70000);
+
+	//std::system("cls");//clear screen
+
+
 
 	return 0;
 }

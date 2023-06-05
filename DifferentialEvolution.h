@@ -34,7 +34,7 @@ public:
 	~DifferentialEvolution();
 
 	bool isReady() const;
-	void setup(DEParameters const& paremeters);
+	void setup(DEParameters const& parameters);
 	void reset();
 	bool evolveOne();
 	bool evolve();

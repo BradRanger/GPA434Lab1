@@ -29,11 +29,14 @@ public:
 	// surcharges d'opérateur
 	bool operator==(Vect2D const & rhs) const;
 	bool operator!=(Vect2D const & rhs) const;
-
+	// vect2d + vect2d = retourne un vect 2d
 	Vect2D operator+(Vect2D rhs) const;
 	Vect2D operator-(Vect2D rhs) const;
 	Vect2D operator-() const;
-
+	//quand tes dans la classe, operator est un mot réservé
+	//quand tas un objet de vect2d multiplié par un double, on retourne un vect2d
+	//pas besoin davoir 2 parametres pcq avec le mot operator
+	//c'est défini que le premier mot va entrer en interaction avec le seul parametre passé
 	Vect2D operator*(double rhs) const;
 	Vect2D operator/(double rhs) const;
 
@@ -42,7 +45,6 @@ public:
 	Vect2D& operator*=(double rhs);
 	Vect2D& operator/=(double rhs);
 
-
 private:
 	double mX;
 	double mY;
@@ -50,6 +52,7 @@ private:
 
 
 // À L'EXTÉRIEUR DE LA CLASSE VECT2D
+//because left operand cannot be modified by us
 Vect2D operator*(double lhs, Vect2D const& rhs);
 Vect2D operator/(double lhs, Vect2D const& rhs);
 
