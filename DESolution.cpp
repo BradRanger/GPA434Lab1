@@ -7,9 +7,44 @@ DESolution::DESolution()
 {
 }
 
+DESolution::DESolution(double size, double objective, double fitness)
+{
+    //mData = size;
+    mFitness = fitness;
+    mObjective = objective;
+}
+
 DESolution::~DESolution()
 {
 }
+
+std::vector<double> DESolution::data()
+{
+    return std::vector<double>();
+}
+
+double DESolution::objective()
+{
+    return 0.0;
+}
+
+double DESolution::fitness()
+{
+    return 0.0;
+}
+
+void DESolution::setData()
+{
+}
+
+void DESolution::setObjective()
+{
+}
+
+void DESolution::setFitness()
+{
+}
+
 
 size_t DESolution::size() const
 {
@@ -19,12 +54,9 @@ size_t DESolution::size() const
 void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
     
-    mData.resize(solutionBounds.size());    //
+    mData.resize(solutionBounds.size());
 
-                // i est passe en reference //for range loop
-
-
-        randomize(solutionBounds);
+    randomize(solutionBounds);
 
     
     

@@ -11,59 +11,47 @@
 #include "FactoryProductionSolver.h"
 #include <windows.h>
 
-//
-// 
-// 
-// 1 vecteur actuel
-// --2 dimensions x et y
-// 
-// 
-// mutant va prendre des actuels et se composer des actuels
-// et shuffle
-// cela permet de tester des parametres qui peuvent etre eloignes les uns des autres
-// mutant va evaluer deux autres aleatoires en fonction de lui meme
-// 1 vecteur mutant
-// --2 dimensions
-// 1 vecteur test
-//--2 dimensions
-//on initialise tout a une valeur aleatoire
-// 
-// 
-// 
-// 
-// 
-//
 
-//void testInterval();
-//void testRandomize();
-//
 int main()
 {
 	bool endProg{ true };
 	StringImage menu;
+ 
 	int resizeX{ 117 };
-	int resizeY{ 30 };
+	int resizeY{ 29 };
+
+
+	int outerRectOriginX{ 1 };
+	int outerRectOriginY{ 1 };
+
 	std::string topTitle = "Differential Evolution" ;
 	std::string openBox = "1. Open Box Solver." ;
 	std::string threePeaks = "2. Three Peaks Solver.";
 	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
-
-
 	menu.resize(resizeX, resizeY);
-	menu.drawRect(1, 1, resizeX-1, resizeY-1);
-	menu.textH(((resizeX - (int)topTitle.size()) / 2), 2, topTitle);
-	menu.textH(3,6,openBox);
-	menu.textH(3,8,threePeaks);
-	menu.textH(3,10,prodOpti);
+	//outer rect is supposed to create a steady parametric display 
+
+	menu.drawRect(outerRectOriginX, outerRectOriginY, resizeX - 1, resizeY - 1);
+
+
+	menu.textH(((resizeX - (int)topTitle.size()) / 2), outerRectOriginY+1, topTitle);
+	menu.textH(3, 6, openBox);
+	menu.textH(3, 8, threePeaks);
+	menu.textH(3, 10,prodOpti);
+	menu.drawRect(outerRectOriginX+1, outerRectOriginY+1, outerRectOriginX+4, outerRectOriginY+3);
+	menu.drawRect(resizeX-2, resizeY-2, resizeX-5, resizeY-4);
+	menu.drawRect(outerRectOriginX+1,resizeY-2 , outerRectOriginX+4, resizeY-4);
+	menu.drawRect(resizeX-2, outerRectOriginX+1, resizeX-5, outerRectOriginY+3);
 
 
 
 
-	//l'animation doit etre integree dans limage avant detre affichee
 	std::cout << menu.toString();//affiche image
 	Sleep(70000);
 
-	//std::system("cls");//clear screen
+
+	  
+	std::system("cls");//clear screen
 
 
 
