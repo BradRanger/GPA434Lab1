@@ -3,7 +3,6 @@
 #define OpenBoxSolver_h
 #include "DifferentialEvolution.h"
 
-
 class OpenBoxSolver {
 	DifferentialEvolution mDEEngine;
 

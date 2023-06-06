@@ -27,9 +27,9 @@ public:
 	double objective();
 	double fitness();
 
-	void setData();
-	void setObjective();
-	void setFitness();
+	void setData(); //******************
+	void setObjective(double objective);
+	void setFitness(double fitness);
 	size_t size() const; //retourne le nombre de paramètres, soit la taille du problème
 	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème //pointe a l<address de notre vecteur intervalle
 	

@@ -12,6 +12,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 	mDEEngine.isReady();
 }
 
+
 std::string OpenBoxSolver::problemPresentation()
 {
 	return "Moi c'est Richard, moi j'aime les chars pis le baseball.";

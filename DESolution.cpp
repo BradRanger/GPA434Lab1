@@ -9,41 +9,48 @@ DESolution::DESolution()
 
 DESolution::DESolution(double size, double objective, double fitness)
 {
-    //mData = size;
-    mFitness = fitness;
-    mObjective = objective;
-}
+    setData();
+    setObjective(objective);
+    setFitness(fitness);
 
+}
 DESolution::~DESolution()
 {
 }
 
 std::vector<double> DESolution::data()
 {
-    return std::vector<double>();
+    return mData;
 }
 
 double DESolution::objective()
 {
-    return 0.0;
+    return mObjective;
 }
 
 double DESolution::fitness()
 {
-    return 0.0;
+    return mFitness;
 }
 
 void DESolution::setData()
 {
+    //mData = size;
 }
 
-void DESolution::setObjective()
+void DESolution::setObjective(double objective)
 {
+    mObjective = objective;
+
 }
 
-void DESolution::setFitness()
+void DESolution::setFitness(double fitness)
 {
+    
+    mFitness = fitness;
 }
+
+
 
 
 size_t DESolution::size() const
