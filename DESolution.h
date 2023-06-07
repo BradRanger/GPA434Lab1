@@ -13,14 +13,14 @@ class DESolution {
 
 private:
 	
-	std::vector<double> mData; //représente le vecteur de données
+	std::vector<double> mData; //repr/sente un vecteur de donnees qui represente une solution dans l'espace a n dimensions
 	double mObjective; //le résultat du calcul de la fonction objective
 	double mFitness; //le résultat du calcul de « fitness »
-
+	  
 
 public:
 	DESolution();
-	DESolution(double size,double objective,double fitness);
+	DESolution(double size, double objective, double fitness);
 	~DESolution();
 
 	std::vector<double> data();
@@ -44,7 +44,7 @@ public:
 
 	DESolution operator+(DESolution rhs) const;
 	DESolution operator-(DESolution rhs) const;
-	//DESolution operator-() const;
+	DESolution operator-() const;
 
 
 	DESolution operator*(double rhs) const;

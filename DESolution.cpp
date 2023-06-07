@@ -1,7 +1,7 @@
 #include "DESolution.h"
 
 DESolution::DESolution()
-    :mData{2}
+    :mData{}
     ,mFitness{}
     ,mObjective{}
 {
@@ -72,15 +72,15 @@ void DESolution::setup(DESolutionBounds const& solutionBounds)
 void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
 
-    int i{ 0 };
 
 
     if(solutionBounds.solutionBounds().size()!=0 && 
        solutionBounds.solutionBounds().size() == mData.size()){
 
         //interaction with for range loop and vector
+        int i{};
 
-        for (Interval &interval : solutionBounds.solutionBounds()){
+        for (Interval const &interval : solutionBounds.solutionBounds()) {
 
         
             mData[i] = interval.randomize();
@@ -103,6 +103,7 @@ bool DESolution::operator!=(DESolution const& rhs)
 
 DESolution DESolution::operator+(DESolution rhs) const
 {
+    // boucle for qui parcoure les n dimensions
     rhs.mData[0] += mData[0];
     rhs.mData[1] += mData[1];
     return rhs;
@@ -110,15 +111,20 @@ DESolution DESolution::operator+(DESolution rhs) const
 
 DESolution DESolution::operator-(DESolution rhs) const
 {
+    // boucle for qui parcoure les n dimensions
     rhs.mData[0] = mData[0]- rhs.mData[0];
     rhs.mData[1] = mData[1]- rhs.mData[1];
     return rhs;
 
 }
 
-//DESolution DESolution::operator-() const
-//{
-//}
+DESolution DESolution::operator-() const
+{
+    DESolution sol;
+    sol.mData.resize(mData.size());
+    //for()
+    return sol;
+}
 
 DESolution DESolution::operator*(double rhs) const
 {

@@ -17,7 +17,7 @@ public:
 	void setLower(double);
 	void setUpper(double);
 	void set(double lower, double upper);
-	double randomize();
+	double randomize() const;
 	//destructeur
 	~Interval();
 

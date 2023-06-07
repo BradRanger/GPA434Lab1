@@ -6,7 +6,7 @@
 #include "DESolution.h"
 #include "DESolutionBounds.h"
 
-class DEPopulation {
+class DEPopulation { // dispatcher sur toutes les solutions
 
 
 private:
@@ -21,7 +21,7 @@ public:
 	~DEPopulation();
 
 	size_t size() const;
-
+	//passe a travers toutes les solutions et fait setup a travers chacune des solutions
 	void setup(size_t populationSize, DESolutionBounds const& solutionBounds);
 	void randomize(DESolutionBounds const & solutionBounds);
 

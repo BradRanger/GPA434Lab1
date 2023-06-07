@@ -34,7 +34,7 @@ void DEPopulation::setup(size_t populationSize, DESolutionBounds const & solutio
 {
 	mSolutions.resize(populationSize);
 	for (int i{}; mSolutions.size();) { // mettre tout a 0
-		mSolutions[i];
+		mSolutions[i].setup(solutionBounds);
 	}
 
 	randomize(solutionBounds);

@@ -38,7 +38,7 @@ void Interval::set(double lower, double upper)
 	mUpper = upper;
 }
 
-double Interval::randomize()
+double Interval::randomize() const
 {
 	std::default_random_engine generator; 
 	//fonction de densite

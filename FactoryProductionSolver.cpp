@@ -13,7 +13,7 @@ void FactoryProductionSolver::solve(size_t scenario, size_t availableResource)
 	mDEEngine.reset();
 	mDEEngine.isReady();
 
-
+	size_t n{};
 
 
 	mDEEngine.evolve();
