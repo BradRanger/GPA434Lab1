@@ -19,10 +19,10 @@ class DEParameters {
 private:
 
 	DESolutionBounds mSolutionBounds;	//contient structure d'info sur le domaine de chq. param du prob
-	size_t mPopulationSize;		//Taille population P (vecteurs x,m et t)
-	double mF;					//constante F
-	double mCR;					//valeur constante CR
-	size_t mMaxGenerationCount; //nombre de generations avant d'arreter
+	size_t mPopulationSize;				//Taille population P (vecteurs x,m et t)
+	double mF;							//constante F
+	double mCR;							//valeur constante CR
+	size_t mMaxGenerationCount;			//nombre de generations avant d'arreter
 
 	double (*mObjFunc)(const DESolution&);
 	double (*mFitnessFunc)(double);
