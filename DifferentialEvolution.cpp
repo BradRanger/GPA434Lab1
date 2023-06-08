@@ -139,21 +139,27 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 
 		DESolution& solution = population[i];
 
-
 		// Calculate the fitness value for the current solution
-		//double fitness = mParameters.getFitnessFunc()(solution.getObjective());
-
+		double fitness = mParameters.getObjFunc(solution);
 
 		// Set the fitness value in the solution object
-		//solution.setFitness(fitness);
-
+		solution.setFitness(fitness);
 	}
-
-
 }
 
 void DifferentialEvolution::processMutation()
 {
+	for (size_t i{}; i < mPopulation.size(); i++) {
+
+		size_t s1, s2, s3;
+		
+		mSamplingTool.select(i, s1, s2, s3);
+
+		for (size_t i{}; i < mPopulation[i].size(); ++i) {
+			//double valeurMutante = mPopulation[s1][i] + mParameters.getF() * (mPopulation[s2][i] - mPopulation[s3][i]);
+
+		}
+	}
 }
 
 void DifferentialEvolution::processCrossover()
