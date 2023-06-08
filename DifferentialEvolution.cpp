@@ -20,18 +20,41 @@ DifferentialEvolution::~DifferentialEvolution()
 
 bool DifferentialEvolution::isReady() const
 {
+
+	//Verifier que les parametres necessaires ont ete definis
+	if (mParameters.getPopulationSize() == 0 || mParameters.getMaxGenerationCount()) {
+
+		
+		return false;
+	}
+
+	
+	// Vérifiez que mPopulation, mMutant et mTrial ont la bonne taille
+	if (mPopulation.size() != mParameters.getPopulationSize() || mMutant.size() != mParameters.getPopulationSize() || mTrial.size() != mParameters.getPopulationSize()) {
+
+		return false;
+	}
+
+	
+
+
+	//Verifier que les bornes de la solution ont ete definies
+	//Verifier que les fonctions objectives et fitness ont ete definies
+
+	//si tous les test ont ete passes, retourner true
 	return true;
 }
 
 void DifferentialEvolution::setup(DEParameters const& parameters)
 {
 	
-	mSamplingTool.prepare(mParameters.size());
-	mPopulation.setup(mParameters.size(),mParameters);
-	mTrial.setup(mParameters.size(), mParameters);
-	mMutant.setup(mParameters.size(), mParameters);
+	mSamplingTool.prepare(mParameters.getPopulationSize());
+
+	mPopulation.setup(mParameters.getPopulationSize(), mParameters);
+	mTrial.setup(mParameters.getPopulationSize(), mParameters);
+	mMutant.setup(mParameters.getPopulationSize(), mParameters);
 	
-}
+}  
 
 void DifferentialEvolution::reset()
 {

@@ -8,7 +8,7 @@ DEStatistics::~DEStatistics()
 {
 }
 
-void DEStatistics::add(DESolution& const solution)
+void DEStatistics::add(DESolution& solution)
 {
 }
 

@@ -20,7 +20,6 @@ int main()
 	int resizeX{ 117 };
 	int resizeY{ 29 };
 
-
 	int outerRectOriginX{ 1 };
 	int outerRectOriginY{ 1 };
 

@@ -22,6 +22,7 @@ public:
 
 	size_t size() const;
 	//passe a travers toutes les solutions et fait setup a travers chacune des solutions
+
 	void setup(size_t populationSize, DESolutionBounds const& solutionBounds);
 	void randomize(DESolutionBounds const & solutionBounds);
 

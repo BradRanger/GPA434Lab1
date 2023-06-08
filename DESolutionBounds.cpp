@@ -1,8 +1,6 @@
 #include "DESolutionBounds.h"
 
 
-
-//constructeur *********************************** a voir
 DESolutionBounds::DESolutionBounds()
 	//initialise par defaut
 	:mSolutionBounds(1)	

@@ -14,6 +14,7 @@ DESolution::DESolution(double size, double objective, double fitness)
     setFitness(fitness);
 
 }
+
 DESolution::~DESolution()
 {
 }
@@ -61,21 +62,16 @@ size_t DESolution::size() const
 void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
     
-    mData.resize(solutionBounds.size());
+    mData.resize(solutionBounds.size());    // on redimensionne le vecteur avec la taille de donne
 
     randomize(solutionBounds);
-
-    
     
 }
 
 void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
 
-
-
-    if(solutionBounds.solutionBounds().size()!=0 && 
-       solutionBounds.solutionBounds().size() == mData.size()){
+    if(solutionBounds.solutionBounds().size()!=0 && solutionBounds.solutionBounds().size() == mData.size()){
 
         //interaction with for range loop and vector
         int i{};
@@ -121,7 +117,7 @@ DESolution DESolution::operator-(DESolution rhs) const
 DESolution DESolution::operator-() const
 {
     DESolution sol;
-    sol.mData.resize(mData.size());
+    sol.mData.resize(mData.size()); //mettre les valeurs negatives soustraction
     //for()
     return sol;
 }

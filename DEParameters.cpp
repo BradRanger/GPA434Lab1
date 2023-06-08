@@ -19,15 +19,9 @@ DEParameters::~DEParameters()
 {
 }
 
-void DEParameters::de_objective_function_t_mObjFunc()
-{
-}
 
-void DEParameters::de_fitness_function_t_mFitnessFunc()
-{
-}
 
-bool DEParameters::isReady(bool a)
+bool DEParameters::isReady(bool a) const
 {
 	return false;
 }
@@ -42,7 +36,7 @@ void DEParameters::setPopulationSize(size_t populationSize)
 	mPopulationSize = populationSize;
 }
 
-size_t DEParameters::getPopulationSize()
+size_t DEParameters::getPopulationSize() const
 {
 	return mPopulationSize;
 }
@@ -52,7 +46,7 @@ void DEParameters::setF(double MF)
 	mF = MF;
 }
 
-double DEParameters::getF()
+double DEParameters::getF() const
 {
 	return mF;
 }
@@ -62,7 +56,7 @@ void DEParameters::setCR(double CR)
 	mCR = CR;
 }
 
-double DEParameters::getCR()
+double DEParameters::getCR() const
 {
 	return mCR;
 }
@@ -72,7 +66,7 @@ void DEParameters::setMaxGenerationCount(double maxGenCount)
 	mMaxGenerationCount = maxGenCount;
 }
 
-double DEParameters::getMaxGenerationCount()
+double DEParameters::getMaxGenerationCount() const
 {
 	return mMaxGenerationCount;
 }

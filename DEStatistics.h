@@ -13,7 +13,7 @@ public:
 
 	DEStatistics();
 	~DEStatistics();
-	void add(DESolution& const solution);
+	void add(DESolution& solution);
 	void reset();
 
 };

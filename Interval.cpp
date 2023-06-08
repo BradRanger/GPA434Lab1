@@ -40,7 +40,7 @@ void Interval::set(double lower, double upper)
 
 double Interval::randomize() const
 {
-	std::default_random_engine generator; 
+	std::default_random_engine generator; //
 	//fonction de densite
 	std::uniform_real_distribution<double> distribution(mLower, mUpper);
 
