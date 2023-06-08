@@ -8,12 +8,9 @@
 
 class DEPopulation { // dispatcher sur toutes les solutions
 
-
 private:
 
 	std::vector<DESolution> mSolutions;
-
-
 
 public:
 

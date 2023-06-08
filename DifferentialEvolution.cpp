@@ -83,12 +83,47 @@ void DifferentialEvolution::reset()
 
 bool DifferentialEvolution::evolveOne()
 {
-	return false;
+
+	if (!isReady()) {
+		return false;
+	}
+
+	//1) Évaluer la fitness de la population actuelle
+	processFitness(mPopulation);
+
+	//2) Effectuer la mutation des vecteurs
+	processMutation();
+
+	//3) Effectuer le croisement des vecteurs mutants avec les vecteurs de la population actuelle
+	processCrossover();
+
+	//4) Sélectionner les meilleurs vecteurs parmi les vecteurs de mutation et les vecteurs de la population actuelle
+	processSelection();
+
+	//5) Mettre à jour les statistiques de la génération actuelle
+	processStatistics();
+
+	//Incrémente le compteur de génération
+	mCurrentGeneration++;
+
+	return true;
 }
 
 bool DifferentialEvolution::evolve()
 {
-	return false;
+
+	if (!isReady()) {
+		return false;
+	}
+
+	for (size_t i{}; i < mParameters.getMaxGenerationCount(); ++i ) {
+
+		if (!evolveOne()) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 
@@ -96,18 +131,18 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 {
 }
 
-void DifferentialEvolution::ProcessMutation()
+void DifferentialEvolution::processMutation()
 {
 }
 
-void DifferentialEvolution::ProcessCrossover()
+void DifferentialEvolution::processCrossover()
 {
 }
 
-void DifferentialEvolution::ProcessSelection()
+void DifferentialEvolution::processSelection()
 {
 }
 
-void DifferentialEvolution::ProcessStatistics()
+void DifferentialEvolution::processStatistics()
 {
 }

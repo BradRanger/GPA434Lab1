@@ -22,10 +22,10 @@ private:
 	
 
 	void processFitness(DEPopulation& population);
-	void ProcessMutation();
-	void ProcessCrossover();
-	void ProcessSelection();
-	void ProcessStatistics();
+	void processMutation();
+	void processCrossover();
+	void processSelection();
+	void processStatistics();
 
 
 public:
