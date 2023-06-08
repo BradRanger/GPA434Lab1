@@ -22,36 +22,37 @@ private:
 	size_t mPopulationSize;		//Taille population P (vecteurs x,m et t)
 	double mF;					//constante F
 	double mCR;					//valeur constante CR
-	double mMaxGenerationCount; //nombre de generations avant d'arreter
+	size_t mMaxGenerationCount; //nombre de generations avant d'arreter
 
 	
-	mObjFunc;		//a corriger pointeur de fonction
-	mFitnessFunc;	//pointeur de fonction
+	//mObjFunc;		//a corriger pointeur de fonction
+	//mFitnessFunc;	//pointeur de fonction
 
 public:
 
 	DEParameters();
 	~DEParameters();
 
-	bool isReady(bool a) const;
+	bool isReady() const;
 	void reset();
 
 	void setPopulationSize(size_t populationSize);
 	size_t getPopulationSize() const;
 
-	void setF(double CR);
+	void setF(double F);
 	double getF() const;
 
 	void setCR(double CR);
 	double getCR() const;
 
-	void setMaxGenerationCount(double maxGenCount);
-	double getMaxGenerationCount() const;
+	void setMaxGenerationCount(size_t maxGenCount);
+	size_t getMaxGenerationCount() const;
 
-	//fonction constante reference pour le getter
-	//accesseur doit etre constant
+	//pour pouvoir acceder à mSolutionBounds
+	void setSolutionBounds(const DESolutionBounds& solutionBounds);		
+	DESolutionBounds getSolutionBounds() const;
 
-	
+
 
 };
 

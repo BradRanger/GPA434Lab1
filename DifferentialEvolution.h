@@ -19,6 +19,7 @@ private:
 	DEStatistics mStatistics;					
 	ThreeSamplesWithOneExclusion mSamplingTool; 
 
+	
 
 	void processFitness(DEPopulation& population);
 	void ProcessMutation();

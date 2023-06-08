@@ -22,26 +22,28 @@ bool DifferentialEvolution::isReady() const
 {
 
 	//Verifier que les parametres necessaires ont ete definis
-	if (mParameters.getPopulationSize() == 0 || mParameters.getMaxGenerationCount()) {
-
-		
+	if (mParameters.getPopulationSize() == 0 || mParameters.getMaxGenerationCount() == 0 || mParameters.getF() <= 0 || mParameters.getCR() < 0 || mParameters.getCR() > 1) {
 		return false;
 	}
 
-	
 	// Vérifiez que mPopulation, mMutant et mTrial ont la bonne taille
 	if (mPopulation.size() != mParameters.getPopulationSize() || mMutant.size() != mParameters.getPopulationSize() || mTrial.size() != mParameters.getPopulationSize()) {
-
 		return false;
 	}
 
-	
+	if (mCurrentGeneration != 0) {
+		return false;
+	}
 
+	//vérifie si le vecteur mStatistics contient des données. si oui, retourne false
+	if (!mStatistics.isEmpty()) {
+		return false;
+	}
 
-	//Verifier que les bornes de la solution ont ete definies
-	//Verifier que les fonctions objectives et fitness ont ete definies
+	//if (mSamplingTool) {
+	//	return false;
+	//}
 
-	//si tous les test ont ete passes, retourner true
 	return true;
 }
 
@@ -50,14 +52,23 @@ void DifferentialEvolution::setup(DEParameters const& parameters)
 	
 	mSamplingTool.prepare(mParameters.getPopulationSize());
 
-	mPopulation.setup(mParameters.getPopulationSize(), mParameters);
-	mTrial.setup(mParameters.getPopulationSize(), mParameters);
-	mMutant.setup(mParameters.getPopulationSize(), mParameters);
+	mPopulation.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());	//corriger mParameters, c'est un mSolutionBounds 
+	mTrial.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
+	mMutant.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	
 }  
 
 void DifferentialEvolution::reset()
 {
+	mPopulation.setup(mPopulation.size(), mParameters.getSolutionBounds() );
+	mPopulation.randomize(mParameters.getSolutionBounds());
+
+
+
+
+
+
+
 }
 
 bool DifferentialEvolution::evolveOne()

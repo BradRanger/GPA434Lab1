@@ -21,7 +21,7 @@ DEParameters::~DEParameters()
 
 
 
-bool DEParameters::isReady(bool a) const
+bool DEParameters::isReady() const
 {
 	return false;
 }
@@ -61,12 +61,21 @@ double DEParameters::getCR() const
 	return mCR;
 }
 
-void DEParameters::setMaxGenerationCount(double maxGenCount)
+void DEParameters::setMaxGenerationCount(size_t maxGenCount)
 {
 	mMaxGenerationCount = maxGenCount;
 }
 
-double DEParameters::getMaxGenerationCount() const
+size_t DEParameters::getMaxGenerationCount() const
 {
 	return mMaxGenerationCount;
+}
+
+void DEParameters::setSolutionBounds(const DESolutionBounds& solutionBounds)
+{
+}
+
+DESolutionBounds DEParameters::getSolutionBounds() const
+{
+	return DESolutionBounds();
 }
