@@ -23,11 +23,16 @@ DEParameters::~DEParameters()
 
 bool DEParameters::isReady() const
 {
-	return false;
+	return true;
 }
 
 void DEParameters::reset()
 {
+	mSolutionBounds = DESolutionBounds{}; // Reset solution a sa valeur par defaut
+	mPopulationSize = 100; // Reset la popoulation
+	mF = 1.0; // Reset la constante F
+	mCR = 0.2; // Reset la constante CR
+	mMaxGenerationCount = 100; // Reset valeur par defaut
 
 }
 
@@ -73,9 +78,10 @@ size_t DEParameters::getMaxGenerationCount() const
 
 void DEParameters::setSolutionBounds(const DESolutionBounds& solutionBounds)
 {
+	mSolutionBounds = solutionBounds;
 }
 
 DESolutionBounds DEParameters::getSolutionBounds() const
 {
-	return DESolutionBounds();
+	return mSolutionBounds;
 }

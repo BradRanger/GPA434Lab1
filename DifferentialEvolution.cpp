@@ -54,7 +54,7 @@ bool DifferentialEvolution::isReady() const
 void DifferentialEvolution::setup(DEParameters const& parameters)
 {
 	mSamplingTool.prepare(mParameters.getPopulationSize());
-	mPopulation.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());	//corriger mParameters, c'est un mSolutionBounds 
+	mPopulation.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());	
 	mTrial.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mMutant.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 }  
@@ -135,6 +135,21 @@ bool DifferentialEvolution::evolve()
 
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
+	for (size_t i{}; i < population.size(); ++i) {
+
+		DESolution& solution = population[i];
+
+
+		// Calculate the fitness value for the current solution
+		//double fitness = mParameters.getFitnessFunc()(solution.getObjective());
+
+
+		// Set the fitness value in the solution object
+		//solution.setFitness(fitness);
+
+	}
+
+
 }
 
 void DifferentialEvolution::processMutation()
