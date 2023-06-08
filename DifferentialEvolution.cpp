@@ -154,6 +154,10 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 
 void DifferentialEvolution::processMutation()
 {
+	mTrial[1];
+	mMutant[1];
+	mPopulation[1];
+
 }
 
 void DifferentialEvolution::processCrossover()
