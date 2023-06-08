@@ -20,12 +20,18 @@ bool DifferentialEvolution::isReady() const
 {
 
 	//Verifie que les parametres necessaires ont ete definis
-	if (mParameters.getPopulationSize() == 0 || mParameters.getMaxGenerationCount() == 0 || mParameters.getF() <= 0 || mParameters.getCR() < 0 || mParameters.getCR() > 1) {
+	if (mParameters.getPopulationSize() == 0 || 
+		mParameters.getMaxGenerationCount() == 0 || 
+		mParameters.getF() <= 0 || 
+		mParameters.getCR() < 0 || 
+		mParameters.getCR() > 1) {
 		return false;
 	}
 
 	// Vérifie que mPopulation, mMutant et mTrial ont la bonne taille
-	if (mPopulation.size() != mParameters.getPopulationSize() || mMutant.size() != mParameters.getPopulationSize() || mTrial.size() != mParameters.getPopulationSize()) {
+	if (mPopulation.size() != mParameters.getPopulationSize() 
+		|| mMutant.size() != mParameters.getPopulationSize() 
+		|| mTrial.size() != mParameters.getPopulationSize()) {
 		return false;
 	}
 
@@ -59,11 +65,11 @@ void DifferentialEvolution::reset()
 	mPopulation.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mPopulation.randomize(mParameters.getSolutionBounds());
 
-	// Réinitialisez la population de solutions
+	// Réinitialisez la population de mutants
 	mMutant.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mMutant.randomize(mParameters.getSolutionBounds());
 
-	// Réinitialisez la population de solutions
+	// Réinitialisez la population de trial
 	mTrial.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mTrial.randomize(mParameters.getSolutionBounds());
 
