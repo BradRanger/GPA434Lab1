@@ -24,9 +24,8 @@ private:
 	double mCR;					//valeur constante CR
 	size_t mMaxGenerationCount; //nombre de generations avant d'arreter
 
-	
-	//mObjFunc;		//a corriger pointeur de fonction
-	//mFitnessFunc;	//pointeur de fonction
+	double (*mObjFunc)(const DESolution&);
+	double (*mFitnessFunc)(double);
 
 public:
 
@@ -52,8 +51,11 @@ public:
 	void setSolutionBounds(const DESolutionBounds& solutionBounds);		
 	DESolutionBounds getSolutionBounds() const;
 
+	void setObjFunc(double (*objFunc)(const DESolution&));
+	double getObjFunc(const DESolution& solution) const;
 
-
+	void setFitnessFunc(double (*fitnessFunc)(double));
+	double getFitnessFunc(double value) const;
 };
 
 

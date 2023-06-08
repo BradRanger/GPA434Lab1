@@ -8,18 +8,16 @@ DEParameters::DEParameters()
 , mF{1}		//0 ≤ 𝐹 ≤ 2  == augmente la chance d'avoir un grand ecart entre les mutants choisis
 , mCR{0.2}		//0 ≤ 𝐶𝑅 ≤ 1 == pourcentage de pogner un mutant
 , mMaxGenerationCount{100}
-
+, mFitnessFunc(nullptr) // initialise mFitnessFunc
+, mObjFunc(nullptr) // initialise mObjFunc
 {
 	
 }
 
 
-
 DEParameters::~DEParameters()
 {
 }
-
-
 
 bool DEParameters::isReady() const
 {
@@ -84,4 +82,24 @@ void DEParameters::setSolutionBounds(const DESolutionBounds& solutionBounds)
 DESolutionBounds DEParameters::getSolutionBounds() const
 {
 	return mSolutionBounds;
+}
+
+void DEParameters::setObjFunc(double(*objFunc)(const DESolution&))
+{
+	mObjFunc = objFunc;
+}
+
+double DEParameters::getObjFunc(const DESolution& solution) const
+{
+	return mObjFunc(solution);
+}
+
+void DEParameters::setFitnessFunc(double(*fitnessFunc)(double))
+{
+	mFitnessFunc = fitnessFunc;
+}
+
+double DEParameters::getFitnessFunc(double value) const
+{
+	return mFitnessFunc(value);
 }
