@@ -175,6 +175,11 @@ void StringImage::textV(int x, int y, std::string text) {
 
 }
 
+void StringImage::CenteredTopTitle(int resizeX, int outerRectOriginY, std::string title)
+{
+	textH(((resizeX - (int)title.size()) / 2), outerRectOriginY + 1, title);
+}
+
 void StringImage::drawRect(int x1, int y1, int x2, int y2)
 {
 

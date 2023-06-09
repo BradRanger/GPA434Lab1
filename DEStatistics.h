@@ -1,7 +1,6 @@
 #pragma once
 #ifndef DESTATISTICS_H
 #define DESTATISTICS_H
-#include "interval.h"
 #include "DESolution.h"
 #include <vector>
 
@@ -13,8 +12,11 @@ public:
 
 	DEStatistics();
 	~DEStatistics();
-	void add(DESolution& const solution);
+	void add(DESolution& solution);
 	void reset();
+
+	bool isEmpty() const;
+	
 
 };
 

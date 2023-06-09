@@ -45,6 +45,8 @@ public:
 
 	void textH(int x, int y, std::string text);
 	void textV(int x, int y, std::string text);
+	void CenteredTopTitle(int resizeX, int outerRectOriginY, std::string title);
+
 	void drawRect(int x1, int y1, int x2, int y2);
 
 

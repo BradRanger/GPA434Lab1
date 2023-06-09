@@ -8,32 +8,29 @@ DEParameters::DEParameters()
 , mF{1}		//0 ≤ 𝐹 ≤ 2  == augmente la chance d'avoir un grand ecart entre les mutants choisis
 , mCR{0.2}		//0 ≤ 𝐶𝑅 ≤ 1 == pourcentage de pogner un mutant
 , mMaxGenerationCount{100}
-
+, mFitnessFunc(nullptr) // initialise mFitnessFunc
+, mObjFunc(nullptr) // initialise mObjFunc
 {
 	
 }
-
 
 
 DEParameters::~DEParameters()
 {
 }
 
-void DEParameters::de_objective_function_t_mObjFunc()
+bool DEParameters::isReady() const
 {
-}
-
-void DEParameters::de_fitness_function_t_mFitnessFunc()
-{
-}
-
-bool DEParameters::isReady(bool a)
-{
-	return false;
+	return true;
 }
 
 void DEParameters::reset()
 {
+	mSolutionBounds = DESolutionBounds{}; // Reset solution a sa valeur par defaut
+	mPopulationSize = 100; // Reset la popoulation
+	mF = 1.0; // Reset la constante F
+	mCR = 0.2; // Reset la constante CR
+	mMaxGenerationCount = 100; // Reset valeur par defaut
 
 }
 
@@ -42,7 +39,7 @@ void DEParameters::setPopulationSize(size_t populationSize)
 	mPopulationSize = populationSize;
 }
 
-size_t DEParameters::getPopulationSize()
+size_t DEParameters::getPopulationSize() const
 {
 	return mPopulationSize;
 }
@@ -52,7 +49,7 @@ void DEParameters::setF(double MF)
 	mF = MF;
 }
 
-double DEParameters::getF()
+double DEParameters::getF() const
 {
 	return mF;
 }
@@ -62,17 +59,47 @@ void DEParameters::setCR(double CR)
 	mCR = CR;
 }
 
-double DEParameters::getCR()
+double DEParameters::getCR() const
 {
 	return mCR;
 }
 
-void DEParameters::setMaxGenerationCount(double maxGenCount)
+void DEParameters::setMaxGenerationCount(size_t maxGenCount)
 {
 	mMaxGenerationCount = maxGenCount;
 }
 
-double DEParameters::getMaxGenerationCount()
+size_t DEParameters::getMaxGenerationCount() const
 {
 	return mMaxGenerationCount;
+}
+
+void DEParameters::setSolutionBounds(const DESolutionBounds& solutionBounds)
+{
+	mSolutionBounds = solutionBounds;
+}
+
+DESolutionBounds DEParameters::getSolutionBounds() const
+{
+	return mSolutionBounds;
+}
+
+void DEParameters::setObjFunc(double(*objFunc)(const DESolution&))
+{
+	mObjFunc = objFunc;
+}
+
+double DEParameters::getObjFunc(const DESolution& solution) const
+{
+	return mObjFunc(solution);
+}
+
+void DEParameters::setFitnessFunc(double(*fitnessFunc)(double))
+{
+	mFitnessFunc = fitnessFunc;
+}
+
+double DEParameters::getFitnessFunc(double value) const
+{
+	return mFitnessFunc(value);
 }

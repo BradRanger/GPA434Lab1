@@ -32,8 +32,11 @@ size_t DEPopulation::size() const
 
 void DEPopulation::setup(size_t populationSize, DESolutionBounds const & solutionBounds)
 {
-	mSolutions.resize(populationSize);
-	for (int i{}; mSolutions.size();) { // mettre tout a 0
+	mSolutions.resize(populationSize);	//mSolutions c'est notre x,la population en cours. notre vecteur prend la taille de populationsize
+
+
+	for (int i{}; mSolutions.size();){ //initialisation du vecteur
+
 		mSolutions[i].setup(solutionBounds);
 	}
 
@@ -49,7 +52,5 @@ void DEPopulation::randomize(DESolutionBounds const& solutionBounds)
 	for (int i{}; mSolutions.size();) {
 		mSolutions[i].randomize(solutionBounds);
 	}
-
-
 
 }
