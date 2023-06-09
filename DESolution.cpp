@@ -7,7 +7,6 @@ DESolution::DESolution()
 {
 }
 
-
 DESolution::DESolution(const std::vector<double>& size, double objective, double fitness)  //a valider
 {
     setData(size);
@@ -18,8 +17,6 @@ DESolution::DESolution(const std::vector<double>& size, double objective, double
 DESolution::~DESolution()
 {
 }
-
-
 
 const std::vector<double>& DESolution::getData() const
 {

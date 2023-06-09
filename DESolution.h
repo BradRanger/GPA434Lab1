@@ -7,7 +7,6 @@
 #include <random>
 #include <vector>
 
-
 class DESolution {
 private:
 	
@@ -15,7 +14,6 @@ private:
 	double mObjective; //le résultat du calcul de la fonction objective
 	double mFitness; //le résultat du calcul de « fitness »
 	  
-
 public:
 	DESolution();
 	DESolution(const std::vector<double>& size, double objective, double fitness); //avec le deuxieme constructeur nous pouvons creer des nouvelles instances pour mData,mObjective et mFitness
@@ -32,16 +30,9 @@ public:
 	void setObjective(double objective);
 	void setFitness(double fitness);
 	
-
-
-
 	size_t size() const; //retourne le nombre de paramètres, soit la taille du problème
 	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème //pointe a l<address de notre vecteur intervalle
-
-	//assigne à chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de solutionBounds
-	void randomize(DESolutionBounds const & solutionBounds);
-
-
+	void randomize(DESolutionBounds const & solutionBounds); //assigne à chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de solutionBounds
 
 
 
@@ -58,9 +49,6 @@ public:
 
 	DESolution operator*(double rhs) const;	//multiplication entre un objet DESolution et un scalaire 
 	DESolution operator/(double rhs) const;	//division entre un objet DESolution et un scalaire
-
-
-
 
 
 	DESolution& operator+=(DESolution const& rhs) ;
