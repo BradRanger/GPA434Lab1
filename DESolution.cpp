@@ -88,17 +88,17 @@ bool DESolution::operator!=(DESolution const& rhs)
 
 DESolution DESolution::operator+(DESolution rhs) const
 {
-    // boucle for qui parcoure les n dimensions
-    rhs.mData[0] += mData[0];
-    rhs.mData[1] += mData[1];
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        rhs.mData[i] += mData[i];
+    }
     return rhs;
 }
 
 DESolution DESolution::operator-(DESolution rhs) const
 {
-    // boucle for qui parcoure les n dimensions
-    rhs.mData[0] = mData[0]- rhs.mData[0];
-    rhs.mData[1] = mData[1]- rhs.mData[1];
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        rhs.mData[i] = mData[i] - rhs.mData[i];
+    }
     return rhs;
 
 }
@@ -106,8 +106,11 @@ DESolution DESolution::operator-(DESolution rhs) const
 DESolution DESolution::operator-() const
 {
     DESolution sol;
-    sol.mData.resize(mData.size()); //mettre les valeurs negatives soustraction
-    //for()
+    
+    sol.mData.resize(mData.size());
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        sol.mData[i] = -mData[i];
+    }
     return sol;
 }
 

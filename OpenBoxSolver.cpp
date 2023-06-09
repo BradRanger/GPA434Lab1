@@ -15,7 +15,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 
 std::string OpenBoxSolver::problemPresentation()
 {
-	return "Moi c'est Richard, moi j'aime les chars pis le baseball.";
+	return "According to a quick google search, the open box problem...";
 }
 
 std::string OpenBoxSolver::solutionPresentation()
