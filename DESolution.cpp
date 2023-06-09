@@ -7,84 +7,73 @@ DESolution::DESolution()
 {
 }
 
-DESolution::DESolution(double size, double objective, double fitness)
+
+DESolution::DESolution(const std::vector<double>& size, double objective, double fitness)  //a valider
 {
-    setData();
+    setData(size);
     setObjective(objective);
     setFitness(fitness);
-
 }
 
 DESolution::~DESolution()
 {
 }
 
-std::vector<double> DESolution::data()
+
+
+const std::vector<double>& DESolution::getData() const
 {
     return mData;
 }
 
-double DESolution::objective()
+double DESolution::getObjective() const
 {
     return mObjective;
 }
 
-double DESolution::fitness()
+double DESolution::getFitness() const
 {
     return mFitness;
 }
 
-void DESolution::setData()
+void DESolution::setData(const std::vector<double>& data)
 {
-    //mData = size;
+    mData = data;
 }
 
 void DESolution::setObjective(double objective)
 {
     mObjective = objective;
-
 }
 
 void DESolution::setFitness(double fitness)
 {
-    
     mFitness = fitness;
 }
 
-
-
-
 size_t DESolution::size() const
 {
-    return size_t();
+    return mData.size();
 }
 
 void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
-    
     mData.resize(solutionBounds.size());    // on redimensionne le vecteur avec la taille de donne
-
     randomize(solutionBounds);
-    
 }
 
 void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
-
     if(solutionBounds.solutionBounds().size()!=0 && solutionBounds.solutionBounds().size() == mData.size()){
 
-        //interaction with for range loop and vector
         int i{};
 
         for (Interval const &interval : solutionBounds.solutionBounds()) {
-
-        
+    
             mData[i] = interval.randomize();
             ++i;
         }
-
     }
-
 }
 
 bool DESolution::operator==(DESolution const& rhs)
@@ -124,6 +113,8 @@ DESolution DESolution::operator-() const
 
 DESolution DESolution::operator*(double rhs) const
 {
+
+
     return DESolution();
 }
 

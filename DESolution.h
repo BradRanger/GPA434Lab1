@@ -1,60 +1,72 @@
 #pragma once
 #ifndef DESOLUTION_H
 #define DESOLUTION_H
-#include "interval.h"
-#include <vector>
 #include "DESolutionBounds.h"
-#include "iostream"
-#include <stdlib.h>
+//#include "iostream"
+//#include <stdlib.h>
 #include <random>
+#include <vector>
 
 
 class DESolution {
-
 private:
 	
-	std::vector<double> mData; //repr/sente un vecteur de donnees qui represente une solution dans l'espace a n dimensions
+	std::vector<double> mData; //Ce vecteur représente les données d'une solution dans un espace à n dimensions.
 	double mObjective; //le résultat du calcul de la fonction objective
 	double mFitness; //le résultat du calcul de « fitness »
 	  
 
 public:
 	DESolution();
-	DESolution(double size, double objective, double fitness);
+	DESolution(const std::vector<double>& size, double objective, double fitness); //avec le deuxieme constructeur nous pouvons creer des nouvelles instances pour mData,mObjective et mFitness
+	//old: DESolution(double size, double objective, double fitness);
 	~DESolution();
 
-	std::vector<double> data();
-	double objective();
-	double fitness();
-
-	void setData(); //******************
+	//accesseurs
+	const std::vector<double>& getData() const; //old: std::vector<double> Data()
+	double getObjective() const; //old: double objective()
+	double getFitness() const;	//old: double fitness()
+	
+	//mutateur
+	void setData(const std::vector<double>& data);	//old: void setData();
 	void setObjective(double objective);
 	void setFitness(double fitness);
+	
+
+
+
 	size_t size() const; //retourne le nombre de paramètres, soit la taille du problème
 	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème //pointe a l<address de notre vecteur intervalle
-	
-	//assigne à
-	//chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de
-	//solutionBounds
 
+	//assigne à chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de solutionBounds
 	void randomize(DESolutionBounds const & solutionBounds);
+
+
+
+
+
+	/*********************section operateur*********************************/
 
 	bool operator==(DESolution const& rhs);
 	bool operator!=(DESolution const& rhs);
 
-	DESolution operator+(DESolution rhs) const;
-	DESolution operator-(DESolution rhs) const;
-	DESolution operator-() const;
+	DESolution operator+(DESolution rhs) const;	//addition entre deux objets
+	DESolution operator-(DESolution rhs) const;	//soustraction entre deux objets
+
+	DESolution operator-() const;	//operateur pour changement de signe d'un objet
 
 
-	DESolution operator*(double rhs) const;
-	DESolution operator/(double rhs) const;
+	DESolution operator*(double rhs) const;	//multiplication entre un objet DESolution et un scalaire 
+	DESolution operator/(double rhs) const;	//division entre un objet DESolution et un scalaire
 
-	//DESolution& operator+=(DESolution const& rhs) ;
-	//DESolution& operator-=(DESolution const& rhs) ;
-	//DESolution& operator*=(double rhs) ;
-	//DESolution& operator/=(double rhs) ;
+
+
+
+
+	DESolution& operator+=(DESolution const& rhs) ;
+	DESolution& operator-=(DESolution const& rhs) ;
+	DESolution& operator*=(double rhs) ;
+	DESolution& operator/=(double rhs) ;
 };
-
 
 #endif
