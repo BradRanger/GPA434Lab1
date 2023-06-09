@@ -71,17 +71,17 @@ void DESolution::randomize(DESolutionBounds const & solutionBounds)
 
 bool DESolution::operator==(DESolution const& rhs)
 {
-    return mData==rhs.mData;
+    return mData == rhs.mData && mObjective == rhs.mObjective && mFitness == rhs.mFitness;  //a valider si il faut le faire pour les trois parametres
 }
 
 bool DESolution::operator!=(DESolution const& rhs)
 {
-    return !(mData == rhs.mData);
+    return !(*this == rhs); //voir syntaxe du prof
 }
 
 DESolution DESolution::operator+(DESolution rhs) const
 {
-    for (int i{ 0 }; i < mData.size(); ++i) {
+    for (int i = 0; i < mData.size(); ++i) {
         rhs.mData[i] += mData[i];
     }
     return rhs;
@@ -89,55 +89,86 @@ DESolution DESolution::operator+(DESolution rhs) const
 
 DESolution DESolution::operator-(DESolution rhs) const
 {
-    for (int i{ 0 }; i < mData.size(); ++i) {
+    for (int i = 0; i < mData.size(); ++i) {
         rhs.mData[i] = mData[i] - rhs.mData[i];
     }
     return rhs;
-
 }
 
 DESolution DESolution::operator-() const
 {
-    DESolution sol;
+    DESolution sol;                                 //crée une nouvelle instance
     
-    sol.mData.resize(mData.size());
+    sol.mData.resize(mData.size());                 //redimensionne sol.mData pour qu'il ait la même taille du mData courant
     for (int i{ 0 }; i < mData.size(); ++i) {
-        sol.mData[i] = -mData[i];
+        sol.mData[i] = -mData[i];                   //À chaque itération, elle attribue à sol.mData[i] la valeur négative de mData[i]
     }
-    return sol;
+    return sol;                                     //Une fois la boucle terminée, elle retourne sol contenant les valeurs négatives des membres de mData de l'objet courant.
 }
 
 DESolution DESolution::operator*(double rhs) const
 {
     DESolution sol;
 
-    
+    sol.mData.resize(mData.size());
 
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        sol.mData[i] = mData[i] * rhs;
+    }
 
-    return DESolution();
+    return sol;
 }
 
 DESolution DESolution::operator/(double rhs) const
 {
-    return DESolution();
+    DESolution sol;
+
+    sol.mData.resize(mData.size());
+
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        sol.mData[i] = mData[i] / rhs;
+    }
+
+    return sol;
 }
 
-//DESolution& DESolution::operator+=(DESolution const& rhs)
-//{
-//    // TODO: insert return statement here
-//}
-//
-//DESolution& DESolution::operator-=(DESolution const& rhs)
-//{
-//    // TODO: insert return statement here
-//}
-//
-//DESolution& DESolution::operator*=(double rhs)
-//{
-//    // TODO: insert return statement here
-//}
-//
-//DESolution& DESolution::operator/=(double rhs)
-//{
-//    // TODO: insert return statement here
-//}
+DESolution& DESolution::operator+=(DESolution const& rhs)
+{
+    /*  //valider si les vecteurs sont de meme taille?
+    if (mData.size() != rhs.mData.size()) {
+    }
+    */
+
+    for (int i = 0; i < mData.size(); ++i) {
+        mData[i] += rhs.mData[i];
+    }
+
+    return *this;   //permet les operation en cascade
+}
+
+DESolution& DESolution::operator-=(DESolution const& rhs)
+{
+    for (int i = 0; i < mData.size(); ++i) {
+        mData[i] -= rhs.mData[i];
+    }
+
+    return *this;
+}
+
+DESolution& DESolution::operator*=(double rhs)
+{
+    for (int i = 0; i < mData.size(); ++i) {
+        mData[i] *= rhs;
+    }
+
+    return *this;
+}
+
+DESolution& DESolution::operator/=(double rhs)
+{
+    for (int i = 0; i < mData.size(); ++i) {
+        mData[i] /= rhs;
+    }
+
+    return *this;
+}

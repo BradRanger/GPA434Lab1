@@ -51,10 +51,10 @@ public:
 	DESolution operator/(double rhs) const;	//division entre un objet DESolution et un scalaire
 
 
-	DESolution& operator+=(DESolution const& rhs) ;
-	DESolution& operator-=(DESolution const& rhs) ;
-	DESolution& operator*=(double rhs) ;
-	DESolution& operator/=(double rhs) ;
+	DESolution& operator+=(DESolution const& rhs); //addition composée (+=) entre deux objets
+	DESolution& operator-=(DESolution const& rhs); //soustraction composée (-=) entre deux objets
+	DESolution& operator*=(double rhs);			   //Multiplication composée (*=) par un scalaire double
+	DESolution& operator/=(double rhs);			   //division composée (/=) par un scalaire double
 };
 
 #endif
