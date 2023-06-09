@@ -8,7 +8,7 @@ StringImage::StringImage()
 }
 
 
-StringImage::StringImage(int width, int height, char fillChar)
+StringImage::StringImage(size_t width, size_t height, char fillChar)
 {
 	resize(width, height);
 }
@@ -16,7 +16,7 @@ StringImage::StringImage(int width, int height, char fillChar)
 
 
 
-StringImage::StringImage(int squaredDimension, char fillChar)
+StringImage::StringImage(size_t squaredDimension, char fillChar)
 	: StringImage(squaredDimension, squaredDimension, fillChar)
 {
 }
@@ -26,19 +26,19 @@ StringImage::~StringImage()
 }
 
 //returns width of generated image
-int StringImage::width()
+size_t StringImage::width()
 {
 	return mWidth;
 }
 
 //returns height of generated image
-int StringImage::height()
+size_t StringImage::height()
 {
 	return mHeight;
 }
 
 //returns char value at (x,y)
-char StringImage::read(int x, int y)
+char StringImage::read(size_t x, size_t y)
 {
 	if (isValid(x, y)) {
 		return mImage[index(x, y)];
@@ -58,7 +58,7 @@ std::string StringImage::toString()
 
 //gives a new size of the window that is the image itself
 //also regenerates to default background tile
-void StringImage::resize(int new_width, int new_height)
+void StringImage::resize(size_t new_width, size_t new_height)
 {
 	// si l'une des dimensions est égale à 0
 	if (new_width == 0 || new_height == 0) {
@@ -71,7 +71,7 @@ void StringImage::resize(int new_width, int new_height)
 		if (new_width > 1000) {
 			new_width = 1000;
 		}
-		new_height = std::min(new_height, (int)1000);
+		new_height = std::min(new_height, (size_t)1000);
 
 		mWidth = new_width;
 		mHeight = new_height;
@@ -91,7 +91,7 @@ void StringImage::fill()
 	}
 }
 
-void StringImage::write(int x, int y, char pixelChar)
+void StringImage::write(size_t x, size_t y, char pixelChar)
 {
 	if (isValid(x, y)) {
 		mImage[index(x, y)] = pixelChar;
@@ -99,21 +99,21 @@ void StringImage::write(int x, int y, char pixelChar)
 }
 
 
-void StringImage::erase(int x, int y)
+void StringImage::erase(size_t x, size_t y)
 {
 	write(x, y, (char)LineChar::FillChar);
 }
 
-int StringImage::index(int x, int y)
+size_t StringImage::index(size_t x, size_t y)
 {
 	return y * (mWidth + 1) + x;
 }
-bool StringImage::isValid(int x, int y)
+bool StringImage::isValid(size_t x, size_t y)
 {
 	return x >= 0 && x < mWidth && y >= 0 && y < mHeight;
 }
 
-void StringImage::drawHLine(int x, int y, int length)
+void StringImage::drawHLine(size_t x, size_t y, size_t length)
 {
 
 	for (int i = 0; i < length; ++i) {
@@ -125,9 +125,9 @@ void StringImage::drawHLine(int x, int y, int length)
 	}
 }
 
-void StringImage::drawVLine(int x, int y, int length)
+void StringImage::drawVLine(size_t x, size_t y, size_t length)
 {
-	for (int i = 0; i < length; ++i) {
+	for (size_t i{}; i < length; ++i) {
 
 		StringImage::write(x, y + i, (char)LineChar::VLine);
 
@@ -136,18 +136,18 @@ void StringImage::drawVLine(int x, int y, int length)
 
 }
 
-void StringImage::drawHThckLine(int x, int y, int length)
+void StringImage::drawHThckLine(size_t x, size_t y, size_t length)
 {
-	for (int i = 0; i < length; ++i) {
+	for (size_t i{}; i < length; ++i) {
 
 		StringImage::write(x + i, y, (char)LineChar::FullSquare);
 	}
 
 }
 
-void StringImage::drawVThckLine(int x, int y, int length)
+void StringImage::drawVThckLine(size_t x, size_t y, size_t length)
 {
-	for (int i = 0; i < length; ++i) {
+	for (size_t i = 0; i < length; ++i) {
 
 		StringImage::write(x, y + i, (char)LineChar::FullSquare);
 
@@ -156,7 +156,7 @@ void StringImage::drawVThckLine(int x, int y, int length)
 
 }
 
-void StringImage::textH(int x, int y, std::string text)
+void StringImage::textH(size_t x, size_t y, std::string text)
 {
 	for (int i = 0; i < text.length(); i++) {
 		StringImage::write(x + i, y, text.at(i));
@@ -164,10 +164,10 @@ void StringImage::textH(int x, int y, std::string text)
 
 }
 
-void StringImage::textV(int x, int y, std::string text) {
+void StringImage::textV(size_t x, size_t y, std::string text) {
 
 	{
-		for (int i = 0; i < text.length(); i++) {
+		for (size_t i{}; i < text.length(); i++) {
 			StringImage::write(x, y + i, text.at(i));
 		}
 
@@ -175,15 +175,15 @@ void StringImage::textV(int x, int y, std::string text) {
 
 }
 
-void StringImage::CenteredTopTitle(int resizeX, int outerRectOriginY, std::string title)
+void StringImage::CenteredTopTitle(size_t resizeX, size_t outerRectOriginY, std::string title)
 {
-	textH(((resizeX - (int)title.size()) / 2), outerRectOriginY + 1, title);
+	textH(((resizeX - (size_t)title.size()) / 2), outerRectOriginY + 1, title);
 }
 
-void StringImage::drawRect(int x1, int y1, int x2, int y2)
+void StringImage::drawRect(size_t x1, size_t y1, size_t x2, size_t y2)
 {
 
-	int sx = 0; //start x
+	size_t sx = 0; //start x
 	if (x1 <= x2) {
 
 		sx = x1;
@@ -195,7 +195,7 @@ void StringImage::drawRect(int x1, int y1, int x2, int y2)
 		sx = x2;
 	}
 
-	int sy = 0; //start y
+	size_t sy = 0; //start y
 	if (y1 <= y2) {
 
 		sy = y1;
@@ -206,7 +206,7 @@ void StringImage::drawRect(int x1, int y1, int x2, int y2)
 
 	}
 
-	int ex = 0; //end x
+	size_t ex = 0; //end x
 	if (x1 >= x2) {
 		ex = x1;
 
@@ -216,7 +216,7 @@ void StringImage::drawRect(int x1, int y1, int x2, int y2)
 
 	}
 
-	int ey = 0; //end y
+	size_t ey = 0; //end y
 	if (y1 >= y2) {
 		ey = y1;
 

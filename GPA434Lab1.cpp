@@ -17,7 +17,7 @@ int main()
 	PeaksSolver peaks;
 	FactoryProductionSolver factory;
 
-	unsigned int nbOfMenus{ 15 };
+	size_t nbOfMenus{ 15 };
 	MenuManager menus;
 	menus.setNbImages(nbOfMenus);
 
@@ -30,14 +30,14 @@ int main()
 	//outer rect is supposed to create a steady parametric display 
 
 	//Base layout for every menu
-	int resizeX{ 117 };
-	int resizeY{ 29 };
+	size_t resizeX{ 117 };
+	size_t resizeY{ 29 };
 
-	int outerRectOriginX{ 1 };
-	int outerRectOriginY{ 1 };
+	size_t outerRectOriginX{ 1 };
+	size_t outerRectOriginY{ 1 };
 
 	//All menu graphics
-	for(int i{0}; i< nbOfMenus;i++){
+	for(size_t i{0}; i< nbOfMenus;i++){
 
 	menus[i].resize(resizeX, resizeY);
 
@@ -62,14 +62,14 @@ int main()
 	std::cout << menus[1].toString();
 
 	
-	for (int i{}; i < 99999999999; ++i) {
+	for (size_t i{}; i < 99999999999; ++i) {
 
 	}
 	
 	
-	switch (int option{}) {
+	switch (size_t option{}) {
 
-		option = (int)_getch;
+		option = (size_t)_getch;
 
 	case 1:
 		std::cout << menus[1].toString();

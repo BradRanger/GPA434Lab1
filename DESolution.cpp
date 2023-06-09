@@ -62,7 +62,7 @@ void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
     if(solutionBounds.solutionBounds().size()!=0 && solutionBounds.solutionBounds().size() == mData.size()) {
 
-        for (int i{}; i < solutionBounds.solutionBounds().size(); ++i) {    //boucle for pour parcourir les intervalles dans solutionBounds
+        for (size_t i{}; i < solutionBounds.solutionBounds().size(); ++i) {    //boucle for pour parcourir les intervalles dans solutionBounds
             
             mData[i] = solutionBounds.solutionBounds()[i].randomize();  //[i] permet d'acceder a l'intervalle voulue pour ensuite generer une valeur aleatoire
         }                                                               //cette valeur est ensuite assigne a la position correspondate dans mData
@@ -81,7 +81,7 @@ bool DESolution::operator!=(DESolution const& rhs)
 
 DESolution DESolution::operator+(DESolution rhs) const
 {
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         rhs.mData[i] += mData[i];
     }
     return rhs;
@@ -89,7 +89,7 @@ DESolution DESolution::operator+(DESolution rhs) const
 
 DESolution DESolution::operator-(DESolution rhs) const
 {
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         rhs.mData[i] = mData[i] - rhs.mData[i];
     }
     return rhs;
@@ -100,7 +100,7 @@ DESolution DESolution::operator-() const
     DESolution sol;                                 //crée une nouvelle instance
     
     sol.mData.resize(mData.size());                 //redimensionne sol.mData pour qu'il ait la même taille du mData courant
-    for (int i{ 0 }; i < mData.size(); ++i) {
+    for (size_t i{ 0 }; i < mData.size(); ++i) {
         sol.mData[i] = -mData[i];                   //À chaque itération, elle attribue à sol.mData[i] la valeur négative de mData[i]
     }
     return sol;                                     //Une fois la boucle terminée, elle retourne sol contenant les valeurs négatives des membres de mData de l'objet courant.
@@ -112,7 +112,7 @@ DESolution DESolution::operator*(double rhs) const
 
     sol.mData.resize(mData.size());
 
-    for (int i{ 0 }; i < mData.size(); ++i) {
+    for (size_t i{ 0 }; i < mData.size(); ++i) {
         sol.mData[i] = mData[i] * rhs;
     }
 
@@ -125,7 +125,7 @@ DESolution DESolution::operator/(double rhs) const
 
     sol.mData.resize(mData.size());
 
-    for (int i{ 0 }; i < mData.size(); ++i) {
+    for (size_t i{ 0 }; i < mData.size(); ++i) {
         sol.mData[i] = mData[i] / rhs;
     }
 
@@ -139,7 +139,7 @@ DESolution& DESolution::operator+=(DESolution const& rhs)
     }
     */
 
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         mData[i] += rhs.mData[i];
     }
 
@@ -148,7 +148,7 @@ DESolution& DESolution::operator+=(DESolution const& rhs)
 
 DESolution& DESolution::operator-=(DESolution const& rhs)
 {
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         mData[i] -= rhs.mData[i];
     }
 
@@ -157,7 +157,7 @@ DESolution& DESolution::operator-=(DESolution const& rhs)
 
 DESolution& DESolution::operator*=(double rhs)
 {
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         mData[i] *= rhs;
     }
 
@@ -166,7 +166,7 @@ DESolution& DESolution::operator*=(double rhs)
 
 DESolution& DESolution::operator/=(double rhs)
 {
-    for (int i = 0; i < mData.size(); ++i) {
+    for (size_t i = 0; i < mData.size(); ++i) {
         mData[i] /= rhs;
     }
 

@@ -44,12 +44,12 @@ void DEPopulation::randomize(DESolutionBounds const& solutionBounds)
 	}
 }
 
-//
-//DESolution& DEPopulation::operator[](size_t index)
-//{
-//	return mSolutions[index];
-//}
-//
+
+DESolution& DEPopulation::operator[](size_t index)
+{
+	return mSolutions[index];
+}
+
 
 //DESolution& const DEPopulation::operator[](size_t index)
 //{

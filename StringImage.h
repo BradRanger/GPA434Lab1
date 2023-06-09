@@ -17,44 +17,44 @@ public:
 
 	// Constructeurs
 	StringImage();
-	StringImage(int width, int height, char fillChar);
-	StringImage(int squaredDimension, char fillChar = ' ');
+	StringImage(size_t width, size_t height, char fillChar);
+	StringImage(size_t squaredDimension, char fillChar = ' ');
 
 	// Destructeur
 	~StringImage();
 
 	// accesseurs
-	int width();
-	int height();
-	char read(int x, int y);
+	size_t width();
+	size_t height();
+	char read(size_t x, size_t y);
 	std::string toString();
 	// mutateurs
 
 
-	void resize(int new_width, int new_height);
+	void resize(size_t new_width, size_t new_height);
 	void fill();
 
-	void write(int x, int y, char pixelChar);
-	void erase(int x, int y);
+	void write(size_t x, size_t y, char pixelChar);
+	void erase(size_t x, size_t y);
 
-	bool isValid(int x, int y);
-	void drawHLine(int x, int y, int length);
-	void drawVLine(int x, int y, int length);
-	void drawHThckLine(int x, int y, int length);
-	void drawVThckLine(int x, int y, int length);
+	bool isValid(size_t x, size_t y);
+	void drawHLine(size_t x, size_t y, size_t length);
+	void drawVLine(size_t x, size_t y, size_t length);
+	void drawHThckLine(size_t x, size_t y, size_t length);
+	void drawVThckLine(size_t x, size_t y, size_t length);
 
-	void textH(int x, int y, std::string text);
-	void textV(int x, int y, std::string text);
-	void CenteredTopTitle(int resizeX, int outerRectOriginY, std::string title);
+	void textH(size_t x, size_t y, std::string text);
+	void textV(size_t x, size_t y, std::string text);
+	void CenteredTopTitle(size_t resizeX, size_t outerRectOriginY, std::string title);
 
-	void drawRect(int x1, int y1, int x2, int y2);
+	void drawRect(size_t x1, size_t y1, size_t x2, size_t y2);
 
 
 private:
 	std::string mImage;
-	int mWidth;
-	int mHeight;
-	int index(int x, int y);
+	size_t mWidth;
+	size_t mHeight;
+	size_t index(size_t x, size_t y);
 
 };
 
