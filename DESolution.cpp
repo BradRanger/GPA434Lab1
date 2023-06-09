@@ -122,7 +122,9 @@ DESolution DESolution::operator-() const
 {
     DESolution sol;
     sol.mData.resize(mData.size());
-    //for()
+    for (int i{ 0 }; i < mData.size(); ++i) {
+        sol.mData[i] = -mData[i];
+    }
     return sol;
 }
 
