@@ -135,6 +135,7 @@ bool DifferentialEvolution::evolve()
 
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
+
 	for (size_t i{}; i < population.size(); ++i) {
 
 		DESolution& solution = population[i];

@@ -1,8 +1,7 @@
 #pragma once
 #ifndef DEPARAMATERS_H
 #define DEPARAMATERS_H
-
-
+#include "DESolution.h"
 #include "DESolutionBounds.h"
 #include "functionDeclaration.h"
 
