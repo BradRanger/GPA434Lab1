@@ -61,11 +61,11 @@ int main()
 
 	std::cout << menus[1].toString();
 
-	/*
+	
 	for (int i{}; i < 99999999999; ++i) {
 
 	}
-	*/
+	
 	
 	switch (int option{}) {
 
