@@ -56,20 +56,16 @@ size_t DESolution::size() const
 void DESolution::setup(DESolutionBounds const& solutionBounds)
 {
     mData.resize(solutionBounds.size());    // on redimensionne le vecteur avec la taille de donne
-    randomize(solutionBounds);
 }
 
 void DESolution::randomize(DESolutionBounds const & solutionBounds)
 {
-    if(solutionBounds.solutionBounds().size()!=0 && solutionBounds.solutionBounds().size() == mData.size()){
+    if(solutionBounds.solutionBounds().size()!=0 && solutionBounds.solutionBounds().size() == mData.size()) {
 
-        int i{};
-
-        for (Interval const &interval : solutionBounds.solutionBounds()) {
-    
-            mData[i] = interval.randomize();
-            ++i;
-        }
+        for (int i{}; i < solutionBounds.solutionBounds().size(); ++i) {    //boucle for pour parcourir les intervalles dans solutionBounds
+            
+            mData[i] = solutionBounds.solutionBounds()[i].randomize();  //[i] permet d'acceder a l'intervalle voulue pour ensuite generer une valeur aleatoire
+        }                                                               //cette valeur est ensuite assigne a la position correspondate dans mData
     }
 }
 
@@ -113,6 +109,9 @@ DESolution DESolution::operator-() const
 
 DESolution DESolution::operator*(double rhs) const
 {
+    DESolution sol;
+
+    
 
 
     return DESolution();
