@@ -184,7 +184,7 @@ size_t DifferentialEvolution::randomize() const
 {
 	std::default_random_engine generator; //
 	//fonction de densite
-	std::uniform_real_distribution<size_t> distribution(0,mPopulation.size());	//
+	std::uniform_int_distribution<size_t> distribution(0,mPopulation.size());	//
 	return distribution(generator);
 }
 

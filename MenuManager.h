@@ -19,17 +19,28 @@ class MenuManager
 	
 	enum MenuOptions {
 
-		ExitProgram = 8,
-		UpOneLevel = 7,
+		eExitProgram = 8,
+		eUpOneLevel = 7,
 
-		MainMenu = 0,
-		OpenBoxSolver = 1,
-		ThreePeaks = 2,
-		FactoryProblem = 3,
+		//Main menu options
+		eMainMenu = 0,
+		eOpenBoxSolver = 1,
+		eThreePeaks = 2,
+		eFactoryProblem = 3,
 
-		Solve = 1,
-		Continue = 32
+		//Sub menus options
+		eSolve = 1,
+		eContinue = 32
 
+	};
+
+	// The only reason I do not drive my menu items with equations (true parametry) is because of the console limitations.
+	// I wanted to avoid awkward spacing that could be provoked by a rounded number since the height (y axis) spaces
+	// are really noticeable. I made this choice for design purposes only.
+	enum MenuItemsXY {
+		eLeftToRightX = 3,
+		eMenuListYStart = 6,
+		eMenuListYSpacing = 2,
 	};
 
 public:
@@ -55,6 +66,9 @@ public:
 
 
 
+//QUESTIONS PROF
+//enumerations accessibles meme sans le identifier?
+//
 
 
 

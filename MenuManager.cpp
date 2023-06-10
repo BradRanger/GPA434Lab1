@@ -46,34 +46,34 @@ void MenuManager::mainMenu()
 	std::string threePeaks = "2. Three Peaks Solver.";
 	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
 
-	mImages[MenuOptions::MainMenu].textH(3, 6, openBox);
-	mImages[MenuOptions::MainMenu].textH(3, 8, threePeaks);
-	mImages[MenuOptions::MainMenu].textH(3, 10, prodOpti);
+	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
+	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing), threePeaks);
+	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*2), prodOpti);
 
-	size_t keyHit{ MenuOptions::MainMenu };
+	size_t keyHit{ eMainMenu };
 	//question enumeration
 	
 	
 	do {
-		consoleManager(mImages[MenuOptions::MainMenu]);
+		consoleManager(mImages[eMainMenu]);
 		keyHit = _getch();
 
 		switch (keyHit) {
 		
-		case MenuOptions::OpenBoxSolver:
-			subMenus(MenuOptions::OpenBoxSolver);
+		case eOpenBoxSolver:
+			subMenus(eOpenBoxSolver);
 			break;
 
-		case MenuOptions::ThreePeaks:
-			subMenus(MenuOptions::ThreePeaks);
+		case eThreePeaks:
+			subMenus(eThreePeaks);
 			break;
 
-		case MenuOptions::FactoryProblem:
-			subMenus(MenuOptions::FactoryProblem);
+		case eFactoryProblem:
+			subMenus(eFactoryProblem);
 			break;
 
-		case MenuOptions::ExitProgram:
-			subMenus(MenuOptions::FactoryProblem);
+		case eExitProgram:
+			exit(EXIT_SUCCESS);
 			break;
 
 
@@ -85,31 +85,42 @@ void MenuManager::mainMenu()
 
 void MenuManager::subMenus(size_t frameNumber)
 {
-	size_t keyHit{ MenuOptions::MainMenu };
+	size_t keyHit{ eMainMenu };
+	OpenBoxSolver boxSolver;
+	PeaksSolver peaksSolver;
+	FactoryProductionSolver productionSolver;
 
 	switch (keyHit) {
 
-		case MenuOptions::MainMenu:
-			
+
+		case eOpenBoxSolver:
+			mImages[eOpenBoxSolver].textH(eLeftToRightX,eMenuListYStart,boxSolver.problemPresentation()); 
+			boxSolver.solutionPresentation();
 			break;
 
-		case MenuOptions::OpenBoxSolver:
+		case eThreePeaks:
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
 
 			break;
 
-		case MenuOptions::ThreePeaks:
+		case eFactoryProblem:
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
 
 			break;
 
-		case MenuOptions::FactoryProblem:
+		case eUpOneLevel:
+			mainMenu();
+			break;
 
+		case eExitProgram:
+			exit(EXIT_SUCCESS);
 			break;
 
 
 	
 
 
-} while (keyHit);
+	} while (keyHit < 1||keyHit < 10);
 
 
 }
