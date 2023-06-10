@@ -46,30 +46,35 @@ void MenuManager::mainMenu()
 	std::string threePeaks = "2. Three Peaks Solver.";
 	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
 
-	mImages[0].textH(3, 6, openBox);
-	mImages[0].textH(3, 8, threePeaks);
-	mImages[0].textH(3, 10, prodOpti);
+	mImages[MenuOptions::MainMenu].textH(3, 6, openBox);
+	mImages[MenuOptions::MainMenu].textH(3, 8, threePeaks);
+	mImages[MenuOptions::MainMenu].textH(3, 10, prodOpti);
 
-	size_t keyHit{ 0 };
+	size_t keyHit{ MenuOptions::MainMenu };
 	//question enumeration
 	
 	
 	do {
-		consoleManager(mImages[0]);
+		consoleManager(mImages[MenuOptions::MainMenu]);
 		keyHit = _getch();
 
 		switch (keyHit) {
 		
-		case 1:
-			subMenus(1);
-			break;
-		case 2:
-			subMenus(2);
-			break;
-		case 3:
-			subMenus(3);
+		case MenuOptions::OpenBoxSolver:
+			subMenus(MenuOptions::OpenBoxSolver);
 			break;
 
+		case MenuOptions::ThreePeaks:
+			subMenus(MenuOptions::ThreePeaks);
+			break;
+
+		case MenuOptions::FactoryProblem:
+			subMenus(MenuOptions::FactoryProblem);
+			break;
+
+		case MenuOptions::ExitProgram:
+			subMenus(MenuOptions::FactoryProblem);
+			break;
 
 
 		}
@@ -80,7 +85,33 @@ void MenuManager::mainMenu()
 
 void MenuManager::subMenus(size_t frameNumber)
 {
+	size_t keyHit{ MenuOptions::MainMenu };
+
+	switch (keyHit) {
+
+		case MenuOptions::MainMenu:
+			
+			break;
+
+		case MenuOptions::OpenBoxSolver:
+
+			break;
+
+		case MenuOptions::ThreePeaks:
+
+			break;
+
+		case MenuOptions::FactoryProblem:
+
+			break;
+
+
 	
+
+
+} while (keyHit);
+
+
 }
 
 

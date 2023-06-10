@@ -11,12 +11,26 @@
 #include "StringImage.h"
 
 
-
 class MenuManager 
 {
 	size_t mResizeX;
 	size_t mResizeY;
 	std::vector<StringImage> mImages;
+	
+	enum MenuOptions {
+
+		ExitProgram = 8,
+		UpOneLevel = 7,
+
+		MainMenu = 0,
+		OpenBoxSolver = 1,
+		ThreePeaks = 2,
+		FactoryProblem = 3,
+
+		Solve = 1,
+		Continue = 32
+
+	};
 
 public:
 
