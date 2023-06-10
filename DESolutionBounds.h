@@ -18,6 +18,7 @@ public:
 	std::vector<Interval> solutionBounds() const; 
 	size_t size() const; //retourne le nombre d'intervalles
 
+
 	
 };
 

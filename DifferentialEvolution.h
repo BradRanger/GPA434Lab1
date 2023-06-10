@@ -40,6 +40,9 @@ public:
 	bool evolveOne();
 	bool evolve();
 
+	size_t DifferentialEvolution::randomize() const;
+
+
 };
 
 #endif

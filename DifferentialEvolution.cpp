@@ -140,9 +140,8 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 
 void DifferentialEvolution::processMutation()
 {
-	//	Dans ce code on veut 1: parcourir toutes les solutions de la population
+	for (size_t p{}; p < mPopulation.size(); ++p) {//Dans ce code on veut parcourir toutes les solutions de la population
 
-	for (size_t p{}; p < mPopulation.size(); ++p) {				//pour chaque solution p, on sol
 
 		size_t s1, s2, s3;	//3 solutions distinctes
 		mSamplingTool.prepare(mPopulation.size());
@@ -154,6 +153,22 @@ void DifferentialEvolution::processMutation()
 
 void DifferentialEvolution::processCrossover()
 {
+
+	for (size_t p{}; p < mPopulation.size(); ++p) {	//prend la taille de la population
+
+		size_t R = randomize();	//genere valeur aleatoire a R
+
+		for(size_t i{}; i < mPopulation[p].size(); ++i) {	//
+
+			if(i==R || randomize() < mParameters.getCR()) {
+
+				mTrial[p] = mMutant[p];
+			}
+			else {
+				mTrial[p] = mPopulation[p];
+			}
+		}
+	}
 }
 
 void DifferentialEvolution::processSelection()
@@ -163,3 +178,12 @@ void DifferentialEvolution::processSelection()
 void DifferentialEvolution::processStatistics()
 {
 }
+
+size_t DifferentialEvolution::randomize() const
+{
+	std::default_random_engine generator; //
+	//fonction de densite
+	std::uniform_real_distribution<size_t> distribution(0,mPopulation.size());	//
+	return distribution(generator);
+}
+
