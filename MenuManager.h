@@ -13,11 +13,6 @@
 
 
 class MenuManager 
-
-	: public OpenBoxSolver,
-	public PeaksSolver,
-	public FactoryProductionSolver
-
 {
 	size_t mResizeX;
 	size_t mResizeY;
@@ -35,8 +30,11 @@ public:
 
 	void setNbImages(size_t nbImages);
 	void mainMenu();
+	void subMenus(size_t frameNumber);
 	void addMenuTrims(size_t widthX, size_t heightY);
 	void imageErrorHandling(size_t nbImages);
+
+	void consoleManager(StringImage frame);
 	StringImage& operator[](size_t index);
 
 };

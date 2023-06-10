@@ -35,7 +35,6 @@ public:
 	void fill();
 
 	void write(size_t x, size_t y, char pixelChar);
-	void erase(size_t x, size_t y);
 
 	bool isValid(size_t x, size_t y);
 	void drawHLine(size_t x, size_t y, size_t length);
@@ -48,6 +47,8 @@ public:
 	void CenteredTopTitle(size_t resizeX, size_t outerRectOriginY, std::string title);
 
 	void drawRect(size_t x1, size_t y1, size_t x2, size_t y2);
+
+	void erase(size_t x, size_t y);
 
 
 private:

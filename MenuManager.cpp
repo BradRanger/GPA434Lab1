@@ -6,6 +6,7 @@ MenuManager::MenuManager()
 	:mImages{},
 	mResizeX{},
 	mResizeY{}
+
 {
 }
 
@@ -23,6 +24,7 @@ MenuManager::MenuManager(size_t nbImages, size_t widthX, size_t heightY)
 		mImages[i].resize(widthX, heightY);
 	}
 	addMenuTrims(widthX, heightY);
+	mainMenu();
 }
 
 MenuManager::~MenuManager()
@@ -45,12 +47,40 @@ void MenuManager::mainMenu()
 	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
 
 	mImages[0].textH(3, 6, openBox);
-	mImages[0].textH(3, 8, threePeaks); 
+	mImages[0].textH(3, 8, threePeaks);
 	mImages[0].textH(3, 10, prodOpti);
-	mImages[1].textH(5, 5, OpenBoxSolver::problemPresentation());
-	mImages[2].textH(5, 5, PeaksSolver::problemPresentation());
-	mImages[3].textH(5, 5, FactoryProductionSolver::problemPresentation());
 
+	size_t keyHit{ 0 };
+	//question enumeration
+	
+	
+	do {
+		consoleManager(mImages[0]);
+		keyHit = _getch();
+
+		switch (keyHit) {
+		
+		case 1:
+			subMenus(1);
+			break;
+		case 2:
+			subMenus(2);
+			break;
+		case 3:
+			subMenus(3);
+			break;
+
+
+
+		}
+
+
+	} while (keyHit < 1 || keyHit < 4);
+}
+
+void MenuManager::subMenus(size_t frameNumber)
+{
+	
 }
 
 
@@ -61,6 +91,7 @@ void MenuManager::addMenuTrims(size_t widthX, size_t heightY)
 	std::string topTitle = "Differential Evolution";
 
 	mImages[0].CenteredTopTitle(mResizeX, outerRectOriginY, topTitle);
+	
 	for (size_t i{ 0 }; i < mImages.size(); i++) {
 
 		mImages[i].drawRect(outerRectOriginX, outerRectOriginY, mResizeX - 1, mResizeY - 1);
@@ -74,11 +105,16 @@ void MenuManager::addMenuTrims(size_t widthX, size_t heightY)
 
 void MenuManager::imageErrorHandling(size_t nbImages)
 {
-	if (nbImages < 1 || nbImages > 100) {
+	if (nbImages < 10 || nbImages > 100) {
 		std::cout << "invalid number of images size";
 		exit(EXIT_FAILURE);
 	}
 
+}
+
+void MenuManager::consoleManager(StringImage frame)
+{
+	std::cout<<frame.toString();
 }
 
 StringImage& MenuManager::operator[](size_t index)
