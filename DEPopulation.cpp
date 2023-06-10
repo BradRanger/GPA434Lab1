@@ -10,7 +10,7 @@ DEPopulation::~DEPopulation()
 {
 }
 
-const std::vector<DESolution>& DEPopulation::getSolutions() const
+std::vector<DESolution>& DEPopulation::getSolutions()
 {
 	return mSolutions;
 }
@@ -50,8 +50,9 @@ DESolution& DEPopulation::operator[](size_t index)
 	return mSolutions[index];
 }
 
-
-//DESolution& const DEPopulation::operator[](size_t index)
-//{
-//	return mSolutions[index];
-//}
+/*
+DESolution& const DEPopulation::operator[](size_t index) const
+{
+	return mSolutions[index];
+}
+*/

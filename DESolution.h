@@ -21,7 +21,7 @@ public:
 	~DESolution();
 
 	//accesseurs
-	const std::vector<double>& getData() const; //old: std::vector<double> Data()
+	std::vector<double>& getData(); //pas de const puisque on veut acceder aux mutateurs
 	double getObjective() const; //old: double objective()
 	double getFitness() const;	//old: double fitness()
 	
@@ -36,7 +36,7 @@ public:
 
 
 
-	/*********************section operateur*********************************/
+	/*********************section operateur*********************************/ 
 
 	bool operator==(DESolution const& rhs);
 	bool operator!=(DESolution const& rhs);
@@ -46,15 +46,16 @@ public:
 
 	DESolution operator-() const;	//operateur pour changement de signe d'un objet
 
-
 	DESolution operator*(double rhs) const;	//multiplication entre un objet DESolution et un scalaire 
 	DESolution operator/(double rhs) const;	//division entre un objet DESolution et un scalaire
-
 
 	DESolution& operator+=(DESolution const& rhs); //addition composée (+=) entre deux objets
 	DESolution& operator-=(DESolution const& rhs); //soustraction composée (-=) entre deux objets
 	DESolution& operator*=(double rhs);			   //Multiplication composée (*=) par un scalaire double
 	DESolution& operator/=(double rhs);			   //division composée (/=) par un scalaire double
+
+
+	//a voir si il faut des operateurs a l'exterieur de la classe
 };
 
 #endif

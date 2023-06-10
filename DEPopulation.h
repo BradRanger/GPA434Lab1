@@ -18,11 +18,10 @@ public:
 
 
 	//accesseurs
-	const std::vector<DESolution>& getSolutions() const;
+	std::vector<DESolution>& getSolutions();
 
 	//mutateurs
 	void setSolutions(const std::vector<DESolution>& solutions);
-	
 	size_t size() const;
 	void setup(size_t populationSize, DESolutionBounds const& solutionBounds); //passe a travers toutes les solutions et fait setup a travers chacune des solutions
 	void randomize(DESolutionBounds const & solutionBounds);
@@ -31,7 +30,7 @@ public:
 
 
 	DESolution& operator[](size_t index);
-	//DESolution& const operator[](size_t index);
+	//DESolution& const operator[](size_t index) const;
 
 };
 

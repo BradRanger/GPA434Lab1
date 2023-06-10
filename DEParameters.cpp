@@ -21,6 +21,11 @@ DEParameters::~DEParameters()
 
 bool DEParameters::isReady() const
 {
+	//Verifie que les parametres necessaires ont ete definis
+	if (getPopulationSize() == 0 ||getF() < 0 || getF() > 2 ||getCR() < 0 ||getCR() > 1 || getMaxGenerationCount() == 0) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -74,7 +79,7 @@ size_t DEParameters::getMaxGenerationCount() const
 	return mMaxGenerationCount;
 }
 
-void DEParameters::setSolutionBounds(const DESolutionBounds& solutionBounds)
+void DEParameters::setSolutionBounds(DESolutionBounds& solutionBounds)
 {
 	mSolutionBounds = solutionBounds;
 }

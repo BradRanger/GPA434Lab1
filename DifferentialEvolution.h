@@ -11,7 +11,7 @@ class DifferentialEvolution{
 
 private:
 
-	DEParameters mParameters;		//
+	DEParameters mParameters;	//
 	DEPopulation mPopulation;	// vecteur x
 	DEPopulation mMutant;		// vecteur m
 	DEPopulation mTrial;		// vecteur t

@@ -18,7 +18,7 @@ DESolution::~DESolution()
 {
 }
 
-const std::vector<double>& DESolution::getData() const
+std::vector<double>& DESolution::getData()
 {
     return mData;
 }
@@ -82,7 +82,7 @@ bool DESolution::operator!=(DESolution const& rhs)
 DESolution DESolution::operator+(DESolution rhs) const
 {
     for (size_t i = 0; i < mData.size(); ++i) {
-        rhs.mData[i] += mData[i];
+        rhs.mData[i] += mData[i];       //mData = {12; 12} {12; 121}
     }
     return rhs;
 }
@@ -108,15 +108,18 @@ DESolution DESolution::operator-() const
 
 DESolution DESolution::operator*(double rhs) const
 {
-    DESolution sol;
+    DESolution sol;                      //crée une nouvelle instance de la classe DESolution appelée sol      
 
-    sol.mData.resize(mData.size());
+   sol.mData.resize(mData.size());      //redimensionne sol avec la meme taille du vecteur mData
 
-    for (size_t i{ 0 }; i < mData.size(); ++i) {
-        sol.mData[i] = mData[i] * rhs;
+    for (size_t i{ 0 }; i < mData.size(); ++i) {    //i represente l'index de couple
+
+        sol.mData[i] = mData[i] * rhs;  //mData[i] accède à l'élément à l'index i dans le vecteur mData de l'objet courant (*this).
+                                        //mData[i] * rhs multiplie l'élément mData[i] par le scalaire rhs.
+                                        //sol.mData[i] affecte le résultat de la multiplication à l'élément correspondant dans le vecteur mData de l'objet sol.
     }
 
-    return sol;
+    return sol;                         //renvoie une copie de l'objet sol contenant les résultats de la multiplication.
 }
 
 DESolution DESolution::operator/(double rhs) const
@@ -134,11 +137,6 @@ DESolution DESolution::operator/(double rhs) const
 
 DESolution& DESolution::operator+=(DESolution const& rhs)
 {
-    /*  //valider si les vecteurs sont de meme taille?
-    if (mData.size() != rhs.mData.size()) {
-    }
-    */
-
     for (size_t i = 0; i < mData.size(); ++i) {
         mData[i] += rhs.mData[i];
     }

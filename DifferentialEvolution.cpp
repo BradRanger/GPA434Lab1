@@ -18,16 +18,10 @@ DifferentialEvolution::~DifferentialEvolution()
 
 bool DifferentialEvolution::isReady() const
 {
-
-	//Verifie que les parametres necessaires ont ete definis
-	if (mParameters.getPopulationSize() == 0 || 
-		mParameters.getMaxGenerationCount() == 0 || 
-		mParameters.getF() <= 0 || 
-		mParameters.getCR() < 0 || 
-		mParameters.getCR() > 1) {
+	if (!mParameters.isReady()) {
 		return false;
 	}
-
+	
 	// Vérifie que mPopulation, mMutant et mTrial ont la bonne taille
 	if (mPopulation.size() != mParameters.getPopulationSize() 
 		|| mMutant.size() != mParameters.getPopulationSize() 
@@ -128,38 +122,33 @@ bool DifferentialEvolution::evolve()
 			return false;
 		}
 	}
-
 	return true;
 }
 
-
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
+	std::vector<DESolution>& solution = population.getSolutions();
 
-	for (size_t i{}; i < population.size(); ++i) {
-
-		DESolution& solution = population[i];
+	for (size_t i{}; i < solution.size(); ++i) { //parcour toutes les solutions de la populations
 
 		// Calcule la valeur de fitness pour la solution presente
-		double fitness = mParameters.getObjFunc(solution);
-
-		// met la valeur actuel de fitness dans l'objet solution
-		solution.setFitness(fitness);
+		double fitness = mParameters.getObjFunc(population.getSolutions()[i]);
+		
+		solution[i].setFitness(fitness);	////vecteur desolution ne peut pas etre const car on veut pouvoir utiliser les fonctions set pour le modifier; ***a modifier 
 	}
 }
 
 void DifferentialEvolution::processMutation()
 {
-	for (size_t i{}; i < mPopulation.size(); ++i) {
+	//	Dans ce code on veut 1: parcourir toutes les solutions de la population
 
-		size_t s1, s2, s3;
-		
-		mSamplingTool.select(i, s1, s2, s3);
+	for (size_t p{}; p < mPopulation.size(); ++p) {				//pour chaque solution p, on sol
 
-		for (size_t i{}; i < mPopulation[i].size(); ++i) {
-			//double valeurMutante = mPopulation[s1][i] + mParameters.getF() * (mPopulation[s2][i] - mPopulation[s3][i]);
+		size_t s1, s2, s3;	//3 solutions distinctes
+		mSamplingTool.prepare(mPopulation.size());
+		mSamplingTool.select(p, s1, s2, s3);
 
-		}
+		mMutant[p] = mPopulation[s1] + (mPopulation[s2] - mPopulation[s3]) * mParameters.getF();
 	}
 }
 

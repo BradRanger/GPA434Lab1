@@ -47,7 +47,7 @@ public:
 	size_t getMaxGenerationCount() const;
 
 	//pour pouvoir acceder à mSolutionBounds
-	void setSolutionBounds(const DESolutionBounds& solutionBounds);		
+	void setSolutionBounds(DESolutionBounds& solutionBounds);		
 	DESolutionBounds getSolutionBounds() const;
 
 	void setObjFunc(double (*objFunc)(const DESolution&));
