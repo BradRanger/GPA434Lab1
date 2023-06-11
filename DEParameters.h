@@ -27,7 +27,6 @@ private:
 	double (*mFitnessFunc)(double);
 
 public:
-
 	DEParameters();
 	~DEParameters();
 

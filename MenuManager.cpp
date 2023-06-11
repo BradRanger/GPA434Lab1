@@ -100,13 +100,13 @@ void MenuManager::mainMenu()
 
 void MenuManager::subMenus(size_t frameNumber)
 {
-	std::system("cls");
 	OpenBoxSolver boxSolver;
 	PeaksSolver peaksSolver;
 	FactoryProductionSolver productionSolver;
-
+	std::string getFText{"Veuillez entrer une valeur pour F (poids differentiel) comprise entre [0.0 ; 2.2]."};
+	std::string getCRText{"Veuillez entrer une valeur pour CR (probalite de croisement) comprise entre [0.0 ; 2.2]."};
 	
-	
+	double parametersFetch{};
 	size_t keyHit{ eMainMenu };
 
 		switch (frameNumber) {
@@ -115,8 +115,14 @@ void MenuManager::subMenus(size_t frameNumber)
 		case eOpenBoxSolver:
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, boxSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
-			boxSolver.solutionPresentation();
-			keyHit = _getch();
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5, getFText );
+			std::cin >> parametersFetch;
+			boxSolver.setCR(parametersFetch);
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7, getCRText );
+			consoleManager(mImages[eOpenBoxSolver]);
+			std::cin >> parametersFetch;
+			boxSolver.setF(parametersFetch);
+
 			break;
 
 		case eThreePeaks:

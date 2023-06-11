@@ -46,3 +46,15 @@ std::string OpenBoxSolver::solutionPresentation()
 {
 	return std::string();
 }
+
+void OpenBoxSolver::setCR(double CR)
+{
+	mDEEngine.setCR(CR);
+}
+
+void OpenBoxSolver::setF(double F)
+{
+	mDEEngine.setF(F);
+
+}
+

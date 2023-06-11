@@ -30,7 +30,6 @@ private:
 
 public:
 
-
 	DifferentialEvolution();
 	~DifferentialEvolution();
 
@@ -39,6 +38,8 @@ public:
 	void reset();
 	bool evolveOne();
 	bool evolve();
+	void setCR(double CR);
+	void setF(double F);
 
 	size_t DifferentialEvolution::randomize() const;
 
