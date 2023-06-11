@@ -174,6 +174,12 @@ void DifferentialEvolution::processCrossover()
 
 void DifferentialEvolution::processSelection()
 {
+	for (size_t p = 0; p < mPopulation.size(); ++p) {		//parcours toutes les solution de la population courante
+
+		if (mParameters.getFitnessFunc(mTrial[p].getFitness()) >= mParameters.getFitnessFunc(mPopulation[p].getFitness())) { //compare chaque solution fitness de mTrial a celui de mPopulation
+			mPopulation[p] = mTrial[p];
+		}
+	}
 }
 
 void DifferentialEvolution::processStatistics()
