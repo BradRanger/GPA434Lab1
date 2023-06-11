@@ -15,7 +15,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 
 std::string OpenBoxSolver::problemPresentation()
 {
-	return "According to a quick google search, the open box problemgvfkkuyfvbsaieuybovawretybyrnyrtvvysrbdfhdfghieyrvoawiybvoafgkabdjvftgkasuebvtwaevaw...";
+	return "According to a quick google search";
 }
 
 std::string OpenBoxSolver::solutionPresentation()

@@ -23,10 +23,11 @@ class MenuManager
 		eUpOneLevel = 7,
 
 		//Main menu options
-		eMainMenu = 0,
-		eOpenBoxSolver = 1,
-		eThreePeaks = 2,
-		eFactoryProblem = 3,
+		eSplashScreen = 0,
+		eMainMenu = 1,
+		eOpenBoxSolver = 2,
+		eThreePeaks = 3,
+		eFactoryProblem = 4,
 
 		//Sub menus options
 		eSolve = 1,

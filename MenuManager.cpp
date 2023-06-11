@@ -44,41 +44,54 @@ void MenuManager::mainMenu()
 	std::string openBox = "1. Open Box Solver.";
 	std::string threePeaks = "2. Three Peaks Solver.";
 	std::string prodOpti = "3. Production Optimisation for a Manufacture.";
+	std::string quit = "8. Exit Program.";
+	std::string upOneLevel = "7. Up One Level.";
 
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart,    "Dans le cadre du cours de GPA-434, l'equipe composee des membres Guillaume Bourgeois et Jacob Curiel-Garfias");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+1,  "ont assemble et programme le code permettant d'utiliser un engin d'évolution differentielle. Dans sa presente");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3,  "mathematiques differentes.");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16, "Press the any key.");
 	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
 	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing), threePeaks);
 	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*2), prodOpti);
+	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*4), upOneLevel);
+	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*5), quit);
 
 	size_t keyHit{ eMainMenu };
 	//question enumeration
 	
 	
 
+	consoleManager(mImages[eSplashScreen]);
+	keyHit = _getch();
 	consoleManager(mImages[eMainMenu]);
 	keyHit = _getch();
 
 
 	switch (keyHit) {
 		
-		case eOpenBoxSolver+ eASCIIConversion:
+
+		case eOpenBoxSolver+ eASCIIConversion-1:
 			std::system("cls");
 			subMenus(eOpenBoxSolver);
 			break;
 
-		case eThreePeaks+ eASCIIConversion:
+		case eThreePeaks+ eASCIIConversion-1:
 			subMenus(eThreePeaks);
 			break;
 
-		case eFactoryProblem+ eASCIIConversion:
+		case eFactoryProblem+ eASCIIConversion-1: 
 			subMenus(eFactoryProblem);
 			break;
 
-		case eExitProgram+ eASCIIConversion:
+		case eExitProgram+ eASCIIConversion-1:
 			exit(EXIT_SUCCESS);
 			break;
 
-		default:
-			consoleManager(mImages[eMainMenu]);
+		//default:
+		//	consoleManager(mImages[eMainMenu]);
+		//	keyHit = _getch();
 
 	}
 
@@ -94,6 +107,7 @@ void MenuManager::subMenus(size_t frameNumber)
 
 	
 	
+	size_t keyHit{ eMainMenu };
 
 		switch (frameNumber) {
 
@@ -102,17 +116,21 @@ void MenuManager::subMenus(size_t frameNumber)
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, boxSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
 			boxSolver.solutionPresentation();
-			_getch();
+			keyHit = _getch();
 			break;
 
 		case eThreePeaks:
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
-
+			consoleManager(mImages[eOpenBoxSolver]);
+			boxSolver.solutionPresentation();
+			keyHit = _getch();
 			break;
 
 		case eFactoryProblem:
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
-
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, productionSolver.problemPresentation());
+			consoleManager(mImages[eOpenBoxSolver]);
+			boxSolver.solutionPresentation();
+			keyHit = _getch();
 			break;
 
 		case eUpOneLevel:

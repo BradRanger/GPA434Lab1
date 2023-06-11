@@ -160,34 +160,14 @@ void StringImage::drawVThckLine(size_t x, size_t y, size_t length)
 void StringImage::textH(size_t x, size_t y, std::string text)
 {
 
-	size_t lineLength{ 60 };
+	size_t lineLength{200};
 
-	if (text.size() < 1){
-		exit(EXIT_FAILURE);
-	}
-
-	if( text.size()<= lineLength){
-		for (int i = 0; i < text.length(); i++) {
-			write(x + i, y, text.at(i));
-		}
-	}
-
-	if(text.size() > lineLength){
-	std::vector<std::string> dividedString;
-
-	size_t stringCursor{};
-	size_t nbOfRows{ 1 };
-
-	nbOfRows = std::ceil(text.size() / lineLength);
-
-	dividedString.resize(nbOfRows);
-
-	for (size_t i{}; i < nbOfRows; ++i) {
-		dividedString[i] = text.substr(0, lineLength);
-		textH(x, y, dividedString[i]);
-
-	}
-
+	//if (text.size() < 1){
+	//	std::cout << "invalid string size";
+	//	exit(EXIT_FAILURE);
+	//}
+	for (size_t i{}; i < text.length(); i++) {
+		StringImage::write(x + i, y, text.at(i));
 	}
 
 }
