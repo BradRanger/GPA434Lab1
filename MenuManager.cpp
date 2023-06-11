@@ -73,7 +73,6 @@ void MenuManager::mainMenu()
 		
 
 		case eOpenBoxSolver+ eASCIIConversion-1:
-			std::system("cls");
 			subMenus(eOpenBoxSolver);
 			break;
 
@@ -101,6 +100,7 @@ void MenuManager::mainMenu()
 
 void MenuManager::subMenus(size_t frameNumber)
 {
+	std::system("cls");
 	OpenBoxSolver boxSolver;
 	PeaksSolver peaksSolver;
 	FactoryProductionSolver productionSolver;
@@ -122,14 +122,14 @@ void MenuManager::subMenus(size_t frameNumber)
 		case eThreePeaks:
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
-			boxSolver.solutionPresentation();
+			peaksSolver.solutionPresentation();
 			keyHit = _getch();
 			break;
 
 		case eFactoryProblem:
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, productionSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
-			boxSolver.solutionPresentation();
+			productionSolver.solutionPresentation();
 			keyHit = _getch();
 			break;
 
