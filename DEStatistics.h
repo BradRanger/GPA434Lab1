@@ -2,12 +2,19 @@
 #ifndef DESTATISTICS_H
 #define DESTATISTICS_H
 #include "DESolution.h"
+#include "DifferentialEvolution.h"
 #include <vector>
+
+/*
+Cette classe est un conteneur d’informations. Elle contient un vecteur de DESolution de la taille du
+nombre de générations en cours où est stockée la meilleure solution de chaque génération. C’est l’historique
+d’évolution
+*/
 
 class DEStatistics {
 
 	std::vector<DESolution> mStatistics;
-
+	
 public:
 
 	DEStatistics();
