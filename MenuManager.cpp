@@ -1,7 +1,6 @@
 #include "menuManager.h"
 
 
-
 MenuManager::MenuManager()
 	:mImages{},
 	mResizeX{},
@@ -54,48 +53,56 @@ void MenuManager::mainMenu()
 	//question enumeration
 	
 	
-	do {
-		consoleManager(mImages[eMainMenu]);
-		keyHit = _getch();
 
-		switch (keyHit) {
+	consoleManager(mImages[eMainMenu]);
+	keyHit = _getch();
+
+
+	switch (keyHit) {
 		
-		case eOpenBoxSolver:
+		case eOpenBoxSolver+ eASCIIConversion:
+			std::system("cls");
 			subMenus(eOpenBoxSolver);
 			break;
 
-		case eThreePeaks:
+		case eThreePeaks+ eASCIIConversion:
 			subMenus(eThreePeaks);
 			break;
 
-		case eFactoryProblem:
+		case eFactoryProblem+ eASCIIConversion:
 			subMenus(eFactoryProblem);
 			break;
 
-		case eExitProgram:
+		case eExitProgram+ eASCIIConversion:
 			exit(EXIT_SUCCESS);
 			break;
 
+		default:
+			consoleManager(mImages[eMainMenu]);
 
-		}
+	}
 
 
-	} while (keyHit < 1 || keyHit < 4);
+	
 }
 
 void MenuManager::subMenus(size_t frameNumber)
 {
-	size_t keyHit{ eMainMenu };
 	OpenBoxSolver boxSolver;
 	PeaksSolver peaksSolver;
 	FactoryProductionSolver productionSolver;
 
-	switch (keyHit) {
+	
+	
+
+		switch (frameNumber) {
 
 
 		case eOpenBoxSolver:
-			mImages[eOpenBoxSolver].textH(eLeftToRightX,eMenuListYStart,boxSolver.problemPresentation()); 
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, boxSolver.problemPresentation());
+			consoleManager(mImages[eOpenBoxSolver]);
 			boxSolver.solutionPresentation();
+			_getch();
 			break;
 
 		case eThreePeaks:
@@ -117,10 +124,9 @@ void MenuManager::subMenus(size_t frameNumber)
 			break;
 
 
-	
+		}
 
 
-	} while (keyHit < 1||keyHit < 10);
 
 
 }

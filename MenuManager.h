@@ -30,7 +30,8 @@ class MenuManager
 
 		//Sub menus options
 		eSolve = 1,
-		eContinue = 32
+		eContinue = 32,
+		eASCIIConversion = 48
 
 	};
 
@@ -67,7 +68,7 @@ public:
 
 
 //QUESTIONS PROF
-//enumerations accessibles meme sans le identifier?
+//
 //
 
 

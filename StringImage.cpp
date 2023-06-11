@@ -108,6 +108,7 @@ size_t StringImage::index(size_t x, size_t y)
 {
 	return y * (mWidth + 1) + x;
 }
+
 bool StringImage::isValid(size_t x, size_t y)
 {
 	return x >= 0 && x < mWidth && y >= 0 && y < mHeight;
@@ -158,8 +159,35 @@ void StringImage::drawVThckLine(size_t x, size_t y, size_t length)
 
 void StringImage::textH(size_t x, size_t y, std::string text)
 {
-	for (int i = 0; i < text.length(); i++) {
-		StringImage::write(x + i, y, text.at(i));
+
+	size_t lineLength{ 60 };
+
+	if (text.size() < 1){
+		exit(EXIT_FAILURE);
+	}
+
+	if( text.size()<= lineLength){
+		for (int i = 0; i < text.length(); i++) {
+			write(x + i, y, text.at(i));
+		}
+	}
+
+	if(text.size() > lineLength){
+	std::vector<std::string> dividedString;
+
+	size_t stringCursor{};
+	size_t nbOfRows{ 1 };
+
+	nbOfRows = std::ceil(text.size() / lineLength);
+
+	dividedString.resize(nbOfRows);
+
+	for (size_t i{}; i < nbOfRows; ++i) {
+		dividedString[i] = text.substr(0, lineLength);
+		textH(x, y, dividedString[i]);
+
+	}
+
 	}
 
 }
@@ -182,7 +210,8 @@ void StringImage::CenteredTopTitle(size_t resizeX, size_t outerRectOriginY, std:
 
 void StringImage::drawRect(size_t x1, size_t y1, size_t x2, size_t y2)
 {
-
+	//since drawHLine works from left to right and drawVLine draws from top to bottom, I made it so that the starting points 
+	//for the line origins were easier for me to understand when creating the rectangle pattern.
 	size_t sx = 0; //start x
 	if (x1 <= x2) {
 
@@ -243,7 +272,4 @@ void StringImage::drawRect(size_t x1, size_t y1, size_t x2, size_t y2)
 
 
 }
-//Draws a Microsoft Word like table. 
-// x1 and y1 for starting pos
-//number of rows, length of rows, number of columns, height of columns
 
