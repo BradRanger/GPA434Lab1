@@ -30,6 +30,10 @@ private:
 
 public:
 
+	friend class DEStatistics;
+
+
+
 	DifferentialEvolution();
 	~DifferentialEvolution();
 

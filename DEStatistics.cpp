@@ -9,10 +9,21 @@ DEStatistics::~DEStatistics()
 {
 }
 
+std::vector<DESolution>& DEStatistics::getStatistics()
+{
+	return mStatistics;
+}
+
+
 void DEStatistics::add(DESolution& solution)
 {
-	mStatistics.push_back(solution);	//
+	//DifferentialEvolution evo;
+	//mStatistics.resize(evo.mCurrentGeneration);
+
+	mStatistics.push_back(solution);
+
 }
+
 
 void DEStatistics::reset()
 {
@@ -23,3 +34,9 @@ bool DEStatistics::isEmpty() const
 {
 	return mStatistics.empty();	//retourne true si mStatistics est vide
 }
+
+DESolution& DEStatistics::operator[](size_t index)
+{
+	return mStatistics[index];
+}
+

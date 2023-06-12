@@ -29,7 +29,7 @@ bool DifferentialEvolution::isReady() const
 		return false;
 	}
 
-	if (mCurrentGeneration != 0) {
+	if (mCurrentGeneration != 1) {
 		return false;
 	}
 
@@ -51,6 +51,12 @@ void DifferentialEvolution::setup(DEParameters const& parameters)
 	mPopulation.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());	
 	mTrial.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mMutant.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
+
+
+
+	//placer statistics ici ?
+
+
 }  
 
 void DifferentialEvolution::reset()
@@ -68,8 +74,8 @@ void DifferentialEvolution::reset()
 	mTrial.randomize(mParameters.getSolutionBounds());
 
 
-	// Réinitialisez la génération actuelle
-	mCurrentGeneration = 0;
+	// Réinitialisez génération
+	mCurrentGeneration = 1;
 
 	// Réinitialisez les statistiques
 	mStatistics.reset();
@@ -116,7 +122,7 @@ bool DifferentialEvolution::evolve()
 		return false;
 	}
 
-	for (size_t i{}; i < mParameters.getMaxGenerationCount(); ++i ) {
+	for (size_t i{}; i < mParameters.getMaxGenerationCount(); ++i ) { //
 
 		if (!evolveOne()) {
 			return false;
@@ -144,14 +150,13 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 		// Calcule la valeur de fitness pour la solution presente
 		double fitness = mParameters.getObjFunc(population.getSolutions()[i]);
 		
-		solution[i].setFitness(fitness);	////vecteur desolution ne peut pas etre const car on veut pouvoir utiliser les fonctions set pour le modifier; ***a modifier 
+		solution[i].setFitness(fitness);	
 	}
 }
 
 void DifferentialEvolution::processMutation()
 {
 	for (size_t p{}; p < mPopulation.size(); ++p) {//Dans ce code on veut parcourir toutes les solutions de la population
-
 
 		size_t s1, s2, s3;	//3 solutions distinctes
 		mSamplingTool.prepare(mPopulation.size());
@@ -194,13 +199,18 @@ void DifferentialEvolution::processSelection()
 
 void DifferentialEvolution::processStatistics()
 {
+	
+	mStatistics[mCurrentGeneration].
+
+
+
 }
 
 size_t DifferentialEvolution::randomize() const
 {
 	std::default_random_engine generator; //
 	//fonction de densite
-	std::uniform_int_distribution<size_t> distribution(0,mPopulation.size());	//
+	std::uniform_int_distribution<size_t> distribution(0,mPopulation.size());
 	return distribution(generator);
 }
 

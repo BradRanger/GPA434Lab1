@@ -16,6 +16,8 @@ public:
 	void solve(size_t populationSize, size_t generationCount, size_t realPrecision);
 	std::string problemPresentation();
 	std::string solutionPresentation();
+
+
 };
 
 

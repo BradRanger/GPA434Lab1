@@ -13,18 +13,31 @@ d’évolution
 
 class DEStatistics {
 
+private:
+
 	std::vector<DESolution> mStatistics;
 	
 public:
 
 	DEStatistics();
 	~DEStatistics();
-	void add(DESolution& solution);
-	void reset();
 
-	bool isEmpty() const;
+	//accesseurs
+	std::vector<DESolution>& getStatistics();
+
 	
 
+
+	void add(DESolution& solution);
+
+	//void setGenerationsize(size_t generationsize);
+	//size_t getGenerationsize() const;
+
+
+	void reset();
+	bool isEmpty() const;
+	
+	DESolution& operator[](size_t index);
 };
 
 #endif
