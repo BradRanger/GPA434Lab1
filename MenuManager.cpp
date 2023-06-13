@@ -52,7 +52,9 @@ void MenuManager::mainMenu()
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3,  "mathematiques differentes.");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16, "Press the any key.");
+
 	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
+
 	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing), threePeaks);
 	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*2), prodOpti);
 	mImages[eMainMenu].textH(eLeftToRightX, size_t(eMenuListYStart + eMenuListYSpacing*4), upOneLevel);

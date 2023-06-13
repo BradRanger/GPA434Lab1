@@ -8,6 +8,8 @@ class OpenBoxSolver {
 
 public:
 	
+	OpenBoxSolver();
+	~OpenBoxSolver();
 	void solve(size_t width, size_t height);
 	std::string problemPresentation();
 	std::string solutionPresentation();

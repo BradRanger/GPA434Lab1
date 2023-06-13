@@ -1,5 +1,13 @@
 #include "OpenBoxSolver.h"
 
+OpenBoxSolver::OpenBoxSolver()
+{
+}
+
+OpenBoxSolver::~OpenBoxSolver()
+{
+}
+
 void OpenBoxSolver::solve(size_t width, size_t height)
 {
 

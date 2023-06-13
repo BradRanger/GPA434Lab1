@@ -200,7 +200,7 @@ void DifferentialEvolution::processSelection()
 void DifferentialEvolution::processStatistics()
 {
 	
-	mStatistics[mCurrentGeneration].
+	//mStatistics[mCurrentGeneration].
 
 
 
