@@ -29,7 +29,7 @@ public:
 	void reset();
 	bool isEmpty() const;
 	
-
+	DESolution& operator[](size_t index);
 };
 
 #endif

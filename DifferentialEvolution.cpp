@@ -62,11 +62,6 @@ void DifferentialEvolution::setup(DEParameters const& parameters)
 	mTrial.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 	mMutant.setup(mParameters.getPopulationSize(), mParameters.getSolutionBounds());
 
-
-
-	//placer statistics ici ?
-
-
 }  
 
 void DifferentialEvolution::reset()
