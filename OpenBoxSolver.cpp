@@ -1,6 +1,7 @@
 #include "OpenBoxSolver.h"
 
 OpenBoxSolver::OpenBoxSolver()
+	:mDEEngine{}
 {
 }
 
@@ -12,12 +13,18 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 {
 
 	size_t x{ 1 };
-	size_t volume{ (width - (2 * x) * height - (2 * x))*x };
+	size_t volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
 
 
-	mDEEngine.evolve();
-	mDEEngine.evolveOne();
-	mDEEngine.isReady();
+
+	
+	
+
+	
+	
+	mDEEngine.isReady(); //verifier si on est pret a resoudre le probleme?
+	mDEEngine.evolve();	//resoudre le probleme
+
 }
 
 //
@@ -47,12 +54,12 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 //
 std::string OpenBoxSolver::problemPresentation()
 {
-	return "";
+	return "";		//text de presentation
 }
 
 std::string OpenBoxSolver::solutionPresentation()
 {
-	return std::string();
+	return std::string(); //text
 }
 
 void OpenBoxSolver::setCR(double CR)

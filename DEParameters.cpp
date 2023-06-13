@@ -36,7 +36,6 @@ void DEParameters::reset()
 	mF = 1.0; // Reset la constante F
 	mCR = 0.2; // Reset la constante CR
 	mMaxGenerationCount = 100; // Reset valeur par defaut
-
 }
 
 void DEParameters::setPopulationSize(size_t populationSize)

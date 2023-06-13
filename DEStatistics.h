@@ -2,6 +2,7 @@
 #ifndef DESTATISTICS_H
 #define DESTATISTICS_H
 #include "DESolution.h"
+#include "DifferentialEvolution.h"
 #include <vector>
 
 /*
@@ -24,19 +25,11 @@ public:
 	//accesseurs
 	std::vector<DESolution>& getStatistics();
 
-	
-
-
 	void add(DESolution& solution);
-
-	//void setGenerationsize(size_t generationsize);
-	//size_t getGenerationsize() const;
-
-
 	void reset();
 	bool isEmpty() const;
 	
-	//DESolution& operator[](size_t index);
+
 };
 
 #endif

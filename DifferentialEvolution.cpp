@@ -16,6 +16,16 @@ DifferentialEvolution::~DifferentialEvolution()
 {
 }
 
+DEParameters DifferentialEvolution::getParameters() const
+{
+	return mParameters;
+}
+
+size_t DifferentialEvolution::getCurrentGeneration() const
+{
+	return mCurrentGeneration;
+}
+
 bool DifferentialEvolution::isReady() const
 {
 	if (!mParameters.isReady()) {
@@ -75,7 +85,7 @@ void DifferentialEvolution::reset()
 
 
 	// Réinitialisez génération
-	mCurrentGeneration = 1;
+	mCurrentGeneration = 1;		//plus petit ou egal que
 
 	// Réinitialisez les statistiques
 	mStatistics.reset();
@@ -96,12 +106,14 @@ bool DifferentialEvolution::evolveOne()
 
 	//1) Évaluer la fitness de la population actuelle
 	processFitness(mPopulation);
-
+	
 	//2) Effectuer la mutation des vecteurs
 	processMutation();
 
 	//3) Effectuer le croisement des vecteurs mutants avec les vecteurs de la population actuelle
 	processCrossover();
+
+	processFitness(mTrial); //
 
 	//4) Sélectionner les meilleurs vecteurs parmi les vecteurs de mutation et les vecteurs de la population actuelle
 	processSelection();
@@ -146,14 +158,12 @@ void DifferentialEvolution::setF(double F)
 
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
-	std::vector<DESolution>& solution = population.getSolutions();
 
-	for (size_t i{}; i < solution.size(); ++i) { //parcour toutes les solutions de la populations
+	for (size_t i{}; i < population.size(); ++i) { //parcour toutes les solutions de la populations
 
 		// Calcule la valeur de fitness pour la solution presente
-		double fitness = mParameters.getObjFunc(population.getSolutions()[i]);
-		
-		solution[i].setFitness(fitness);	
+		population[i].setObjective(mParameters.getObjFunc(population[i])); //
+		population[i].setFitness(mParameters.getFitnessFunc(population[i].getObjective()));
 	}
 }
 
@@ -173,11 +183,11 @@ void DifferentialEvolution::processMutation()
 void DifferentialEvolution::processCrossover()
 {
 
-	for (size_t p{}; p < mPopulation.size(); ++p) {	//prend la taille de la population
+	for (size_t p{}; p < mPopulation.size(); ++p) {	//parcours toutes les populations
 
 		size_t R = randomize();	//genere valeur aleatoire a R
 
-		for(size_t i{}; i < mPopulation[p].size(); ++i) {	//
+		for(size_t i{}; i < mPopulation[p].size(); ++i) {	//on parcours les solution de la population courante
 
 			if(i==R || randomize() < mParameters.getCR()) {
 
@@ -194,7 +204,7 @@ void DifferentialEvolution::processSelection()
 {
 	for (size_t p = 0; p < mPopulation.size(); ++p) {		//parcours toutes les solution de la population courante
 
-		if (mParameters.getFitnessFunc(mTrial[p].getFitness()) >= mParameters.getFitnessFunc(mPopulation[p].getFitness())) { //compare chaque solution fitness de mTrial a celui de mPopulation
+		if (mTrial[p].getFitness() >= mPopulation[p].getFitness()) { //compare chaque solution fitness de mTrial a celui de mPopulation
 			mPopulation[p] = mTrial[p];
 		}
 	}
@@ -202,10 +212,21 @@ void DifferentialEvolution::processSelection()
 
 void DifferentialEvolution::processStatistics()
 {
+	DESolution sol{};
+	std::vector<double> val{};
 
-	//mStatistics.add();
+	for (size_t p{}; p < mPopulation.size(); ++p) {	//parcourir chacune des populations de la generation courante
 
+		for (size_t i = 0; i < mPopulation[p].size(); ++i) { //le i va nous permettre de parcourir chaque solutions de cette population
 
+			if (val[0] < mPopulation[p].getData()[i]) { //
+
+				val[0] = mPopulation[p].getData()[i]; //on garde une solution specifique i de la population p
+				sol.setData(val); //une fois l'analyse de toute les populations de la generation courante, on envoie la meilleur a mStatistics
+			}	
+		}
+	}
+	mStatistics.add(sol);
 }
 
 size_t DifferentialEvolution::randomize() const
@@ -215,4 +236,3 @@ size_t DifferentialEvolution::randomize() const
 	std::uniform_int_distribution<size_t> distribution(0,mPopulation.size());
 	return distribution(generator);
 }
-

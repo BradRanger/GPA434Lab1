@@ -30,12 +30,13 @@ private:
 
 public:
 
-	friend class DEStatistics;
-
-
-
 	DifferentialEvolution();
 	~DifferentialEvolution();
+
+	//accesseur
+	DEParameters getParameters() const;
+	size_t getCurrentGeneration() const;
+
 
 	bool isReady() const;
 	void setup(DEParameters const& parameters);
@@ -48,8 +49,6 @@ public:
 	void setF(double F);
 
 	size_t DifferentialEvolution::randomize() const;
-
-
 };
 
 #endif
