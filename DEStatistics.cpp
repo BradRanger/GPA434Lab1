@@ -17,12 +17,10 @@ std::vector<DESolution>& DEStatistics::getStatistics()
 
 void DEStatistics::add(DESolution& solution)
 {
-	DifferentialEvolution evo;
-
-	mStatistics.resize(evo.getCurrentGeneration());
+	//DifferentialEvolution evo;
+	//mStatistics.resize(evo.getCurrentGeneration());
 
 	mStatistics.push_back(solution);
-
 }
 
 
