@@ -20,7 +20,7 @@ void DEStatistics::add(DESolution& solution)
 	//DifferentialEvolution evo;
 	//mStatistics.resize(evo.getCurrentGeneration());
 
-	mStatistics.push_back(solution);
+	mStatistics.push_back(solution);//va augmenter automatiquement le vecteur de 1 et placer un element
 }
 
 
