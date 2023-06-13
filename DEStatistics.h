@@ -2,7 +2,6 @@
 #ifndef DESTATISTICS_H
 #define DESTATISTICS_H
 #include "DESolution.h"
-#include "DifferentialEvolution.h"
 #include <vector>
 
 /*
@@ -37,7 +36,7 @@ public:
 	void reset();
 	bool isEmpty() const;
 	
-	DESolution& operator[](size_t index);
+	//DESolution& operator[](size_t index);
 };
 
 #endif

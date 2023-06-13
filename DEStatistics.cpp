@@ -35,8 +35,10 @@ bool DEStatistics::isEmpty() const
 	return mStatistics.empty();	//retourne true si mStatistics est vide
 }
 
+/*
 DESolution& DEStatistics::operator[](size_t index)
 {
 	return mStatistics[index];
 }
+*/
 

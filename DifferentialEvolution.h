@@ -42,6 +42,8 @@ public:
 	void reset();
 	bool evolveOne();
 	bool evolve();
+
+
 	void setCR(double CR);
 	void setF(double F);
 
