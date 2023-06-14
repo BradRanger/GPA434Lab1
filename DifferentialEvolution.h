@@ -45,8 +45,8 @@ public:
 	bool evolve();
 
 
-	void setCR(double CR);
-	void setF(double F);
+	//void setCR(double CR);
+	//void setF(double F);
 
 	size_t DifferentialEvolution::randomize() const;
 };

@@ -10,20 +10,19 @@ public:
 	
 	OpenBoxSolver();
 	~OpenBoxSolver();
+
+	DifferentialEvolution getmDEEngine() const;
+
 	void solve(size_t width, size_t height);
 	std::string problemPresentation();
 	std::string solutionPresentation();
 
-
+	/*
 	void setCR(double CR); //
 	void setF(double F);//
+	*/
+
 };
-
-
-
-
-
-
 
 
 

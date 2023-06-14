@@ -9,6 +9,11 @@ OpenBoxSolver::~OpenBoxSolver()
 {
 }
 
+DifferentialEvolution OpenBoxSolver::getmDEEngine() const
+{
+	return mDEEngine;
+}
+
 void OpenBoxSolver::solve(size_t width, size_t height)
 {
 
@@ -19,10 +24,9 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 
 	
 	
-
-	
-	
 	mDEEngine.isReady(); //verifier si on est pret a resoudre le probleme?
+
+
 	mDEEngine.evolve();	//resoudre le probleme
 
 }
@@ -65,6 +69,7 @@ std::string OpenBoxSolver::solutionPresentation()
 {
 	return std::string(); //text
 }
+/*
 
 void OpenBoxSolver::setCR(double CR)
 {
@@ -76,4 +81,5 @@ void OpenBoxSolver::setF(double F)
 	mDEEngine.setF(F);
 
 }
+*/
 

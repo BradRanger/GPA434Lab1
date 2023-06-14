@@ -119,11 +119,11 @@ void MenuManager::subMenus(size_t frameNumber)
 			consoleManager(mImages[eOpenBoxSolver]);
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5, getFText );
 			std::cin >> parametersFetch;
-			boxSolver.setCR(parametersFetch);
+			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);//boxSolver.setCR(parametersFetch);
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7, getCRText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
-			boxSolver.setF(parametersFetch);
+			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);//boxSolver.setF(parametersFetch);
 
 			break;
 
