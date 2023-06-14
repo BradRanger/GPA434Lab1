@@ -21,7 +21,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 	DEParameters parameter;
 	DESolutionBounds solutionBounds;
 
-	//parameter.setFitnessFunc();
+	parameter.setFitnessFunc(boxFitFunc);
 	parameter.setMaxGenerationCount(15);
 	parameter.setObjFunc(&boxObjFunc);
 	parameter.setPopulationSize(100);
@@ -99,7 +99,7 @@ double boxObjFunc(const DESolution& solution)
 	return 0.0;
 }
 
-double boxFitFunc(const DESolution& solution)
+double boxFitFunc(double db)
 {
 	return 0.0;
 }
