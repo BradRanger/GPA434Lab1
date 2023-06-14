@@ -23,7 +23,7 @@ void DEStatistics::add(DESolution& solution)
 
 	//mStatistics[evo.getCurrentGeneration()].setData(solution.getData());
 
-	//mStatistics.push_back(solution);
+	mStatistics.push_back(solution);
 
 }
 

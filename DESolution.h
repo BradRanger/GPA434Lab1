@@ -21,7 +21,7 @@ public:
 	~DESolution();
 
 	//accesseurs
-	std::vector<double>& getData(); //pas de const puisque on veut acceder aux mutateurs
+	const std::vector<double>& getData() const;
 	double getObjective() const; 
 	double getFitness() const;	
 	

@@ -18,7 +18,8 @@ DESolution::~DESolution()
 {
 }
 
-std::vector<double>& DESolution::getData()
+
+const std::vector<double>& DESolution::getData() const
 {
     return mData;
 }

@@ -89,13 +89,13 @@ double boxObjFunc(const DESolution& solution)
 	double height = 50;	//valeur fix
 	double volume=0;
 	
-	//const std::vector<double>& data = solution.;
+	const std::vector<double>& data = solution.getData();//extrait les données
+	double x = data[0];
 
 
-	//volume = (width - (2.0 * x)) * (height - (2.0 * x)) * x;
+	volume = (width - (2.0 * x)) * (height - (2.0 * x)) * x;
 
 	return volume;
-	
 }
 
 double boxFitFunc(double db)

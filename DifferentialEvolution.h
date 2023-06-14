@@ -1,9 +1,6 @@
 #pragma once
 #ifndef DIFFERENTIAL_EVOLUTION_H
 #define DIFFERENTIAL_EVOLUTION_H
-
-
-
 #include "DEStatistics.h"
 #include "ThreeSamplesWithOneExclusion.h"
 #include "DEParameters.h"
