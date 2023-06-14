@@ -208,22 +208,18 @@ void DifferentialEvolution::processSelection()
 
 void DifferentialEvolution::processStatistics()
 {
-	DESolution sol{};
-	std::vector<double> val{};
-
+	
+	size_t max = 0;
 
 	for (size_t p{}; p < mPopulation.size(); ++p) {	//parcourir chacune des populations de la generation courante
 
-		for (size_t i = 0; i < mPopulation[p].size(); ++i) { //le i va nous permettre de parcourir chaque solutions de cette population
+		if (mPopulation[max].getFitness() < mPopulation[p].getFitness()) {
 
-			if (val[0] < mPopulation[p].getData()[i]) { //
-
-				val[0] = mPopulation[p].getData()[i]; //on garde une solution specifique i de la population p
-				sol.setData(val); //une fois l'analyse de toute les populations de la generation courante, on envoie la meilleur a mStatistics
-			}	
+			max = p;
 		}
 	}
-	mStatistics.add(sol);
+
+	mStatistics.add(mPopulation[max]);
 }
 
 size_t DifferentialEvolution::randomize() const
