@@ -54,7 +54,11 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 //
 std::string OpenBoxSolver::problemPresentation()
 {
+<<<<<<< Updated upstream
 	return "";		//text de presentation
+=======
+	return "Nous allons maintenant tester l'engin  contre le classique : le probleme de la boite ouverte.";
+>>>>>>> Stashed changes
 }
 
 std::string OpenBoxSolver::solutionPresentation()

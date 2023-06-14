@@ -47,11 +47,11 @@ void MenuManager::mainMenu()
 	std::string quit = "8. Exit Program.";
 	std::string upOneLevel = "7. Up One Level.";
 
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart,    "Dans le cadre du cours de GPA-434, l'equipe composee des membres Guillaume Bourgeois et Jacob Curiel-Garfias");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+1,  "ont assemble et programme le code permettant d'utiliser un engin d'évolution differentielle. Dans sa presente");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3,  "mathematiques differentes.");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16, "Press the any key.");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart,      "Dans le cadre du cours de GPA-434, l'equipe composee des membres Guillaume Bourgeois et Jacob Curiel-Garfias");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+1.0,  "ont assemble et programme le code permettant d'utiliser un engin d'évolution differentielle. Dans sa presente");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2.0,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3.0,  "mathematiques differentes.");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16.0, "Press the any key.");
 
 	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
 

@@ -15,7 +15,6 @@ void FactoryProductionSolver::solve(size_t scenario, size_t availableResource)
 
 	size_t n{};
 
-
 	mDEEngine.evolve();
 	mDEEngine.evolveOne();
 }

@@ -10,7 +10,7 @@
 class DifferentialEvolution{
 
 private:
-
+	//quand tu ne surcharge pas un operateur =, tout est copier
 	DEParameters mParameters;	//
 	DEPopulation mPopulation;	// vecteur x
 	DEPopulation mMutant;		// vecteur m

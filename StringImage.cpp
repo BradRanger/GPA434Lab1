@@ -160,15 +160,15 @@ void StringImage::drawVThckLine(size_t x, size_t y, size_t length)
 void StringImage::textH(size_t x, size_t y, std::string text)
 {
 
-	size_t lineLength{200};
+	if (text.size() < 1){
+		std::cout << "invalid string size";
+		exit(EXIT_FAILURE);
+	}
 
-	//if (text.size() < 1){
-	//	std::cout << "invalid string size";
-	//	exit(EXIT_FAILURE);
-	//}
 	for (size_t i{}; i < text.length(); i++) {
 		StringImage::write(x + i, y, text.at(i));
 	}
+
 
 }
 
