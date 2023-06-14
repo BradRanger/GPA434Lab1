@@ -4,7 +4,9 @@
 MenuManager::MenuManager()
 	:mImages{},
 	mResizeX{},
-	mResizeY{}
+	mResizeY{},
+	mAnyKey{"Press the any key."}
+
 
 {
 }
@@ -47,11 +49,12 @@ void MenuManager::mainMenu()
 	std::string quit = "8. Exit Program.";
 	std::string upOneLevel = "7. Up One Level.";
 
+
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart,      "Dans le cadre du cours de GPA-434, l'equipe composee des membres Guillaume Bourgeois et Jacob Curiel-Garfias");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+1.0,  "ont assemble et programme le code permettant d'utiliser un engin d'évolution differentielle. Dans sa presente");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2.0,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3.0,  "mathematiques differentes.");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16.0, "Press the any key.");
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16.0, mAnyKey);
 
 	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
 
@@ -75,15 +78,15 @@ void MenuManager::mainMenu()
 		
 
 		case eOpenBoxSolver+ eASCIIConversion-1:
-			subMenus(eOpenBoxSolver);
+			problemMenus(eOpenBoxSolver);
 			break;
 
 		case eThreePeaks+ eASCIIConversion-1:
-			subMenus(eThreePeaks);
+			problemMenus(eThreePeaks);
 			break;
 
 		case eFactoryProblem+ eASCIIConversion-1: 
-			subMenus(eFactoryProblem);
+			problemMenus(eFactoryProblem);
 			break;
 
 		case eExitProgram+ eASCIIConversion-1:
@@ -100,14 +103,13 @@ void MenuManager::mainMenu()
 	
 }
 
-void MenuManager::subMenus(size_t frameNumber)
+void MenuManager::problemMenus(size_t frameNumber)
 {
 	OpenBoxSolver boxSolver;
 	PeaksSolver peaksSolver;
 	FactoryProductionSolver productionSolver;
 	std::string getFText{"Veuillez entrer une valeur pour F (poids differentiel) comprise entre [0.0 ; 2.0]."};
 	std::string getCRText{"Veuillez entrer une valeur pour CR (probalite de croisement) comprise entre [0.0 ; 1.0]."};
-	
 	double parametersFetch{};
 	size_t keyHit{ eMainMenu };
 
@@ -120,13 +122,17 @@ void MenuManager::subMenus(size_t frameNumber)
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5, getFText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
-			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);//boxSolver.setCR(parametersFetch);
+			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);
 			
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7, getCRText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
-			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);//boxSolver.setF(parametersFetch);
+			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);
 			boxSolver.solve(50,100);
+			keyHit = _getch();
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 16.0, mAnyKey);
+			keyHit = _getch();
+
 			break;
 
 		case eThreePeaks:

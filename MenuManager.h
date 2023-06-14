@@ -16,6 +16,7 @@ class MenuManager
 	size_t mResizeX;
 	size_t mResizeY;
 	std::vector<StringImage> mImages;
+	std::string mAnyKey;
 	
 	enum MenuOptions {
 
@@ -28,6 +29,9 @@ class MenuManager
 		eOpenBoxSolver = 2,
 		eThreePeaks = 3,
 		eFactoryProblem = 4,
+		eOpenBoxSolution = 5,
+		eThreePeaksSolution = 6,
+		eFactorySolution = 7,
 
 		//Sub menus options
 		eSolve = 1,
@@ -57,7 +61,7 @@ public:
 
 	void setNbImages(size_t nbImages);
 	void mainMenu();
-	void subMenus(size_t frameNumber);
+	void problemMenus(size_t frameNumber);
 	void addMenuTrims(size_t widthX, size_t heightY);
 	void imageErrorHandling(size_t nbImages);
 
