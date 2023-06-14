@@ -118,13 +118,15 @@ void MenuManager::subMenus(size_t frameNumber)
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, boxSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5, getFText );
+			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
 			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);//boxSolver.setCR(parametersFetch);
+			
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7, getCRText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
 			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);//boxSolver.setF(parametersFetch);
-
+			boxSolver.solve(50,100);
 			break;
 
 		case eThreePeaks:
