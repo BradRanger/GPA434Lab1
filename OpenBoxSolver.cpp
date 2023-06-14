@@ -19,28 +19,32 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 	//parametriser toutes les valeurs
 
 	DEParameters parameter;
-	DESolutionBounds solutionBounds;
+	DESolutionBounds xBounds;
 
-	parameter.setFitnessFunc(boxFitFunc);
+	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté supérieur gauche
+	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté supérieur gauche
+
+	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté supérieur droit
+	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté supérieur droit
+
+	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté inférieur gauche
+	xBounds.solutionBounds().push_back(Interval(0, height / 2));// Bornes pour le côté inférieur gauche
+
+	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté inférieur droit
+	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté inférieur droit
+
+	parameter.setSolutionBounds(xBounds);
+
 	parameter.setMaxGenerationCount(15);
-	parameter.setObjFunc(&boxObjFunc);
 	parameter.setPopulationSize(100);
-	parameter.setSolutionBounds(solutionBounds);
+
+	parameter.setObjFunc(&boxObjFunc);
+	parameter.setFitnessFunc(boxFitFunc);
 
 	mDEEngine.setup(parameter);
 
 
-
-
-
-
-
-
-	size_t x{ 1 };
-	double volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
-
 	mDEEngine.evolve();	//resoudre le probleme
-
 }
 
 //
@@ -81,8 +85,17 @@ std::string OpenBoxSolver::solutionPresentation()
 
 double boxObjFunc(const DESolution& solution)
 {
+	double width = 100;	//valeur fix
+	double height = 50;	//valeur fix
+	double volume=0;
 	
-	return 0.0;
+	//const std::vector<double>& data = solution.;
+
+
+	//volume = (width - (2.0 * x)) * (height - (2.0 * x)) * x;
+
+	return volume;
+	
 }
 
 double boxFitFunc(double db)
