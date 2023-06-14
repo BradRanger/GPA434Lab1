@@ -211,6 +211,7 @@ void DifferentialEvolution::processStatistics()
 	DESolution sol{};
 	std::vector<double> val{};
 
+
 	for (size_t p{}; p < mPopulation.size(); ++p) {	//parcourir chacune des populations de la generation courante
 
 		for (size_t i = 0; i < mPopulation[p].size(); ++i) { //le i va nous permettre de parcourir chaque solutions de cette population

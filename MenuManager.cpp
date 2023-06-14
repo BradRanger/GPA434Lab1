@@ -105,8 +105,8 @@ void MenuManager::subMenus(size_t frameNumber)
 	OpenBoxSolver boxSolver;
 	PeaksSolver peaksSolver;
 	FactoryProductionSolver productionSolver;
-	std::string getFText{"Veuillez entrer une valeur pour F (poids differentiel) comprise entre [0.0 ; 2.2]."};
-	std::string getCRText{"Veuillez entrer une valeur pour CR (probalite de croisement) comprise entre [0.0 ; 2.2]."};
+	std::string getFText{"Veuillez entrer une valeur pour F (poids differentiel) comprise entre [0.0 ; 2.0]."};
+	std::string getCRText{"Veuillez entrer une valeur pour CR (probalite de croisement) comprise entre [0.0 ; 1.0]."};
 	
 	double parametersFetch{};
 	size_t keyHit{ eMainMenu };
