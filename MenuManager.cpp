@@ -132,6 +132,9 @@ void MenuManager::problemMenus(size_t frameNumber)
 			keyHit = _getch();
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 16.0, mAnyKey);
 			keyHit = _getch();
+			consoleManager(mImages[eOpenBoxSolution]);
+
+			keyHit = _getch();
 
 			break;
 

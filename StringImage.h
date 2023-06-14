@@ -3,12 +3,7 @@
 #define STRING_IMAGE_H
 
 #include <iostream>
-#include <cmath>
-#include <time.h>
-#include <algorithm>
-#include <stdlib.h>
 #include <vector>
-#include <map>
 #include <string>
 #include "LineChar.h"
 class StringImage

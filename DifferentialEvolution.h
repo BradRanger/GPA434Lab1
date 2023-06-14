@@ -1,11 +1,15 @@
 #pragma once
 #ifndef DIFFERENTIAL_EVOLUTION_H
 #define DIFFERENTIAL_EVOLUTION_H
+
+
+
 #include "DEStatistics.h"
 #include "ThreeSamplesWithOneExclusion.h"
 #include "DEParameters.h"
 #include "DEPopulation.h"
 #include <vector>
+
 
 class DifferentialEvolution{
 
@@ -16,7 +20,7 @@ private:
 	DEPopulation mMutant;		// vecteur m
 	DEPopulation mTrial;		// vecteur t
 	size_t mCurrentGeneration;
-	DEStatistics mStatistics;					
+	DEStatistics mStatistics;	
 	ThreeSamplesWithOneExclusion mSamplingTool; 
 
 	
