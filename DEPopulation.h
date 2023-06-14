@@ -27,7 +27,7 @@ public:
 	void randomize(DESolutionBounds const & solutionBounds);
 
 	DESolution& operator[](size_t index);
-	//DESolution& const operator[](size_t index) const;
+
 };
 
 #endif

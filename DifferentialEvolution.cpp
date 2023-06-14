@@ -138,20 +138,6 @@ bool DifferentialEvolution::evolve()
 	return true;
 }
 
-/*********************************************************************/
-/*
-void DifferentialEvolution::setCR(double CR)
-{
-	mParameters.setCR(CR);
-}
-
-void DifferentialEvolution::setF(double F)
-{
-	mParameters.setF(F);
-}
-*/
-/*********************************************************************/
-
 void DifferentialEvolution::processFitness(DEPopulation& population)
 {
 

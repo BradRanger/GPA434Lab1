@@ -49,10 +49,3 @@ DESolution& DEPopulation::operator[](size_t index)
 {
 	return mSolutions[index];
 }
-
-/*
-DESolution& const DEPopulation::operator[](size_t index) const
-{
-	return mSolutions[index];
-}
-*/

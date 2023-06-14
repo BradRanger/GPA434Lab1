@@ -71,7 +71,6 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 std::string OpenBoxSolver::problemPresentation()
 {
 
-	return "";		//text de presentation
 	return "Nous allons maintenant tester l'engin  contre le classique : le probleme de la boite ouverte.";
 }
 
@@ -79,19 +78,6 @@ std::string OpenBoxSolver::solutionPresentation()
 {
 	return std::string(); //text
 }
-/*
-
-void OpenBoxSolver::setCR(double CR)
-{
-	mDEEngine.setCR(CR);
-}
-
-void OpenBoxSolver::setF(double F)
-{
-	mDEEngine.setF(F);
-
-}
-*/
 
 double boxObjFunc(const DESolution& solution)
 {

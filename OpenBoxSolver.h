@@ -17,10 +17,6 @@ public:
 	std::string problemPresentation();
 	std::string solutionPresentation();
 
-	/*
-	void setCR(double CR); //
-	void setF(double F);//
-	*/
 
 };
 
