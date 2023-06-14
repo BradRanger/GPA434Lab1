@@ -4,10 +4,7 @@
 MenuManager::MenuManager()
 	:mImages{},
 	mResizeX{},
-	mResizeY{},
-	mAnyKey{"Press the any key."}
-
-
+	mResizeY{}
 {
 }
 
@@ -25,6 +22,7 @@ MenuManager::MenuManager(size_t nbImages, size_t widthX, size_t heightY)
 		mImages[i].resize(widthX, heightY);
 	}
 	addMenuTrims(widthX, heightY);
+
 	mainMenu();
 }
 
@@ -54,7 +52,7 @@ void MenuManager::mainMenu()
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+1.0,  "ont assemble et programme le code permettant d'utiliser un engin d'évolution differentielle. Dans sa presente");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+2.0,  "implementation, nous pouvons tester les capacites de cet engin en le confrontant à 3 problematiques ");
 	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+3.0,  "mathematiques differentes.");
-	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16.0, mAnyKey);
+	mImages[eSplashScreen].textH(eLeftToRightX, eMenuListYStart+16.0, "Press the any key.");
 
 	mImages[eMainMenu].textH(eLeftToRightX, eMenuListYStart, openBox);
 
@@ -128,13 +126,15 @@ void MenuManager::problemMenus(size_t frameNumber)
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
 			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);
-			boxSolver.solve(50,100);
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 9, "Veuillez appuyer sur une touche afin de demarrer l'engin de resolution.");
+			consoleManager(mImages[eOpenBoxSolver]);
 			keyHit = _getch();
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 16.0, mAnyKey);
-			keyHit = _getch();
+
+			boxSolver.solve(50,100); // solve
 			consoleManager(mImages[eOpenBoxSolution]);
 
 			keyHit = _getch();
+
 
 			break;
 

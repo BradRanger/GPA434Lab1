@@ -2,7 +2,6 @@
 #ifndef DESTATISTICS_H
 #define DESTATISTICS_H
 #include "DESolution.h"
-#include "DifferentialEvolution.h"
 #include <vector>
 
 /*

@@ -163,6 +163,7 @@ void StringImage::textH(size_t x, size_t y, std::string text)
 	if (text.size() < 1){
 		std::cout << "invalid string size";
 		exit(EXIT_FAILURE);
+		
 	}
 
 	for (size_t i{}; i < text.length(); i++) {

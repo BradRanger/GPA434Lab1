@@ -16,7 +16,6 @@ class MenuManager
 	size_t mResizeX;
 	size_t mResizeY;
 	std::vector<StringImage> mImages;
-	std::string mAnyKey;
 	
 	enum MenuOptions {
 
