@@ -16,15 +16,31 @@ DifferentialEvolution OpenBoxSolver::getmDEEngine() const
 
 void OpenBoxSolver::solve(size_t width, size_t height)
 {
+	//parametriser toutes les valeurs
+
+	DEParameters parametre;
+
+
+
+
+
+
+
+
+
+
+
+	mDEEngine.setup(parametre);
+
+
+
 
 	size_t x{ 1 };
 	double volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
 
 
+	mDEEngine.getParameters().setObjFunc();
 
-	
-	
-	mDEEngine.isReady(); //verifier si on est pret a resoudre le probleme?
 
 
 	mDEEngine.evolve();	//resoudre le probleme

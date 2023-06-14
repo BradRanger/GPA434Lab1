@@ -23,8 +23,8 @@ private:
 	double mCR;							//valeur constante CR
 	size_t mMaxGenerationCount;			//nombre de generations avant d'arreter
 
-	double (*mObjFunc)(const DESolution&);
-	double (*mFitnessFunc)(double);
+	double (*mObjFunc)(const DESolution&);	
+	double (*mFitnessFunc)(double);			
 
 public:
 	DEParameters();

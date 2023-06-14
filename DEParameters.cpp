@@ -5,8 +5,8 @@
 DEParameters::DEParameters()
 : mSolutionBounds{DESolutionBounds::DESolutionBounds()}
 , mPopulationSize{100}
-, mF{1}		//0 ≤ 𝐹 ≤ 2  == augmente la chance d'avoir un grand ecart entre les mutants choisis
-, mCR{0.2}		//0 ≤ 𝐶𝑅 ≤ 1 == pourcentage de pogner un mutant
+, mF{2}		//0 ≤ 𝐹 ≤ 2  == augmente la chance d'avoir un grand ecart entre les mutants choisis
+, mCR{1}		//0 ≤ 𝐶𝑅 ≤ 1 == pourcentage de pogner un mutant
 , mMaxGenerationCount{100}
 , mFitnessFunc(nullptr) // initialise mFitnessFunc
 , mObjFunc(nullptr) // initialise mObjFunc
