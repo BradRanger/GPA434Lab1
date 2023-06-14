@@ -17,17 +17,17 @@ private:
 public:
 	DESolution();
 	DESolution(const std::vector<double>& size, double objective, double fitness); //avec le deuxieme constructeur nous pouvons creer des nouvelles instances pour mData,mObjective et mFitness
-	//old: DESolution(double size, double objective, double fitness);
+	
 	~DESolution();
 
 	//accesseurs
 	std::vector<double>& getData(); //pas de const puisque on veut acceder aux mutateurs
-	double getObjective() const; //old: double objective()
-	double getFitness() const;	//old: double fitness()
+	double getObjective() const; 
+	double getFitness() const;	
 	
 
 	//mutateur
-	void setData(const std::vector<double>& data);	//old: void setData();
+	void setData(const std::vector<double>& data);	
 	void setObjective(double objective);
 	void setFitness(double fitness);
 	
@@ -56,7 +56,6 @@ public:
 	DESolution& operator/=(double rhs);			   //division composée (/=) par un scalaire double
 
 
-	//a voir si il faut des operateurs a l'exterieur de la classe
 };
 
 #endif
