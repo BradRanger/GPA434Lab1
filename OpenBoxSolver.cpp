@@ -18,30 +18,26 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 {
 	//parametriser toutes les valeurs
 
-	DEParameters parametre;
+	DEParameters parameter;
+	DESolutionBounds solutionBounds;
+
+	//parameter.setFitnessFunc();
+	parameter.setMaxGenerationCount(15);
+	parameter.setObjFunc(&boxObjFunc);
+	parameter.setPopulationSize(100);
+	parameter.setSolutionBounds(solutionBounds);
+
+	mDEEngine.setup(parameter);
 
 
 
 
-
-
-
-
-
-
-
-	mDEEngine.setup(parametre);
 
 
 
 
 	size_t x{ 1 };
 	double volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
-
-
-	mDEEngine.getParameters().setObjFunc();
-
-
 
 	mDEEngine.evolve();	//resoudre le probleme
 
@@ -97,3 +93,13 @@ void OpenBoxSolver::setF(double F)
 }
 */
 
+double boxObjFunc(const DESolution& solution)
+{
+	
+	return 0.0;
+}
+
+double boxFitFunc(const DESolution& solution)
+{
+	return 0.0;
+}

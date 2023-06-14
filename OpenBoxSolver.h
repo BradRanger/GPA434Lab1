@@ -25,7 +25,8 @@ public:
 };
 
 
-
+double boxObjFunc(const DESolution& solution) ;
+double boxFitFunc(const DESolution& solution) ;
 
 
 

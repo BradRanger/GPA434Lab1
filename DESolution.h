@@ -25,6 +25,7 @@ public:
 	double getObjective() const; //old: double objective()
 	double getFitness() const;	//old: double fitness()
 	
+
 	//mutateur
 	void setData(const std::vector<double>& data);	//old: void setData();
 	void setObjective(double objective);
@@ -34,7 +35,7 @@ public:
 	void setup(DESolutionBounds const & solutionBounds); //dimensionne le vecteur de données à la dimensionnalité du problème //pointe a l<address de notre vecteur intervalle
 	void randomize(DESolutionBounds const & solutionBounds); //assigne à chacune des données du vecteur une valeur générée aléatoirement par chacune des intervalles de solutionBounds
 
-
+	
 
 	/*********************section operateur*********************************/ 
 

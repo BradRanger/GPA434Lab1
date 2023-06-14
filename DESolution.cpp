@@ -33,6 +33,8 @@ double DESolution::getFitness() const
     return mFitness;
 }
 
+
+
 void DESolution::setData(const std::vector<double>& data)
 {
     mData = data;
