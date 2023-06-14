@@ -18,7 +18,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 {
 
 	size_t x{ 1 };
-	size_t volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
+	double volume{ (width - (2.0 * x)) * (height - (2.0 * x))*x };	
 
 
 
@@ -58,11 +58,9 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 //
 std::string OpenBoxSolver::problemPresentation()
 {
-<<<<<<< Updated upstream
+
 	return "";		//text de presentation
-=======
 	return "Nous allons maintenant tester l'engin  contre le classique : le probleme de la boite ouverte.";
->>>>>>> Stashed changes
 }
 
 std::string OpenBoxSolver::solutionPresentation()
