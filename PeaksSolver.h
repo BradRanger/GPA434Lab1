@@ -5,16 +5,18 @@
 
 #include "DifferentialEvolution.h"
 #include <cmath>
+#include <vector>
 
 class PeaksSolver {
 	DifferentialEvolution mDEEngine;
 
 public:
 
+	DifferentialEvolution getmDEEngine() const;
 	PeaksSolver();
 	~PeaksSolver();
 	void solve(size_t populationSize, size_t generationCount, size_t realPrecision);
-	std::string problemPresentation();
+	std::vector<std::string> problemPresentation();
 	std::string solutionPresentation();
 
 

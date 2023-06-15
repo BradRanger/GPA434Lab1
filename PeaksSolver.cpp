@@ -8,6 +8,11 @@ PeaksSolver::~PeaksSolver()
 {
 }
 
+DifferentialEvolution PeaksSolver::getmDEEngine() const
+{
+	return mDEEngine;
+}
+
 void PeaksSolver::solve(size_t populationSize, size_t generationCount, size_t realPrecision)
 {
 	mDEEngine.reset();
@@ -25,9 +30,13 @@ void PeaksSolver::solve(size_t populationSize, size_t generationCount, size_t re
 
 }
 
-std::string PeaksSolver::problemPresentation()
+std::vector<std::string> PeaksSolver::problemPresentation()
 {
-	return std::string();
+	std::vector<std::string> problemPres;
+	problemPres.resize(3);
+
+	problemPres[0] = "";
+	return problemPres;
 }
 
 std::string PeaksSolver::solutionPresentation()

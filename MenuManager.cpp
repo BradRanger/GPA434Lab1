@@ -109,7 +109,7 @@ void MenuManager::problemMenus(size_t frameNumber)
 	std::string getFText{"Veuillez entrer une valeur pour F (poids differentiel) comprise entre [0.0 ; 2.0]."};
 	std::string getCRText{"Veuillez entrer une valeur pour CR (probalite de croisement) comprise entre [0.0 ; 1.0]."};
 	double parametersFetch{};
-	size_t keyHit{ eMainMenu };
+	size_t keyHit{ 0 };
 
 		switch (frameNumber) {
 
@@ -117,16 +117,16 @@ void MenuManager::problemMenus(size_t frameNumber)
 		case eOpenBoxSolver:
 			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, boxSolver.problemPresentation());
 			consoleManager(mImages[eOpenBoxSolver]);
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5, getFText );
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+5.0, getFText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
 			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);
 			
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7, getCRText );
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart+7.0, getCRText );
 			consoleManager(mImages[eOpenBoxSolver]);
 			std::cin >> parametersFetch;
 			boxSolver.getmDEEngine().getParameters().setF(parametersFetch);
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 9, "Veuillez appuyer sur une touche afin de demarrer l'engin de resolution.");
+			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart + 9.0, "Veuillez appuyer sur une touche afin de demarrer l'engin de resolution.");
 			consoleManager(mImages[eOpenBoxSolver]);
 			keyHit = _getch();
 
@@ -137,12 +137,41 @@ void MenuManager::problemMenus(size_t frameNumber)
 
 
 			break;
-
+			//
+			//
+			//
+			//Pour la résolution de ce problème, le programme doit poser la question suivante :
+			//• Quelle est la taille de la population P(défaut = 10) ?
+			//	• Quel est le nombre de générations Gmax(défaut = 100) ?
+			//	• Quelle est la précision des points flottants à afficher(défaut = 6) ?
+			////
+			//
+			//
+			//
 		case eThreePeaks:
-			mImages[eOpenBoxSolver].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
-			consoleManager(mImages[eOpenBoxSolver]);
-			peaksSolver.solutionPresentation();
+
+			//mImages[eThreePeaks].textH(eLeftToRightX, eMenuListYStart, peaksSolver.problemPresentation());
+			consoleManager(mImages[eThreePeaks]);
+			mImages[eThreePeaks].textH(eLeftToRightX, eMenuListYStart + 5.0, getFText);
+			consoleManager(mImages[eThreePeaks]);
+			std::cin >> parametersFetch;
+			boxSolver.getmDEEngine().getParameters().setCR(parametersFetch);
+
+			mImages[eThreePeaks].textH(eLeftToRightX, eMenuListYStart + 7.0, getCRText);
+			consoleManager(mImages[eThreePeaks]);
+			std::cin >> parametersFetch;
+			peaksSolver.getmDEEngine().getParameters().setF(parametersFetch);
+			mImages[eThreePeaks].textH(eLeftToRightX, eMenuListYStart + 9.0, "Veuillez appuyer sur une touche afin de demarrer l'engin de resolution.");
+			consoleManager(mImages[eThreePeaks]);
 			keyHit = _getch();
+
+			boxSolver.solve(50, 100); // solve
+			consoleManager(mImages[eOpenBoxSolution]);
+
+			keyHit = _getch();
+
+
+
 			break;
 
 		case eFactoryProblem:
@@ -178,7 +207,7 @@ void MenuManager::addMenuTrims(size_t widthX, size_t heightY)
 	mImages[0].CenteredTopTitle(mResizeX, outerRectOriginY, topTitle);
 	
 	for (size_t i{ 0 }; i < mImages.size(); i++) {
-
+		mImages[i].CenteredTopTitle(mResizeX, outerRectOriginY, topTitle);
 		mImages[i].drawRect(outerRectOriginX, outerRectOriginY, mResizeX - 1, mResizeY - 1);
 		mImages[i].drawRect(outerRectOriginX + 1, outerRectOriginY + 1, outerRectOriginX + 4, outerRectOriginY + 3);
 		mImages[i].drawRect(mResizeX - 2, mResizeY - 2, mResizeX - 5, mResizeY - 4);

@@ -13,6 +13,8 @@ public:
 	FactoryProductionSolver();
 	~FactoryProductionSolver();
 
+	DifferentialEvolution getmDEEngine() const;
+
 	void solve(size_t scenario, size_t availableResource);
 	std::string problemPresentation();
 	std::string solutionPresentation();

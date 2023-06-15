@@ -8,6 +8,10 @@ FactoryProductionSolver::FactoryProductionSolver()
 FactoryProductionSolver::~FactoryProductionSolver()
 {
 }
+DifferentialEvolution FactoryProductionSolver::getmDEEngine() const
+{
+	return mDEEngine;
+}
 void FactoryProductionSolver::solve(size_t scenario, size_t availableResource)
 {
 	mDEEngine.reset();
