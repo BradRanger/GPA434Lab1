@@ -3,7 +3,7 @@
 DEStatistics::DEStatistics()
 	:mStatistics{}
 {
-	mStatistics.resize(5);
+//	mStatistics.resize(5);
 }
 
 DEStatistics::~DEStatistics()

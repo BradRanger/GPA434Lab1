@@ -69,8 +69,8 @@ std::vector<std::string> OpenBoxSolver::solutionPresentation()
 
 double boxObjFunc(const DESolution& solution)
 {
-	double width{100};	//valeur fix
-	double height{ 50 };	//valeur fix
+	//double width{100};	//valeur fix
+	//double height{ 50 };	//valeur fix
 	double volume{};
 	
 	const std::vector<double>& data = solution.getData();//extrait les données
