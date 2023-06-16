@@ -5,7 +5,7 @@ DifferentialEvolution::DifferentialEvolution()
 ,mPopulation{}
 ,mMutant{}
 ,mTrial{}
-,mCurrentGeneration{}
+,mCurrentGeneration{1}
 ,mStatistics{}
 ,mSamplingTool{}
 {
@@ -100,10 +100,11 @@ void DifferentialEvolution::reset()
 
 bool DifferentialEvolution::evolveOne()
 {
-
+/*
 	if (!isReady()) {
 		return false;
 	}
+*/
 
 	//1) Évaluer la fitness de la population actuelle
 	processFitness(mPopulation);
