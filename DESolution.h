@@ -24,7 +24,7 @@ public:
 	const std::vector<double>& getData() const;
 	double getObjective() const; 
 	double getFitness() const;	
-	
+
 
 	//mutateur
 	void setData(const std::vector<double>& data);	

@@ -33,13 +33,34 @@ void PeaksSolver::solve(size_t populationSize, size_t generationCount, size_t re
 std::vector<std::string> PeaksSolver::problemPresentation()
 {
 	std::vector<std::string> problemPres;
-	problemPres.resize(3);
+	problemPres.resize(5);
 
-	problemPres[0] = "";
+	problemPres[0] = "La celebre fonction <Three Peaks> consiste en une relation entre deux variables qui ";
+	problemPres[1] = "cree une topographie a 3 sommets et 2 creus. L'evaluation des valeurs minimales ";
+	problemPres[2] = "et maximales (sommets et creus) dans ce probleme peut causer probleme, car il y a risque";
+	problemPres[3] = "de tomber dans des minimums et maximums locaux. Regardons si notre implementation ";
+	problemPres[4] = "nous permet de trouver les solutions.";
 	return problemPres;
 }
 
-std::string PeaksSolver::solutionPresentation()
+std::vector<std::string> PeaksSolver::solutionPresentation()
 {
-	return std::string();
+	std::vector<std::string> solutionPres;
+	solutionPres.resize(5);
+	solutionPres[0] = "La celebre fonction <Three Peaks> consiste en une relation entre deux variables qui ";
+	solutionPres[1] = "cree une topographie a 3 sommets et 2 creus. L'evaluation des valeurs minimales ";
+	solutionPres[2] = "et maximales (sommets et creus) dans ce probleme peut causer probleme, car il y a risque";
+	solutionPres[3] = "de tomber dans des minimums et maximums locaux. Regardons si notre implementation ";
+	solutionPres[4] = "nous permet de trouver les solutions.";
+
+	return solutionPres;
+}
+
+double peaksObjFunc(const DESolution& solution) {
+
+	return 1.0;
+}
+double peaksFitFunc(double db) {
+
+	return 1.0;
 }

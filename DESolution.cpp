@@ -5,6 +5,7 @@ DESolution::DESolution()
     ,mFitness{}
     ,mObjective{}
 {
+    mData.resize(10);
 }
 
 DESolution::DESolution(const std::vector<double>& size, double objective, double fitness)  //a valider

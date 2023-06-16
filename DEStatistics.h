@@ -9,7 +9,6 @@ Cette classe est un conteneur d’informations. Elle contient un vecteur de DESolu
 nombre de générations en cours où est stockée la meilleure solution de chaque génération. C’est l’historique
 d’évolution
 */
-
 class DEStatistics {
 
 private:
@@ -22,12 +21,11 @@ public:
 	~DEStatistics();
 
 	//accesseurs
-	std::vector<DESolution>& getStatistics();
+	std::vector<DESolution> getStatistics();
 
 	void add(DESolution& solution);
 	void reset();
 	bool isEmpty() const;
-	
 	DESolution& operator[](size_t index);
 };
 

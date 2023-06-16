@@ -7,15 +7,16 @@ class OpenBoxSolver {
 	DifferentialEvolution mDEEngine;
 
 public:
-	
+	friend double boxObjFunc(const DESolution& solution);
+
 	OpenBoxSolver();
 	~OpenBoxSolver();
 
 	DifferentialEvolution getmDEEngine() const;
 
 	void solve(size_t width, size_t height);
-	std::string problemPresentation();
-	std::string solutionPresentation();
+	std::vector<std::string> problemPresentation();
+	std::vector<std::string> solutionPresentation();
 
 
 };

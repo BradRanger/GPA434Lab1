@@ -16,9 +16,15 @@ DifferentialEvolution::~DifferentialEvolution()
 {
 }
 
+
 DEParameters DifferentialEvolution::getParameters() const
 {
 	return mParameters;
+}
+
+DEStatistics DifferentialEvolution::getStatistics() const
+{
+	return mStatistics;
 }
 
 size_t DifferentialEvolution::getCurrentGeneration() const

@@ -43,7 +43,7 @@ class MenuManager
 	// I wanted to avoid awkward spacing that could be provoked by a rounded number since the height (y axis) spaces
 	// are really noticeable. I made this choice for design purposes only.
 	enum MenuItemsXY {
-		eLeftToRightX = 3,
+		eLeftToRightAlign = 3,
 		eMenuListYStart = 6,
 		eMenuListYSpacing = 2,
 	};

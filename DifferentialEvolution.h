@@ -36,6 +36,7 @@ public:
 
 	//accesseur
 	DEParameters getParameters() const;
+	DEStatistics getStatistics() const;
 	size_t getCurrentGeneration() const;
 
 

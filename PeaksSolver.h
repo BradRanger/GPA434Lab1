@@ -17,11 +17,13 @@ public:
 	~PeaksSolver();
 	void solve(size_t populationSize, size_t generationCount, size_t realPrecision);
 	std::vector<std::string> problemPresentation();
-	std::string solutionPresentation();
+	std::vector<std::string> solutionPresentation();
 
 
 };
 
+double peaksObjFunc(const DESolution& solution);
+double peaksFitFunc(double db);
 
 
 
