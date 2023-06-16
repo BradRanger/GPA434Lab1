@@ -17,6 +17,11 @@ DifferentialEvolution::~DifferentialEvolution()
 }
 
 
+DEPopulation DifferentialEvolution::getPopulation() const
+{
+	return mPopulation;
+}
+
 DEParameters DifferentialEvolution::getParameters() const
 {
 	return mParameters;

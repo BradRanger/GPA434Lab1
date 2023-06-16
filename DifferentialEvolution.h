@@ -35,6 +35,7 @@ public:
 	~DifferentialEvolution();
 
 	//accesseur
+	DEPopulation getPopulation() const;
 	DEParameters getParameters() const;
 	DEStatistics getStatistics() const;
 	size_t getCurrentGeneration() const;

@@ -38,7 +38,7 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 	parameter.setMaxGenerationCount(15);
 	parameter.setPopulationSize(100);
 
-	parameter.setObjFunc(&boxObjFunc);
+	parameter.setObjFunc(boxObjFunc(mDEEngine.getPopulation().getSolutions()[0]));
 	parameter.setFitnessFunc(boxFitFunc);
 
 	mDEEngine.setup(parameter);
