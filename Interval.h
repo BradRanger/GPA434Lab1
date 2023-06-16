@@ -4,6 +4,11 @@
 
 class Interval
 {
+private:
+
+	double mLower; //member lower
+	double mUpper; //member upper
+
 public:
 
 	//constructeur
@@ -11,7 +16,7 @@ public:
 	Interval(double lower, double upper);
 	//getter
 	double lower() const;
-	double upper() const { return mUpper; }
+	double upper() const;
 	//setter
 
 	void setLower(double);
@@ -21,10 +26,7 @@ public:
 	//destructeur
 	~Interval();
 
-private:
 
-	double mLower; //member lower
-	double mUpper; //member upper
 };
 
 #endif

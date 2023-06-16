@@ -20,35 +20,35 @@ void OpenBoxSolver::solve(size_t width, size_t height)
 
 	DEParameters parameter;
 	DESolutionBounds xBounds;
+	double maxWidth = width / 2.0;
+	double maxHeight = height / 2.0;
 
-	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté supérieur gauche
-	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté supérieur gauche
+	Interval vec;
 
-	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté supérieur droit
-	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté supérieur droit
 
-	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté inférieur gauche
-	xBounds.solutionBounds().push_back(Interval(0, height / 2));// Bornes pour le côté inférieur gauche
+	/*
+	vec.set(0.0, maxWidth);
+	xBounds.solutionBounds().push_back(vec);
+	vec.set(0.0, maxHeight);
+	xBounds.solutionBounds().push_back(vec);
+	*/
 
-	xBounds.solutionBounds().push_back(Interval(0, width / 2)); // Bornes pour le côté inférieur droit
-	xBounds.solutionBounds().push_back(Interval(0, height / 2)); // Bornes pour le côté inférieur droit
-
+	
+	xBounds.solutionBounds().push_back(Interval(0.0, maxWidth)); 
+	xBounds.solutionBounds().push_back(Interval(0.0, maxHeight)); 
+	
 	parameter.setSolutionBounds(xBounds);
 
 	parameter.setMaxGenerationCount(15);
 	parameter.setPopulationSize(100);
 
-	parameter.setObjFunc(boxObjFunc(mDEEngine.getPopulation().getSolutions()[0]));
-	parameter.setFitnessFunc(boxFitFunc);
+	parameter.setObjFunc(&boxObjFunc);			//envoie l<adress de la fonction boxObjFunc 
+	parameter.setFitnessFunc(&boxFitFunc);		//envoi l'adress de la fonction boxFitFunc 
 
 	mDEEngine.setup(parameter);
 
-	mDEEngine.evolve();	//resoudre le probleme
-	//mDEEngine.getStatistics().add(mDEEngine.)
 
-	mDEEngine.getStatistics().getStatistics()[0].size();
-
-	boxObjFunc(mDEEngine.getStatistics().getStatistics()[0]);
+	mDEEngine.evolve();
 }
 
 std::vector<std::string> OpenBoxSolver::problemPresentation()
@@ -69,20 +69,15 @@ std::vector<std::string> OpenBoxSolver::solutionPresentation()
 
 double boxObjFunc(const DESolution& solution)
 {
-	//double width{100};	//valeur fix
-	//double height{ 50 };	//valeur fix
-	double volume{};
-	
-	const std::vector<double>& data = solution.getData();//extrait les données
-	double x = data[0];
+	double x = solution.getData()[0];
 
-
-	volume = (width - (2.0 * x)) * (height - (2.0 * x)) * x;
-	
-	return volume;
+	return x;
 }
 
-double boxFitFunc(double db)
+double boxFitFunc(double x)
 {
-	return db;
+
+	double volume = (100 - (2.0 * x)) * (50 - (2.0 * x)) * x;	// Calcule le volume de la boîte ouverte
+
+	return volume;
 }

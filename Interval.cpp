@@ -16,6 +16,11 @@ double Interval::lower() const
 	return mLower;
 }
 
+double Interval::upper() const
+{
+	return mUpper;
+}
+
 void Interval::setLower(double lower)
 {
 	set( lower, mUpper);

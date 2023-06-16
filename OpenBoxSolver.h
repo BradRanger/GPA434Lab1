@@ -23,7 +23,7 @@ public:
 
 
 double boxObjFunc(const DESolution& solution) ;
-double boxFitFunc(double db) ;
+double boxFitFunc(double x) ;
 
 
 

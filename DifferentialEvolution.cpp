@@ -59,9 +59,7 @@ bool DifferentialEvolution::isReady() const
 		return false;
 	}
 
-	//if (mSamplingTool) {
-	//	return false;
-	//}
+	
 
 	return true;
 }
@@ -100,16 +98,11 @@ void DifferentialEvolution::reset()
 	// Réinitialisez l'outil d'échantillonnage
 	mSamplingTool = ThreeSamplesWithOneExclusion();
 
-	/*A TESTER POUR VERIFIER QUE TOUT SE REINITILAISE CORRECTEMENT*/
+
 }
 
 bool DifferentialEvolution::evolveOne()
 {
-/*
-	if (!isReady()) {
-		return false;
-	}
-*/
 
 	//1) Évaluer la fitness de la population actuelle
 	processFitness(mPopulation);
@@ -156,7 +149,7 @@ void DifferentialEvolution::processFitness(DEPopulation& population)
 	for (size_t i{}; i < population.size(); ++i) { //parcour toutes les solutions de la populations
 
 		// Calcule la valeur de fitness pour la solution presente
-		population[i].setObjective(mParameters.getObjFunc(population[i])); //
+		population[i].setObjective(mParameters.getObjFunc(population[i])); 
 		population[i].setFitness(mParameters.getFitnessFunc(population[i].getObjective()));
 	}
 }
